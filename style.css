@@ -1,0 +1,24 @@
+#anhvisa {
+  width: 160px;
+  height: 120px;
+  border: 1px solid green;
+  border-radius: 10px;
+}
+#muathevisa {
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+  margin-right: 10px;
+  margin-left: 45px;
+}
+#home {
+  border: 1px solid green;
+  border-radius: 5px;
+  background-color: green;
+  color: white;
+}
+#menu {
+  border: 1px solid green;
+  border-radius: 5px;
+}
