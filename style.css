@@ -19,3 +19,7 @@
 a {
   color: black;
 }
+img {
+  width: auto;
+  height: 200px;
+}
