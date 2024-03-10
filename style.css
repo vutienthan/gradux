@@ -31,3 +31,7 @@ a {
   color: white;
   background-color: black;
 }
+ul {
+  list-style-type: none;
+  background: #7FFFD4;
+}
