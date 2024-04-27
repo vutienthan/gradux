@@ -1,5 +1,6 @@
 body {
   background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoLy93GP--C49pKZqE8aUGSjIiBHxAg0wvwg&usqp=CAU");
+  width: auto;
 }
 #Gradux {
   font-size:20px;
@@ -11,10 +12,13 @@ button {
   color:  #fcd4d4;
   border-radius: 5px;
   font-color: white;
-  width: 15px;
-  height: 5px;
 }
 input {
   border: solid 2px;
   border-radius: 5px;
+  color:  #fcd4d4;
+  font-color: white;
+}
+label {
+  font-color: #fcd4d4;
 }
