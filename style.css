@@ -18,3 +18,9 @@ input {
 label {
   font-color: #fcd4d4;
 }
+iframe {
+  width: 300px;
+  height:400px;
+  border-radius: 10px;
+  
+}
