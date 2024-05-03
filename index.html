@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Пример использования API Wildberries</title>
+  <title>Пример использования API Digiseller</title>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
 </head>
 <body>
-  <h1>Карточка товара с использованием API Wildberries</h1>
+  <h1>Карточка товара с использованием API Digiseller</h1>
 
   <div id="product-card"></div>
 
   <script>
-    const apiKey = 'your_api_key_here'; // Замените на ваш API-ключ
-    const productId = 224404627; // Замените на ID товара, который вы хотите отображать
+    const apiKey = 'your_api_key_here'; // Замените на ваш API-ключ Digiseller
+    const productId = 123456; // Замените на ID товара, который вы хотите отображать
 
-    axios.get(`https://suppliers-api.wildberries.ru/public/v1/info?id=${productId}`, {
+    axios.get(`https://api.digiseller.ru/api/v1/product/${productId}`, {
       headers: {
         'Authorization': `Bearer ${apiKey}`
       }
@@ -23,11 +23,11 @@
 
       // Формирование HTML-кода карточки товара
       const productCard = `
-        <img src="${product.img}" alt="${product.name}">
+        <img src="${product.image_url}" alt="${product.name}">
         <h2>${product.name}</h2>
-        <p>Артикул: ${product.article}</p>
-        <p>Цена: ${product.salePriceU / 100} руб.</p>
-        <a href="https://www.wildberries.ru/catalog/${product.id}/detail.aspx" target="_blank">Перейти на Wildberries</a>
+        <p>Артикул: ${product.id}</p>
+        <p>Цена: ${product.price} руб.</p>
+        <a href="https://digiseller.ru/product/${product.id}" target="_blank">Перейти на Digiseller</a>
       `;
 
       // Вставка карточки товара на страницу
