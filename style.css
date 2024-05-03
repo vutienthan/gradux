@@ -8,9 +8,19 @@
   border-radius: 10px;
   border: 3px solid #cccccc;
 }
-#thee {
+.thee {
   text-align: center;
   border-radius: 10px;
-  border: 3px solid #cccccc;
-  
+  border: 3px solid #cccccc;  
 }
+.mua {
+  text-align: center;
+  text-size: 10px;
+  width: auto;
+  height: auto;
+  color: #ff0000;
+  font-color: #ffffff;
+  border-radius: 10px;
+  border: 3px solid #cccccc;
+}
+  
