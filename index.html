@@ -1,25 +1,17 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Просто Так </title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">    
-  </head>
-  <body>
-    <div id="menu">
-  <h1 id="gradux">Gradux</h1>
-    </div>
-
-
-
-     <h1>Карточка товара с использованием API Wildberries</h1>
+<head>
+  <title>Пример использования API Wildberries</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+</head>
+<body>
+  <h1>Карточка товара с использованием API Wildberries</h1>
 
   <div id="product-card"></div>
 
   <script>
     const apiKey = 'your_api_key_here'; // Замените на ваш API-ключ
-    const productId = 224404625; // Замените на ID товара, который вы хотите отображать
+    const productId = 224404627; // Замените на ID товара, который вы хотите отображать
 
     axios.get(`https://suppliers-api.wildberries.ru/public/v1/info?id=${productId}`, {
       headers: {
@@ -45,20 +37,5 @@
       console.error('Ошибка при получении данных о товаре:', error);
     });
   </script>
-
-
-    
-    <div id="form">
- <form action="https://sheetdb.io/api/v1/znm0gdg8f5dn7" method="POST">
- <label for="Имя">Имя:</label>
- <input name="Имя" type="text"><br>
- <label for="Телефон">Телефон:</label>
- <input name="Телефон" type="tel"><br>
- <label name="Почта">Почта:</label>
- <input type="email" name="Почта">
-<br>
- <button type="submit">Отправить</button>
- </form>
-    </div>
-  </body>
+</body>
 </html>
