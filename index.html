@@ -10,7 +10,44 @@
     <div id="menu">
   <h1 id="gradux">Gradux</h1>
     </div>
-    <iframe src="https://www.wildberries.ru/catalog/0/detail.aspx?targetUrl=GP&vendorId=224404625"></iframe>
+
+
+
+     <h1>Карточка товара с использованием API Wildberries</h1>
+
+  <div id="product-card"></div>
+
+  <script>
+    const apiKey = 'your_api_key_here'; // Замените на ваш API-ключ
+    const productId = 224404625; // Замените на ID товара, который вы хотите отображать
+
+    axios.get(`https://suppliers-api.wildberries.ru/public/v1/info?id=${productId}`, {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`
+      }
+    })
+    .then(response => {
+      const product = response.data.data;
+
+      // Формирование HTML-кода карточки товара
+      const productCard = `
+        <img src="${product.img}" alt="${product.name}">
+        <h2>${product.name}</h2>
+        <p>Артикул: ${product.article}</p>
+        <p>Цена: ${product.salePriceU / 100} руб.</p>
+        <a href="https://www.wildberries.ru/catalog/${product.id}/detail.aspx" target="_blank">Перейти на Wildberries</a>
+      `;
+
+      // Вставка карточки товара на страницу
+      document.getElementById('product-card').innerHTML = productCard;
+    })
+    .catch(error => {
+      console.error('Ошибка при получении данных о товаре:', error);
+    });
+  </script>
+
+
+    
     <div id="form">
  <form action="https://sheetdb.io/api/v1/znm0gdg8f5dn7" method="POST">
  <label for="Имя">Имя:</label>
