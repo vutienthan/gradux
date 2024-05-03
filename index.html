@@ -2,40 +2,13 @@
 <html>
 <head>
   <title>Пример использования API Digiseller</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+ 
 </head>
 <body>
-  <h1>Карточка товара с использованием API Digiseller</h1>
+  <h1>Магазин Gradux</h1>
+  <script>!function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"?lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1171711",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1171711"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document);</script>
+			
 
-  <div id="product-card"></div>
-
-  <script>
-    const apiKey = '6771A2129F1E4ECC815874EDE04E7712'; // Замените на ваш API-ключ Digiseller
-    const productId = 3831385; // Замените на ID товара, который вы хотите отображать
-
-    axios.get(`https://api.digiseller.ru/api/v1/product/${productId}`, {
-      headers: {
-        'Authorization': `Bearer ${apiKey}`
-      }
-    })
-    .then(response => {
-      const product = response.data.data;
-
-      // Формирование HTML-кода карточки товара
-      const productCard = `
-        <img src="${product.image_url}" alt="${product.name}">
-        <h2>${product.name}</h2>
-        <p>Артикул: ${product.id}</p>
-        <p>Цена: ${product.price} руб.</p>
-        <a href="https://digiseller.ru/product/${product.id}" target="_blank">Перейти на Digiseller</a>
-      `;
-
-      // Вставка карточки товара на страницу
-      document.getElementById('product-card').innerHTML = productCard;
-    })
-    .catch(error => {
-      console.error('Ошибка при получении данных о товаре:', error);
-    });
-  </script>
+<div class="digiseller-buy-standalone" data-id="3831385" data-owner="0" data-lang="" data-img="1" data-img-size="180" data-name="1" data-price="1" data-no-price="0"></div>
 </body>
 </html>
