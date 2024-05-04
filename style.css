@@ -1,26 +1,53 @@
-#Gradux {
-  font-size:20px;
-  text-align: center;
-  font-family:monospace;
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
-.карточкитовара {
-  text-align: center;
-  border-radius: 10px;
-  border: 3px solid #cccccc;
+
+header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-.thee {
-  text-align: center;
-  border-radius: 10px;
-  border: 3px solid #cccccc;  
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
 }
-.mua {
-  text-align: center;
-  text-size: 10px;
-  width: auto;
-  height: auto;
-  color: #ff0000;
-  font-color: #ffffff;
-  border-radius: 10px;
-  border: 3px solid #cccccc;
+
+nav ul {
+    list-style-type: none;
+    display: flex;
 }
-  
+
+nav ul li {
+    margin-right: 20px;
+}
+
+.game-covers {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.game-cover {
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
