@@ -3,6 +3,7 @@
     <title>Предметы </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
+      
       #physics {
         background-image: url('https://gradux.ru/physics1.jpg');
         color: white;
@@ -17,6 +18,61 @@
         font-style: Georgia;  
       }
 
+#maths {
+        background-image: url('https://gradux.ru/physics1.jpg');
+        color: white;
+        text-align: center;
+        width: 350px;
+        height: 120px;
+        background-position: center;
+        background-size: cover;
+        border: none;
+        border-radius: 30px;
+        font-size: 30px;
+        font-style: Georgia;  
+      }
+
+#informatics {
+        background-image: url('https://gradux.ru/physics1.jpg');
+        color: white;
+        text-align: center;
+        width: 350px;
+        height: 120px;
+        background-position: center;
+        background-size: cover;
+        border: none;
+        border-radius: 30px;
+        font-size: 30px;
+        font-style: Georgia;  
+      }
+
+#russian {
+        background-image: url('https://gradux.ru/physics1.jpg');
+        color: white;
+        text-align: center;
+        width: 350px;
+        height: 120px;
+        background-position: center;
+        background-size: cover;
+        border: none;
+        border-radius: 30px;
+        font-size: 30px;
+        font-style: Georgia;  
+      }
+
+#english {
+        background-image: url('https://gradux.ru/physics1.jpg');
+        color: white;
+        text-align: center;
+        width: 350px;
+        height: 120px;
+        background-position: center;
+        background-size: cover;
+        border: none;
+        border-radius: 30px;
+        font-size: 30px;
+        font-style: Georgia;  
+      }
       
 body {
     font-family: Arial, sans-serif;
@@ -107,13 +163,25 @@ footer ul li a {
       function physics(){location.replace("https://gradux.ru/physics.html")}
     </script>
     <br>
-    <center><button>Математика</button></center>
+    <center><button id="maths" onclick="maths()">Математика</button></center>
+    <script>
+      function maths(){location.replace("https://gradux.ru/maths.html")}
+    </script>
     <br>
-    <center><button>Информатика</button></center>
+    <center><button id="informatics" onclick="informatics()">Информатика</button></center>
+    <script>
+      function informatics(){location.replace("https://gradux.ru/informatics.html")}
+    </script>
     <br>
-    <center><button>Русский Язык</button></center>
+    <center><button id="russian" onclick="russian()">Русский Язык</button></center>
+    <script>
+      function russian(){location.replace("https://gradux.ru/russian.html")}
+    </script>
     <br>
-    <center><button>Английский Язык</button></center>
+    <center><button id="english" onclick="english()">Английский Язык</button></center>
+    <script>
+      function english(){location.replace("https://gradux.ru/english.html")}
+    </script>
     <br>
         <div>
   <p style="text-align:center;"><b>Пождерживайте Gradux.ru</b></p>
@@ -127,7 +195,6 @@ footer ul li a {
         <ul>
             <li><a href="./comments">Отзывы</a></li>
             <li><a href="./onax">О Сайте</a></li>
-            <li><a href="#">Отправить Мнение</a></li>
         </ul>
     </footer>
   </body>
