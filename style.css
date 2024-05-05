@@ -71,7 +71,7 @@ footer ul li a {
 }
 #subjects{
     border: none;
-    boder-radius: 30px;
+    boder-radius: 40px;
     background-image: url('https://gradux/subjects.jpg')
     background-size: cover;
     background-position: center;
@@ -79,16 +79,45 @@ footer ul li a {
     color: white;
     width: 300px;
     height: 120px;
+    font-size: 30px;
 }
 #oge{
-    
+    border: none;
+    background-color: #87CEFA;
+    text-align: center;
+    width: 300px;
+    height: 120px;
+    font-size: 30px;
+    color: white;
+    border-radius: 40px;
 }
 #test {
-    
+    border: none;
+    background-color: #87CEFA;
+    text-align: center;
+    width: 300px;
+    height: 120px;
+    font-size: 30px;
+    color: white;
+    border-radius: 40px;
 }
 #task {
-    
+    border: none;
+    background-color: #87CEFA;
+    text-align: center;
+    width: 300px;
+    height: 120px;
+    font-size: 30px;
+    color: white;
+    border-radius: 40px;
 }
 #option {
-    
+    border: none;
+    background-color: #87CEFA;
+    text-align: center;
+    width: 300px;
+    height: 120px;
+    font-size: 30px;
+    color: white;
+    border-radius: 40px;
 }
