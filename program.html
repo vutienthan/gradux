@@ -1,1 +1,15 @@
-
+<html>
+  <head>
+    <title>Программирование</title>
+    <meta name="viewport" content="width=width-device, initial-scale=1.0">
+  </head>
+  <body>
+    <script>
+    fetch('menu.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('menu').innerHTML = data;
+      });
+  </script>
+  </body>
+</html>
