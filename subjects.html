@@ -64,7 +64,12 @@ footer ul li {
     display: inline;
     margin-right: 20px;
 }
-
+      
+footer ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+      
 #donate {
         text-align: center;
         border: none;
@@ -97,5 +102,18 @@ footer ul li {
     <script>
       function physics(){location.replace("https://gradux.ru/physics.html")}
     </script>
+    <div>
+  <p style="text-align:center;"><b>Пождерживайте Gradux.ru</b></p>
+  <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
+</div>
+<script>
+ function donate(){location.replace("https://gradux.ru/donate")} </script>
+    <footer>
+        <ul>
+            <li><a href="#">Отзывы</a></li>
+            <li><a href="#">О Сайте</a></li>
+            <li><a href="#">Отправить Мнение</a></li>
+        </ul>
+    </footer>
   </body>
 </html>
