@@ -73,6 +73,12 @@ footer ul li a {
     border: none;
     boder-radius: 30px;
     background-image: url('https://gradux/subjects.jpg')
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    width: 300px;
+    height: 120px;
 }
 #oge{
     
