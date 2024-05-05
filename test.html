@@ -1,1 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Тесты</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+#donate {
+        text-align: center;
+        border: none;
+        border-radius: 9px;
+        width: 150px;
+        height: 45px;
+        color: #fff;
+        background-color: #007bff;
+      }
+
+#logo1 {
+    color: #007bff;
+    text-decoration: none;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a id="logo1" href="https://gradux.ru">GRADUX</a></div>
+        <nav>
+            <ul>
+                <li><a href="./subjects.html">Предмет</a></li>
+                <li><a href="./dictionary.html">Словарь</a></li>
+                <li><a href="./program.html">Программирование</a></li>
+            </ul>
+        </nav>
+    </header>
+<h1>Тесты</h1>
+<div>
+  <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
+  <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
+</div>
+<script>
+ function donate(){location.replace("https://gradux.ru/donate")} </script>
+    <br>
+    <footer>
+        <ul>
+            <li><a href="./comments.html">Отзывы</a></li>
+            <li><a href="./onax.html">О Сайте</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
