@@ -19,7 +19,7 @@ header a {
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 30px;
     font-weight: bold;
     color: #007bff;
 }
@@ -67,4 +67,5 @@ footer ul li a {
 #logo1 {
     color: #007bff;
     text-decoration: none;
+    font-size: 30px;
 }
