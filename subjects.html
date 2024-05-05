@@ -2,9 +2,8 @@
   <head>
     <title>Предметы </title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-      
-      #physics {
+    <style>   
+#physics {
         background-image: url('https://gradux.ru/physics1.jpg');
         color: white;
         text-align: center;
@@ -144,6 +143,13 @@ footer ul li a {
     color: #007bff;
     text-decoration: none;
 }
+
+#subjects {
+  text-align: center;
+  font-size: 45px;
+  color: #A9A9A9;
+}
+
     </style>
   </head>
   <body>
@@ -157,7 +163,7 @@ footer ul li a {
             </ul>
         </nav>
     </header>
-    <h1>Предметы:</h1>
+    <h1 id="subjects">Предметы</h1>
     <center><button id="physics" onclick="physics()">Физика</button></center>
     <script>
       function physics(){location.replace("https://gradux.ru/physics.html")}
