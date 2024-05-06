@@ -70,16 +70,33 @@ footer ul li a {
         color: #fff;
         background-color: #007bff;
       }
-
-#logo1 {
-    color: #007bff;
-    text-decoration: none;
+#english {
+  border: none;
+  border-radius: 25px;
+  background-color: #DA70D6;
+  width: 100px;
+  height: 100px;
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  margin-left: 10px;
+  margin-right: 20px;
+}
+#russianvietnamese {
+    border: none;
+    background-color:#87CEFA;
+    color: white;
+    font-size: 14px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border-radius: 25px;
 }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><a id="logo1" href="https://gradux.ru">GRADUX</a></div>
+        <div><a class="logo" href="https://gradux.ru">GRADUX</a></div>
         <nav>
             <ul>
                 <li><a href="./subjects.html">Предмет</a></li>
@@ -89,13 +106,16 @@ footer ul li a {
         </nav>
     </header>
 <h1>Словарик</h1>
+<button id="english" onclick="english()">Словарь <br> Русско-Английскому</button>
+<button id="russianvietnamese" onclick="russianvietnamese()">Русско-вьетнамский словарь</button>
 <div>
   <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
   <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
 </div>
 <script>
  function donate(){location.replace("https://gradux.ru/donate")}
- 
+ function english(){location.replace("./dictionary/english.html")}
+ function russianvietnamese(){location.replace("./dictionary/russian-vietnamese.html")}
 </script>
     <br>
     <footer>
