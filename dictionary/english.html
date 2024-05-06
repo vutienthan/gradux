@@ -70,28 +70,29 @@ footer ul li a {
         color: #fff;
         background-color: #007bff;
       }
-
-#logo1 {
-    color: #007bff;
-    text-decoration: none;
-}
-#english {
+.english {
   border: none;
   border-radius: 20px;
-  background-image: url('https://gradux.ru/russian-english.webp');
+  background-image: url('https://gradux.ru/english.jpg');
   background-size: cover;
   background-position: center;
-  width: 120px;
-  height: 120px;
-  color: white;
+  width: 160px;
+  height: 160px;
+  color: rgb(0, 0, 0);
   text-align: center;
-  font-size: 14px;
+  font-size: 18px;
+  margin-left: 20px;
+}
+
+.source{
+    font-size: 9px;
+    color: rgb(0, 0, 0);
 }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><a id="logo1" href="https://gradux.ru">GRADUX</a></div>
+        <div><a class="logo" href="https://gradux.ru">GRADUX</a></div>
         <nav>
             <ul>
                 <li><a href="./subjects.html">Предмет</a></li>
@@ -100,16 +101,25 @@ footer ul li a {
             </ul>
         </nav>
     </header>
-<h1>Словарик</h1>
-<button id="english" onclick="english()">Словарь Русско-Английскому</button>
-<button id="russianvietnamese" onclick="russianvietnamese()">Русско-вьетнамский словарь</button>
+<h1>Словарик Англо-Русский</h1>
+<button class="english" onclick="a1()">Уровень A1<br><p class="source">Источник: http://www.tolstyslovar.com/en/a1</p></button>
+<button class="english" onclick="a2()">Уровень A2<br><p class="source">Источник: http://www.tolstyslovar.com/en/a1</p></button>
+<button class="english" onclick="b1()">Уровень B1<br><p class="source">Источник: http://www.tolstyslovar.com/en/a1</p></button>
+<button class="english" onclick="b2()">Уровень B2<br><p class="source">Источник: http://www.tolstyslovar.com/en/a1</p></button>
+<button class="english" onclick="c1()">Уровень C1<br><p class="source">Источник: http://www.tolstyslovar.com/en/a1</p></button>
+<button class="english" onclick="c2()">Уровень C2<br><p class="source">Источник: http://www.tolstyslovar.com/en/a1</p></button>
 <div>
   <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
   <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
 </div>
 <script>
  function donate(){location.replace("https://gradux.ru/donate")}
- function english(){location.replace("./dictionary/english.html")}
+ function a1(){location.replace("./dictionary/en/a1.html")}
+ function a2(){location.replace("./dictionary/en/a2.html")}
+ function b1(){location.replace("./dictionary/en/b1.html")}
+ function b2(){location.replace("./dictionary/en/b2.html")}
+ function c1(){location.replace("./dictionary/en/c1.html")}
+ function c2(){location.replace("./dictionary/en/c2.html")}
  function russianvietnamese(){location.replace("./dictionary/russian-vietnamese.html")}
 </script>
     <br>
