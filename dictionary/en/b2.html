@@ -1,1 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Словарь Англо-Русский Уровень A1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f8f8f8;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 12px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav ul li {
+    margin-right: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+footer ul {
+    list-style-type: none;
+}
+
+footer ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+footer ul li a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+#donate {
+        text-align: center;
+        border: none;
+        border-radius: 9px;
+        width: 150px;
+        height: 45px;
+        color: #fff;
+        background-color: #007bff;
+      }
+.english {
+  border: none;
+  border-radius: 20px;
+  background-color:#007bff;
+  width: 30px;
+  height: 30px;
+  color: white;
+  text-align: center;
+  font-size: auto;
+  margin-left: 10px;
+}
+
+.source{
+    font-size: 9px;
+    color: rgb(0, 0, 0);
+}
+.level {
+    text-align: center;
+}
+.alphabet {
+    border: solid 1px #A9A9A9;
+    border-radius: 20px;
+    width: 220px;
+    height: 140px;
+    background-color: #007bff;
+}
+.letter {
+    text-decoration: none;
+    color:#f8f8f8;
+    text-align: center;
+    position: relative;
+    top: 20px;
+    margin-left: 5px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div><a class="logo" href="https://gradux.ru">GRADUX</a></div>
+        <nav>
+            <ul>
+                <li><a href="./subjects.html">Предмет</a></li>
+                <li><a href="./dictionary.html">Словарь</a></li>
+                <li><a href="./program.html">Программирование</a></li>
+            </ul>
+        </nav>
+    </header>
+<div class="level">
+<h1>Словарик Англо-Русский</h1>
+<h3>Уровень:</h3>
+<button class="english" onclick="a1()">A1</button>
+<button class="english" onclick="a2()">A2</button>
+<button class="english" onclick="b1()">B1</button>
+<button class="english" onclick="b2()">B2</button>
+<button class="english" onclick="c1()">C1</button>
+<button class="english" onclick="c2()">C2</button>
+</div>
+<br>
+<hr>
+<br><br>
+<center><h2>Алфавит</h2></center>
+<center><div class="alphabet">
+    <a class="letter" href="#A">A</a>
+    <a class="letter" href="#B">B</a>
+    <a class="letter" href="#C">C</a>
+    <a class="letter" href="#D">D</a>
+    <a class="letter" href="#E">E</a>
+    <a class="letter" href="#F">F</a>
+    <a class="letter" href="#G">G</a>
+    <a class="letter" href="#H">H</a>
+    <a class="letter" href="#I">I</a>
+    <a class="letter" href="#J">J</a>
+    <a class="letter" href="#K">K</a>
+    <a class="letter" href="#L">L</a>
+    <a class="letter" href="#M">M</a>
+    <a class="letter" href="#N">N</a>
+    <a class="letter" href="#O">O</a>
+    <a class="letter" href="#P">P</a>
+    <a class="letter" href="#Q">Q</a>
+    <a class="letter" href="#R">R</a>
+    <a class="letter" href="#S">S</a>
+    <a class="letter" href="#T">T</a>
+    <a class="letter" href="#U">U</a>
+    <a class="letter" href="#V">V</a>
+    <a class="letter" href="#W">W</a>
+    <a class="letter" href="#X">X</a>
+    <a class="letter" href="#Y">Y</a>
+    <a class="letter" href="#Z">Z</a>
+</div></center>
+<br><br><br>
+<center><h2>Уровень B2</h2></center>
+<br>
+<div id="content-dictionary">
+<div class="A">
+    <center><h2 id="A">A</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="B">
+    <center><h2 id="B">B</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="C">
+    <center><h2 id="C">C</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="D">
+    <center><h2 id="D">D</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="E">
+    <center><h2 id="E">E</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="F">
+    <center><h2 id="F">F</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="G">
+    <center><h2 id="G">G</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="H">
+    <center><h2 id="H">H</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="I">
+    <center><h2 id="I">I</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="J">
+    <center><h2 id="J">J</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="K">
+    <center><h2 id="K">K</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="L">
+    <center><h2 id="L">L</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="M">
+    <center><h2 id="M">M</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="N">
+    <center><h2 id="N">N</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="O">
+    <center><h2 id="O">O</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="P">
+    <center><h2 id="P">P</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="Q">
+    <center><h2 id="Q">Q</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="R">
+    <center><h2 id="R">R</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="S">
+    <center><h2 id="S">S</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="T">
+    <center><h2 id="T">T</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="U">
+    <center><h2 id="U">U</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="V">
+    <center><h2 id="V">V</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="W">
+    <center><h2 id="W">W</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="X">
+    <center><h2 id="X">X</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="Y">
+    <center><h2 id="Y">Y</h2></center>
+</div>
+<br>
+<hr>
+<br>
+<div class="Z">
+    <center><h2 id="Z">Z</h2></center>
+</div>
+</div>
+<br>
+<br>
+<div>
+  <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
+  <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
+</div>
+<script>
+ function donate(){location.replace("https://gradux.ru/donate")}
+ function a1(){location.replace("./dictionary/en/a1.html")}
+ function a2(){location.replace("./dictionary/en/a2.html")}
+ function b1(){location.replace("./dictionary/en/b1.html")}
+ function b2(){location.replace("./dictionary/en/b2.html")}
+ function c1(){location.replace("./dictionary/en/c1.html")}
+ function c2(){location.replace("./dictionary/en/c2.html")}
+ function russianvietnamese(){location.replace("./dictionary/russian-vietnamese.html")}
+</script>
+    <br>
+    <footer>
+        <ul>
+            <li><a href="./comments.html">Отзывы</a></li>
+            <li><a href="./onax.html">О Сайте</a></li>
+        </ul>
+    </footer>
+</body>
+</html>
 
