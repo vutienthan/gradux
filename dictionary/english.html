@@ -75,7 +75,16 @@ footer ul li a {
     color: #007bff;
     text-decoration: none;
 }
-
+#english {
+  border: none;
+  border-radius: 20px;
+  background-image: url('https://gradux.ru/russian-english.webp');
+  background-size: cover;
+  background-position: center;
+  width: 120px;
+  height: 120px;
+  color: white;
+}
     </style>
 </head>
 <body>
@@ -89,16 +98,18 @@ footer ul li a {
             </ul>
         </nav>
     </header>
-<center><h1>Словарь.</h1></center>
-<button id="english" onclick="english()">Словарь Русско-вьетнамский</button>
+<h1>Словарик</h1>
+<button id="english" onclick="english()">Словарь Русско-Английскому</button>
+<button id="russianvietnamese" onclick="russianvietnamese()">Русско-вьетнамский словарь</button>
 <div>
   <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
   <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
 </div>
 <script>
- function donate(){location.replace("./donate.html")} 
- function english(){location.replace("./dictionary/en/a1.html")}
- </script>
+ function donate(){location.replace("https://gradux.ru/donate")}
+ function english(){location.replace("./dictionary/english.html")}
+ function russianvietnamese(){location.replace("./dictionary/russian-vietnamese.html")}
+</script>
     <br>
     <footer>
         <ul>
