@@ -70,16 +70,22 @@ footer ul li a {
         color: #fff;
         background-color: #007bff;
       }
-
-#logo1 {
-    color: #007bff;
-    text-decoration: none;
-}
+      #ogerussian{
+        width: 120px;
+        height: 120px;
+        text-align: center;
+        border: none;
+        border-radius: 30px;
+        color:#f8f8f8;
+        font-size: 15px;
+        background-color: #007bff;
+        margin-left: 10px;
+      }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo"><a id="logo1" href="https://gradux.ru">GRADUX</a></div>
+        <div><a class="logo" href="https://gradux.ru">GRADUX</a></div>
         <nav>
             <ul>
                 <li><a href="./subjects.html">Предмет</a></li>
@@ -88,13 +94,19 @@ footer ul li a {
             </ul>
         </nav>
     </header>
-<h1>ОГЭ</h1>
+<center><h1>ОГЭ</h1></center>
+<div>
+    <button id="ogerussian" onclick="ogerussian()">ОГЭ по русскому</button>
+</div>
 <div>
   <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
   <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
 </div>
 <script>
- function donate(){location.replace("https://gradux.ru/donate")} </script>
+ function donate(){location.replace("https://gradux.ru/donate")}
+ function ogerussian(){location.replace("./ogerussian.html")}
+</script>
+
     <br>
     <footer>
         <ul>
