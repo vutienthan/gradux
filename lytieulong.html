@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chương Trình Tập Luyện Theo Phong Cách Lý Tiểu Long</title>
+    <style>
+        .button {
+            text-decoration: underline;
+            color: blue;
+            cursor: pointer;
+        }
+        #content {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>Chương Trình Tập Luyện Tổng Hợp Theo Phong Cách Lý Tiểu Long</h1>
@@ -16,7 +26,30 @@
     
     <h3>Kéo dãn:</h3>
     <ul>
-        <li><a href="./keodan.html">Kéo dãn động (Dynamic Stretching): 10-15 phút.</a>
+        <li><p class="button" onclick="toggleContent()">Kéo dãn động (Dynamic Stretching): 10-15 phút.</p>
+            <div id="content">
+                <h2>Dynamic Stretching Exercises</h2>
+                <ul>
+                    <li><strong>Xoay Cổ và Vai (Neck and Shoulder Rolls):</strong>
+                        <ul>
+                            <li>Đứng thẳng, đưa cổ sang trái rồi sang phải, sau đó làm các động tác xoay vai theo hình vòng tròn.</li>
+                            <li>Thực hiện mỗi động tác trong khoảng 30 giây.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Xoay Hông (Hip Rotations):</strong>
+                        <ul>
+                            <li>Đứng thẳng, đặt tay lên hông, xoay hông theo vòng tròn.</li>
+                            <li>Thực hiện 10-15 lần, sau đó đổi hướng.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Xoay Cổ Tay và Mắt Cá Chân (Wrist and Ankle Circles):</strong>
+                        <ul>
+                            <li>Xoay cổ tay và mắt cá chân theo hình vòng tròn để làm dịu cơ bắp.</li>
+                            <li>Thực hiện mỗi động tác trong khoảng 30 giây.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
             <ul>
                 <li>Xoay khớp vai, hông, đầu gối và cổ tay.</li>
                 <li>Chân đá cao (Leg Swings): 3 sets, mỗi set 10 lần mỗi chân.</li>
@@ -127,5 +160,15 @@
         <li><strong>Ngủ đủ giấc:</strong> Đảm bảo bạn có giấc ngủ đủ 7-8 giờ mỗi đêm để cơ thể phục hồi và phát triển.</li>
         <li><strong>Tính kiên trì:</strong> Duy trì đều đặn chương trình tập luyện để đạt được kết quả mong muốn.</li>
     </ul>
+    <script>
+        function toggleContent() {
+            var content = document.getElementById("content");
+            if (content.style.display === "none") {
+                content.style.display = "block";
+            } else {
+                content.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
