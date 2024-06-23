@@ -119,6 +119,28 @@
         .vk-ads {
             display: none; /* скрываем изначально */
         }
+
+        /* Стили для иконки телеграмм в виде круга */
+        .telegram-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #0088cc; /* Цвет фона */
+            border-radius: 50%; /* Круглая форма */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100; /* Над остальными элементами */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Тень */
+        }
+
+        .telegram-icon img {
+            width: 40px; /* Размер логотипа телеграмм */
+            height: 40px;
+            filter: brightness(0) invert(1); /* Инвертируем цвет логотипа */
+        }
     </style>
 </head>
 <body>
@@ -169,6 +191,11 @@
             <script>(MRGtag = window.MRGtag || []).push({});</script>
         </div>
     </div>
+
+    <!-- Иконка телеграмм в виде круга -->
+    <a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
+        <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
+    </a>
 
     <script>
         // Функция для открытия модального окна
