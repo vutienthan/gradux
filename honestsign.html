@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Этапы регистрации в системе "Честный знак"</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 0;
+            position: relative;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            margin-top: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ol {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p {
+            margin-top: 20px;
+            font-size: 1.1em;
+            color: #555;
+        }
+
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 2;
+            display: flex;
+            flex-wrap: wrap;
+            align-content: center;
+            justify-content: center;
+            opacity: 0.1;
+        }
+
+        .watermark span {
+            font-size: 48px;
+            color: #000;
+            transform: rotate(-45deg);
+            white-space: nowrap;
+            margin: 20px;
+        }
+
+        .modal-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+            color: #aaa;
+        }
+
+        .close-btn:hover {
+            color: #333;
+        }
+
+        .vk-ads {
+            display: none; /* скрываем изначально */
+        }
+    </style>
+</head>
+<body>
+    <!-- Водяной знак GRADUX.RU над содержимым сайта -->
+    <div class="watermark">
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+        <span>GRADUX.RU</span>
+    </div>
+
+    <div class="container">
+        <h1>Все этапы регистрации в системе "Честный знак" для индивидуальных предпринимателей</h1>
+        <ol>
+            <li>
+                У вас должны быть зарегистрированный ИП, электронная подпись и разрешительный документ. Отсутствие этого документа может привести к штрафу в размере от 1000 до 10000 рублей. Этот документ можно запросить у производителей, у которых вы закупали товары.
+            </li>
+            <li>
+                Регистрация в системе "Честный знак" доступна на официальном сайте <a href="https://честныйзнак.рф" target="_blank">честныйзнак.рф</a>.
+            </li>
+            <li>
+                После завершения регистрации необходимо добавить свои товары в систему "Честный знак". Важно, чтобы данные о товарах были точными, иначе вы получите штраф. Для массового добавления товаров рекомендую использовать Excel, что поможет сэкономить время. Код ТН ВЭД можно найти в интернете. После отправки товаров на модерацию, вам потребуется подождать сутки, исключая выходные дни, включая субботу и воскресенье. Если ваши товары прошли проверку, то вы можете приступить к следующему шагу, иначе вам придётся исправить ошибку данных товаров.
+            </li>
+            <li>
+                После успешного добавления товара можно приступать к печати этикеток. В интернете доступны готовые шаблоны этикеток, которые можно скачать и загрузить в систему "Честный знак". Также вы можете создать шаблон самостоятельно. Стоимость одной этикетки составляет 0,6 рублей. Необходимо создать счёт в системе "Честный знак" и пополнить его. Каждая этикетка должна быть напечатана отдельно для каждого товара, так как одна этикетка используется только один раз, иначе получите штраф.
+            </li>
+            <li>
+                Можно добавить свои товары в оборот, при этом вам потребуется разрешительный документ. Этот документ можно получить у производителей, которые продали вам товары.
+            </li>
+        </ol>
+        <p>
+            Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный знак", так как с "Честный Знак" проще работать.
+        </p>
+    </div>
+
+    <!-- Модальное окно с рекламой VK ADS -->
+    <div class="modal-bg" id="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+            <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+            <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins> 
+            <script>(MRGtag = window.MRGtag || []).push({});</script>
+        </div>
+    </div>
+
+    <script>
+        // Функция для открытия модального окна
+        function openModal() {
+            document.getElementById('modal').style.opacity = '1';
+            document.getElementById('modal').style.pointerEvents = 'auto';
+        }
+
+        // Функция для закрытия модального окна
+        function closeModal() {
+            document.getElementById('modal').style.opacity = '0';
+            document.getElementById('modal').style.pointerEvents = 'none';
+        }
+
+        // Вызываем открытие модального окна при загрузке страницы
+        window.onload = openModal;
+    </script>
+</body>
+</html>
