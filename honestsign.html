@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
             position: relative;
-            user-select: none;
         }
 
         .container {
@@ -161,6 +160,7 @@
         }
 
         .consent-modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
@@ -217,42 +217,103 @@
             <li>У вас должны быть зарегистрированный ИП, электронная подпись и разрешительный документ. Отсутствие этого документа может привести к штрафу в размере от 1000 до 10000 рублей. Этот документ можно запросить у производителей, у которых вы закупали товары.</li>
             <li>Регистрация в системе "Честный знак" доступна на официальном сайте <a href="https://честныйзнак.рф" target="_blank">честныйзнак.рф</a>.</li>
             <li>После завершения регистрации необходимо добавить свои товары в систему "Честный знак". Важно, чтобы данные о товарах были точными, иначе вы получите штраф. Для массового добавления товаров рекомендую использовать Excel, что поможет сэкономить время. Код ТН ВЭД можно найти в интернете. После отправки товаров на модерацию, вам потребуется подождать сутки, исключая выходные дни, включая субботу и воскресенье. Если ваши товары прошли проверку, то вы можете приступить к следующему шагу, иначе вам придётся исправить ошибку данных товаров.</li>
+        </ol>
+        <div class="ad-container">
             <script async src="https://ad.mail.ru/static/ads-async.js"></script>
-            <ins class="mrg-tag" style="display:inline-block;width:240px;height:400px" data-ad-client="ad-1574906" data-ad-slot="1574906"></ins>
+            <ins class="mrg-tag" style="display:inline-block;width:300px;height:250px" data-ad-client="ad-1234567" data-ad-slot="1234567"></ins>
             <script>
                 document.addEventListener('DOMContentLoaded', function() {
-                    var user_id = getCookie('user_id');
-                    var gender = getCookie('user_gender');
+                    if (getCookie('consentGiven')) {
+                        var userId = getCookie('userId');
+                        var userGender = getCookie('userGender');
 
-                    (MRGtag = window.MRGtag || []).push({
-                        user_id: user_id,
-                        gender: gender
-                    });
+                        (MRGtag = window.MRGtag || []).push({
+                            user_id: userId,
+                            gender: userGender
+                        });
+                    }
                 });
+
+                function setCookie(name, value, days) {
+                    var expires = "";
+                    if (days) {
+                        var date = new Date();
+                        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                        expires = "; expires=" + date.toUTCString();
+                    }
+                    document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
+                }
+
+                function getCookie(name) {
+                    var nameEQ = name + "=";
+                    var ca = document.cookie.split(';');
+                    for (var i = 0; i < ca.length; i++) {
+                        var c = ca[i];
+                        while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
+                    }
+                    return null;
+                }
+
+                function eraseCookie(name) {
+                    document.cookie = name + '=; Max-Age=-99999999;';
+                }
+
+                function scheduleAd() {
+                    openModal();
+                    var randomInterval = Math.random() * 300000 + 300000; // Случайный интервал от 5 до 10 минут
+                    setInterval(openModal, randomInterval);
+                }
+
+                var adTimer;
+
+                function openModal() {
+                    document.getElementById('modal').style.opacity = '1';
+                    document.getElementById('modal').style.pointerEvents = 'auto';
+                    startAdTimer();
+                }
+
+                function closeModal() {
+                    document.getElementById('modal').style.opacity = '0';
+                    document.getElementById('modal').style.pointerEvents = 'none';
+                    clearInterval(adTimer);
+                }
+
+                function skipAd() {
+                    clearInterval(adTimer);
+                    closeModal();
+                }
+
+                function startAdTimer() {
+                    var skipTimer = 5;
+                    var skipTimerDisplay = document.getElementById('skipTimer');
+                    var skipCountdownDisplay = document.getElementById('skipCountdown');
+                    var skipAdBtn = document.getElementById('skipAdBtn');
+                    var skipAdContainer = document.getElementById('skipAdContainer');
+                    skipAdContainer.style.display = 'block';
+
+                    adTimer = setInterval(function() {
+                        skipTimer--;
+                        skipTimerDisplay.textContent = skipTimer;
+                        skipCountdownDisplay.textContent = skipTimer;
+
+                        if (skipTimer <= 0) {
+                            clearInterval(adTimer);
+                            skipAdBtn.textContent = 'Пропустить рекламу';
+                            skipAdBtn.disabled = false;
+                            skipAdBtn.classList.remove('disabled');
+                        }
+                    }, 1000);
+                }
             </script>
-            <div style="margin-top: 10px;"><strong>Реклама</strong></div>
-            <li>После успешного добавления товара можно приступать к печати этикеток. В интернете доступны готовые шаблоны этикеток, которые можно скачать и загрузить в систему "Честный знак". Также вы можете создать шаблон самостоятельно. Стоимость одной этикетки составляет 0,6 рублей. Необходимо создать счёт в системе "Честный знак" и пополнить его. Каждая этикетка должна быть напечатана отдельно для каждого товара, так как одна этикетка используется только один раз, иначе получите штраф. Печать этикетки без напечатки. Чтобы напечатать этот код в такой строчке, чтобы подгрузить данные пользователей.</li>
-
-<div class="inline-ad">
-    <script async src="https://ad.mail.ru/static/ads-async.js"></script>
-    <ins class="mrg-tag" style="display:inline-block;width:300px;height:250px" data-ad-client="ad-1574904" data-ad-slot="1574904"></ins>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var user_id = getCookie('user_id');
-            var gender = getCookie('user_gender');
-
-            (MRGtag = window.MRGtag || []).push({
-                user_id: user_id,
-                gender: gender
-            });
-        });
-    </script>
-    <div style="margin-top: 10px;"><strong>Реклама</strong></div>
-</div>
-
-<li>Можно добавить свои товары в оборот, при этом вам потребуется разрешительный документ. Этот документ можно получить у производителей, которые продали вам товары.</li>
-</ol>
-<p>Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный знак", так как с "Честный Знак" проще работать.</p>
+            <div style="margin-top: 10px;">
+                <strong>Реклама</strong>
+            </div>
+        </div>
+        <li>После успешного добавления товара можно приступать к печати этикеток. В интернете доступны готовые шаблоны этикеток, которые можно скачать и загрузить в систему "Честный знак". Также вы можете создать шаблон самостоятельно. Стоимость одной этикетки составляет 0,6 рублей. Необходимо создать счёт в системе "Честный знак" и пополнить его. Каждая этикетка должна быть напечатана отдельно для каждого товара, так как одна этикетка используется только один раз, иначе получите штраф.</li>
+        <li>Можно добавить свои товары в оборот, при этом вам потребуется разрешительный документ. Этот документ можно получить у производителей, которые продали вам товары.</li>
+    </ol>
+    <p>Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный знак", так как с "Честный Знак" проще работать.</p>
 </div>
 
 <div class="modal-bg" id="modal">
@@ -268,9 +329,9 @@
             <script>
                 (MRGtag = window.MRGtag || []).push({});
             </script>
-            <div style="margin-top: 10px;">
-                <strong>Реклама</strong>
-            </div>
+        </div>
+        <div style="margin-top: 10px;">
+            <strong>Реклама</strong>
         </div>
     </div>
 </div>
@@ -314,7 +375,7 @@
             date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
             expires = "; expires=" + date.toUTCString();
         }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        document.cookie = name + "=" + encodeURIComponent(value) + expires + "; path=/";
     }
 
     function getCookie(name) {
@@ -322,8 +383,8 @@
         var ca = document.cookie.split(';');
         for (var i = 0; i < ca.length; i++) {
             var c = ca[i];
-            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));
         }
         return null;
     }
@@ -379,8 +440,5 @@
         }, 1000);
     }
 </script>
-<footer>
-        <p id="footer" style="text-align: center; color:red;">© 2024 GRADUX.RU</p>
-</footer>
 </body>
 </html>
