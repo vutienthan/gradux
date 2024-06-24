@@ -91,19 +91,23 @@
             text-align: center;
             position: relative;
         }
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            cursor: pointer;
-            font-size: 24px;
-            color: #aaa;
-        }
-        .close-btn:hover {
+        .skip-ad-btn {
+            background-color: #ddd;
+            border: none;
             color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
         }
-        .vk-ads {
-            display: none;
+        .skip-ad-btn:hover {
+            background-color: #bbb;
+        }
+        .inline-ad {
+            margin: 20px 0;
+            text-align: center;
         }
         .telegram-icon {
             position: fixed;
@@ -122,24 +126,6 @@
         .telegram-icon img {
             width: 70%;
             height: 70%;
-        }
-        .inline-ad {
-            margin: 20px 0;
-            text-align: center;
-        }
-        .skip-ad-btn {
-            background-color: #ddd;
-            border: none;
-            color: #333;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .skip-ad-btn:hover {
-            background-color: #bbb;
         }
     </style>
 </head>
@@ -196,68 +182,69 @@
     <!-- Модальное окно с рекламой VK ADS -->
     <div class="modal-bg" id="modal">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
             <div>
                 <script async src="https://ad.mail.ru/static/ads-async.js"></script>
-                <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins> 
-                <script>(MRGtag = window.MRGtag || []).push({});</script>
-            </div>
-            <div style="margin-top: 10px;">
-                <strong>Реклама</strong>
-            </div>
-            <div id="skipAdContainer" style="margin-top: 10px; display: none;">
-                <button id="skipAdBtn" class="skip-ad-btn" onclick="skipAd()">Пропустить рекламу</button>
-                <span id="skipTimer">5</span>
-            </div>
-        </div>
-    </div>
+                <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins>
+<script>(MRGtag = window.MRGtag || []).push({});</script>
+</div>
+<div style="margin-top: 10px;">
+    <strong>Реклама</strong>
+</div>
+<div id="skipAdContainer" style="margin-top: 10px; display: none;">
+    <button id="skipAdBtn" class="skip-ad-btn" onclick="skipAd()">Пропустить рекламу</button>
+    <span id="skipTimer">5</span>
+</div>
+</div>
+</div>
 
-    <!-- Иконка телеграмм в виде круга -->
-    <a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
-        <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
-    </a>
+<!-- Иконка телеграмм в виде круга -->
+<a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
+    <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
+</a>
 
-    <script>
-        function openModal() {
-            document.getElementById('modal').style.opacity = '1';
-            document.getElementById('modal').style.pointerEvents = 'auto';
-            startSkipTimer();
+<script>
+var adTimer;
+
+function openModal() {
+    document.getElementById('modal').style.opacity = '1';
+    document.getElementById('modal').style.pointerEvents = 'auto';
+    startAdTimer();
+}
+
+function closeModal() {
+    document.getElementById('modal').style.opacity = '0';
+    document.getElementById('modal').style.pointerEvents = 'none';
+    clearInterval(adTimer);
+}
+
+function skipAd() {
+    clearInterval(adTimer);
+    closeModal();
+}
+
+function startAdTimer() {
+    var skipTimer = 5;
+    var skipTimerDisplay = document.getElementById('skipTimer');
+    var skipAdContainer = document.getElementById('skipAdContainer');
+    skipAdContainer.style.display = 'block';
+
+    adTimer = setInterval(function() {
+        skipTimer--;
+        skipTimerDisplay.textContent = skipTimer;
+
+        if (skipTimer <= 0) {
+            clearInterval(adTimer);
+            var skipAdBtn = document.getElementById('skipAdBtn');
+            skipAdBtn.textContent = 'Пропустить рекламу';
+            skipAdBtn.disabled = false;
+            skipAdBtn.classList.remove('disabled');
         }
+    }, 1000);
+}
 
-        function closeModal() {
-            document.getElementById('modal').style.opacity = '0';
-            document.getElementById('modal').style.pointerEvents = 'none';
-            clearInterval(adInterval);
-        }
+openModal();
 
-        function skipAd() {
-            clearInterval(adInterval);
-            closeModal();
-        }
-
-        function startSkipTimer() {
-            var skipTimer = 5;
-            var skipTimerDisplay = document.getElementById('skipTimer');
-            var skipAdContainer = document.getElementById('skipAdContainer');
-            skipAdContainer.style.display = 'block';
-
-            var timer = setInterval(function() {
-                skipTimer--;
-                skipTimerDisplay.textContent = skipTimer;
-
-                if (skipTimer <= 0) {
-                    clearInterval(timer);
-                    var skipAdBtn = document.getElementById('skipAdBtn');
-                    skipAdBtn.textContent = 'Пропустить рекламу';
-                    skipAdBtn.disabled = false;
-                    skipAdBtn.classList.remove('disabled');
-                }
-            }, 1000);
-        }
-
-        openModal();
-
-        var adInterval = setInterval(openModal, 5 * 1000);
-    </script>
+var adInterval = setInterval(openModal, 15 * 1000);
+</script>
 </body>
 </html>
