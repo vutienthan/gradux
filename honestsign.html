@@ -12,6 +12,7 @@
             padding: 0;
             position: relative;
         }
+
         .container {
             width: 80%;
             margin: 0 auto;
@@ -23,28 +24,35 @@
             position: relative;
             z-index: 1;
         }
+
         h1 {
             text-align: center;
             color: #333;
         }
+
         ol {
             padding-left: 20px;
         }
+
         li {
             margin-bottom: 15px;
         }
+
         a {
             color: #0066cc;
             text-decoration: none;
         }
+
         a:hover {
             text-decoration: underline;
         }
+
         p {
             margin-top: 20px;
             font-size: 1.1em;
             color: #555;
         }
+
         .watermark {
             position: fixed;
             top: 0;
@@ -59,6 +67,7 @@
             justify-content: center;
             opacity: 0.1;
         }
+
         .watermark span {
             font-size: 48px;
             color: #000;
@@ -66,6 +75,7 @@
             white-space: nowrap;
             margin: 20px;
         }
+
         .modal-bg {
             position: fixed;
             top: 0;
@@ -81,6 +91,7 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
+
         .modal-content {
             background-color: #fff;
             padding: 20px;
@@ -91,24 +102,7 @@
             text-align: center;
             position: relative;
         }
-        .skip-ad-btn {
-            background-color: #ddd;
-            border: none;
-            color: #333;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-top: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .skip-ad-btn:hover {
-            background-color: #bbb;
-        }
-        .inline-ad {
-            margin: 20px 0;
-            text-align: center;
-        }
+
         .telegram-icon {
             position: fixed;
             bottom: 20px;
@@ -123,9 +117,39 @@
             z-index: 100;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
+
         .telegram-icon img {
             width: 70%;
             height: 70%;
+        }
+
+        .inline-ad {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .skip-ad-btn {
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+            margin-top: 10px;
+        }
+
+        .skip-ad-btn:hover {
+            background-color: #c82333;
+        }
+
+        .skip-ad-btn:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #skipAdContainer {
+            display: none;
         }
     </style>
 </head>
@@ -158,7 +182,7 @@
             </li>
 
             <!-- Рекламный блок в середине сайта -->
-            <div class="inline-ad" id="inlineAd">
+            <div class="inline-ad">
                 <script async src="https://ad.mail.ru/static/ads-async.js"></script>
                 <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins>
                 <script>(MRGtag = window.MRGtag || []).push({});</script>
@@ -182,69 +206,68 @@
     <!-- Модальное окно с рекламой VK ADS -->
     <div class="modal-bg" id="modal">
         <div class="modal-content">
-            <div>
-                <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+            <div style="text-align: center;">
                 <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins>
-<script>(MRGtag = window.MRGtag || []).push({});</script>
-</div>
-<div style="margin-top: 10px;">
-    <strong>Реклама</strong>
-</div>
-<div id="skipAdContainer" style="margin-top: 10px; display: none;">
-    <button id="skipAdBtn" class="skip-ad-btn" onclick="skipAd()">Пропустить рекламу</button>
-    <span id="skipTimer">5</span>
-</div>
-</div>
-</div>
+                <script>(MRGtag = window.MRGtag || []).push({});</script>
+            </div>
+            <div style="margin-top: 10px;">
+                <strong>Реклама</strong>
+            </div>
+        </div>
+    </div>
 
-<!-- Иконка телеграмм в виде круга -->
-<a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
-    <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
-</a>
+    <!-- Иконка телеграмм в виде круга -->
+    <a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
+        <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
+    </a>
 
-<script>
-var adTimer;
+    <script>
+        var adTimer;
 
-function openModal() {
-    document.getElementById('modal').style.opacity = '1';
-    document.getElementById('modal').style.pointerEvents = 'auto';
-    startAdTimer();
-}
-
-function closeModal() {
-    document.getElementById('modal').style.opacity = '0';
-    document.getElementById('modal').style.pointerEvents = 'none';
-    clearInterval(adTimer);
-}
-
-function skipAd() {
-    clearInterval(adTimer);
-    closeModal();
-}
-
-function startAdTimer() {
-    var skipTimer = 5;
-    var skipTimerDisplay = document.getElementById('skipTimer');
-    var skipAdContainer = document.getElementById('skipAdContainer');
-    skipAdContainer.style.display = 'block';
-
-    adTimer = setInterval(function() {
-        skipTimer--;
-        skipTimerDisplay.textContent = skipTimer;
-
-        if (skipTimer <= 0) {
-            clearInterval(adTimer);
-            var skipAdBtn = document.getElementById('skipAdBtn');
-            skipAdBtn.textContent = 'Пропустить рекламу';
-            skipAdBtn.disabled = false;
-            skipAdBtn.classList.remove('disabled');
+        function openModal() {
+            document.getElementById('modal').style.opacity = '1';
+            document.getElementById('modal').style.pointerEvents = 'auto';
+            startAdTimer();
         }
-    }, 1000);
-}
 
-openModal();
+        function closeModal() {
+            document.getElementById('modal').style.opacity = '0';
+            document.getElementById('modal').style.pointerEvents = 'none';
+            clearInterval(adTimer);
+        }
 
-var adInterval = setInterval(openModal, 15 * 1000);
-</script>
+        function skipAd() {
+            clearInterval(adTimer);
+            closeModal();
+        }
+
+        function startAdTimer() {
+            var skipTimer = 5;
+            var skipTimerDisplay = document.getElementById('skipTimer');
+            var skipAdContainer = document.getElementById('skipAdContainer');
+            skipAdContainer.style.display = 'block';
+
+            adTimer = setInterval(function() {
+                skipTimer--;
+                skipTimerDisplay.textContent = skipTimer;
+
+                if (skipTimer <= 0) {
+                    clearInterval(adTimer);
+                    var skipAdBtn = document.getElementById('skipAdBtn');
+                    skipAdBtn.textContent = 'Пропустить рекламу';
+                    skipAdBtn.disabled = false;
+                    skipAdBtn.classList.remove('disabled');
+                }
+            }, 1000);
+        }
+
+        setTimeout(function() {
+            startAdTimer();
+        }, 5000); // Показываем кнопку "Пропустить рекламу" через 5 секунд после открытия модального окна
+
+        openModal();
+
+        var adInterval = setInterval(openModal, 15000); // Показываем модальное окно каждые 15 секунд
+    </script>
 </body>
 </html>
