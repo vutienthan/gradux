@@ -247,7 +247,10 @@
 
                 if (skipTimer <= 0) {
                     clearInterval(timer);
-                    skipAdContainer.style.display = 'none';
+                    var skipAdBtn = document.getElementById('skipAdBtn');
+                    skipAdBtn.textContent = 'Пропустить рекламу';
+                    skipAdBtn.disabled = false;
+                    skipAdBtn.classList.remove('disabled');
                 }
             }, 1000);
         }
