@@ -12,7 +12,6 @@
             padding: 0;
             position: relative;
         }
-
         .container {
             width: 80%;
             margin: 0 auto;
@@ -24,35 +23,28 @@
             position: relative;
             z-index: 1;
         }
-
         h1 {
             text-align: center;
             color: #333;
         }
-
         ol {
             padding-left: 20px;
         }
-
         li {
             margin-bottom: 15px;
         }
-
         a {
             color: #0066cc;
             text-decoration: none;
         }
-
         a:hover {
             text-decoration: underline;
         }
-
         p {
             margin-top: 20px;
             font-size: 1.1em;
             color: #555;
         }
-
         .watermark {
             position: fixed;
             top: 0;
@@ -67,7 +59,6 @@
             justify-content: center;
             opacity: 0.1;
         }
-
         .watermark span {
             font-size: 48px;
             color: #000;
@@ -75,7 +66,6 @@
             white-space: nowrap;
             margin: 20px;
         }
-
         .modal-bg {
             position: fixed;
             top: 0;
@@ -91,7 +81,6 @@
             pointer-events: none;
             transition: opacity 0.3s ease;
         }
-
         .modal-content {
             background-color: #fff;
             padding: 20px;
@@ -102,7 +91,6 @@
             text-align: center;
             position: relative;
         }
-
         .close-btn {
             position: absolute;
             top: 10px;
@@ -111,15 +99,12 @@
             font-size: 24px;
             color: #aaa;
         }
-
         .close-btn:hover {
             color: #333;
         }
-
         .vk-ads {
-            display: none; /* скрываем изначально */
+            display: none;
         }
-
         .telegram-icon {
             position: fixed;
             bottom: 20px;
@@ -134,12 +119,10 @@
             z-index: 100;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
-
         .telegram-icon img {
             width: 70%;
             height: 70%;
         }
-
         .inline-ad {
             margin: 20px 0;
             text-align: center;
@@ -208,6 +191,10 @@
             <div style="margin-top: 10px;">
                 <strong>Реклама</strong>
             </div>
+            <div id="skipAdContainer" style="margin-top: 10px; display: none;">
+                <button id="skipAdBtn" onclick="skipAd()">Пропустить рекламу</button>
+                <span id="skipTimer">5</span>
+            </div>
         </div>
     </div>
 
@@ -217,20 +204,43 @@
     </a>
 
     <script>
-        // Функция для открытия модального окна
         function openModal() {
             document.getElementById('modal').style.opacity = '1';
             document.getElementById('modal').style.pointerEvents = 'auto';
+            startSkipTimer();
         }
 
-        // Функция для закрытия модального окна
         function closeModal() {
             document.getElementById('modal').style.opacity = '0';
             document.getElementById('modal').style.pointerEvents = 'none';
+            clearInterval(adInterval);
         }
 
-        // Вызываем открытие модального окна каждые 1 минуты
-        setInterval(openModal, 1 * 60 * 1000);
+        function skipAd() {
+            clearInterval(adInterval);
+            closeModal();
+        }
+
+        function startSkipTimer() {
+            var skipTimer = 5;
+            var skipTimerDisplay = document.getElementById('skipTimer');
+            var skipAdContainer = document.getElementById('skipAdContainer');
+            skipAdContainer.style.display = 'block';
+
+            var timer = setInterval(function() {
+                skipTimer--;
+                skipTimerDisplay.textContent = skipTimer;
+
+                if (skipTimer <= 0) {
+                    clearInterval(timer);
+                    skipAdContainer.style.display = 'none';
+                }
+            }, 1000);
+        }
+
+        openModal();
+
+        var adInterval = setInterval(openModal, 15 * 1000);
     </script>
 </body>
 </html>
