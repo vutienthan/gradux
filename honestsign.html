@@ -12,19 +12,16 @@
             padding: 0;
             position: relative;
             user-select: none;
-            -moz-user-select: none;
-            -webkit-user-select: none;
-            -ms-user-select: none;
         }
 
-        .site-frame {
+        .container {
             width: 80%;
-            margin: 20px auto;
+            margin: 0 auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            border: 1px solid #ddd;
             border-radius: 8px;
+            margin-top: 20px;
             position: relative;
             z-index: 1;
         }
@@ -80,26 +77,6 @@
             margin: 20px;
         }
 
-        .telegram-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #0088cc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .telegram-icon img {
-            width: 70%;
-            height: 70%;
-        }
-
         .modal-bg {
             position: fixed;
             top: 0;
@@ -125,6 +102,31 @@
             overflow: auto;
             text-align: center;
             position: relative;
+        }
+
+        .telegram-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .telegram-icon img {
+            width: 70%;
+            height: 70%;
+        }
+
+        .inline-ad {
+            margin: 20px 0;
+            text-align: center;
         }
 
         .skip-ad-btn {
@@ -157,10 +159,45 @@
             color: #777;
             margin-bottom: 10px;
         }
+
+        .consent-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .consent-modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 12px;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .consent-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            outline: none;
+            margin: 10px 5px;
+        }
+
+        .consent-btn:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 <body>
-    <!-- Водяной знак GRADUX.RU над содержимым сайта -->
     <div class="watermark">
         <span>GRADUX.RU</span>
         <span>GRADUX.RU</span>
@@ -174,41 +211,50 @@
         <span>GRADUX.RU</span>
     </div>
 
-    <div class="site-frame">
+    <div class="container">
         <h1>Все этапы регистрации в системе "Честный знак" для индивидуальных предпринимателей</h1>
         <ol>
-            <li>
-                У вас должны быть зарегистрированный ИП, электронная подпись и разрешительный документ. Отсутствие этого документа может привести к штрафу в размере от 1000 до 10000 рублей. Этот документ можно запросить у производителей, у которых вы закупали товары.
-            </li>
-            <li>
-                Регистрация в системе "Честный знак" доступна на официальном сайте <a href="https://честныйзнак.рф" target="_blank">честныйзнак.рф</a>.
-            </li>
-            <li>
-                После завершения регистрации необходимо добавить свои товары в систему "Честный знак". Важно, чтобы данные о товарах были точными, иначе вы получите штраф. Для массового добавления товаров рекомендую использовать Excel, что поможет сэкономить время. Код ТН ВЭД можно найти в интернете. После отправки товаров на модерацию, вам потребуется подождать сутки, исключая выходные дни, включая субботу и воскресенье. Если ваши товары прошли проверку, то вы можете приступить к следующему шагу, иначе вам придётся исправить ошибку данных товаров.
-            </li>
+            <li>У вас должны быть зарегистрированный ИП, электронная подпись и разрешительный документ. Отсутствие этого документа может привести к штрафу в размере от 1000 до 10000 рублей. Этот документ можно запросить у производителей, у которых вы закупали товары.</li>
+            <li>Регистрация в системе "Честный знак" доступна на официальном сайте <a href="https://честныйзнак.рф" target="_blank">честныйзнак.рф</a>.</li>
+            <li>После завершения регистрации необходимо добавить свои товары в систему "Честный знак". Важно, чтобы данные о товарах были точными, иначе вы получите штраф. Для массового добавления товаров рекомендую использовать Excel, что поможет сэкономить время. Код ТН ВЭД можно найти в интернете. После отправки товаров на модерацию, вам потребуется подождать сутки, исключая выходные дни, включая субботу и воскресенье. Если ваши товары прошли проверку, то вы можете приступить к следующему шагу, иначе вам придётся исправить ошибку данных товаров.</li>
+            <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+            <ins class="mrg-tag" style="display:inline-block;width:240px;height:400px" data-ad-client="ad-1574906" data-ad-slot="1574906"></ins>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    var user_id = getCookie('user_id');
+                    var gender = getCookie('user_gender');
 
-            <!-- Рекламный блок в середине сайта -->
-            <div class="inline-ad">
-                <script async src="https://ad.mail.ru/static/ads-async.js"></script>
-                <ins class="mrg-tag" style="display:inline-block;width:240px;height:400px" data-ad-client="ad-1574906" data-ad-slot="1574906"></ins>
-                <script>(MRGtag = window.MRGtag || []).push({});</script>
-                <div style="margin-top: 10px;">
-                    <strong>Реклама</strong>
-                </div>
-            </div>
+                    (MRGtag = window.MRGtag || []).push({
+                        user_id: user_id,
+                        gender: gender
+                    });
+                });
+            </script>
+            <div style="margin-top: 10px;"><strong>Реклама</strong></div>
+            <li>После успешного добавления товара можно приступать к печати этикеток. В интернете доступны готовые шаблоны этикеток, которые можно скачать и загрузить в систему "Честный знак". Также вы можете создать шаблон самостоятельно. Стоимость одной этикетки составляет 0,6 рублей. Необходимо создать счёт в системе "Честный знак" и пополнить его. Каждая этикетка должна быть напечатана отдельно для каждого товара, так как одна этикетка используется только один раз, иначе получите штраф. Печать этикетки без напечатки. Чтобы напечатать этот код в такой строчке, чтобы подгрузить данные пользователей.</li>
 
-            <li>
-                После успешного добавления товара можно приступать к печати этикеток. В интернете доступны готовые шаблоны этикеток, которые можно скачать и загрузить в систему "Честный знак". Также вы можете создать шаблон самостоятельно. Стоимость одной этикетки составляет 0,6 рублей. Необходимо создать счёт в системе "Честный знак" и пополнить его. Каждая этикетка должна быть напечатана отдельно для каждого товара, так как одна этикетка используется только один раз, иначе получите штраф.
-            </li>
-            <li>
-                Можно добавить свои товары в оборот, при этом вам потребуется разрешительный документ. Этот документ можно получить у производителей, которые продали вам товары.
-            </li>
-        </ol>
-        <p>
-            Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный Знак", так как с ним проще вести дела.
-        </p>
-    </div>
-    <!-- Модальное окно с рекламой VK ADS -->
+<div class="inline-ad">
+    <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+    <ins class="mrg-tag" style="display:inline-block;width:300px;height:250px" data-ad-client="ad-1574904" data-ad-slot="1574904"></ins>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var user_id = getCookie('user_id');
+            var gender = getCookie('user_gender');
+
+            (MRGtag = window.MRGtag || []).push({
+                user_id: user_id,
+                gender: gender
+            });
+        });
+    </script>
+    <div style="margin-top: 10px;"><strong>Реклама</strong></div>
+</div>
+
+<li>Можно добавить свои товары в оборот, при этом вам потребуется разрешительный документ. Этот документ можно получить у производителей, которые продали вам товары.</li>
+</ol>
+<p>Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный знак", так как с "Честный Знак" проще работать.</p>
+</div>
+
 <div class="modal-bg" id="modal">
     <div class="modal-content">
         <span class="close-btn" id="closeBtn">&times;</span>
@@ -219,7 +265,9 @@
         <div style="margin-top: 10px;">
             <script async src="https://ad.mail.ru/static/ads-async.js"></script>
             <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1574904" data-ad-slot="1574904"></ins>
-            <script>(MRGtag = window.MRGtag || []).push({});</script>
+            <script>
+                (MRGtag = window.MRGtag || []).push({});
+            </script>
             <div style="margin-top: 10px;">
                 <strong>Реклама</strong>
             </div>
@@ -227,12 +275,69 @@
     </div>
 </div>
 
-<!-- Иконка телеграмм в виде круга -->
+<div class="consent-modal" id="consentModal">
+    <div class="consent-modal-content">
+        <h2>Согласие на сбор данных</h2>
+        <p>Мы используем cookies для показа рекламы. Пожалуйста, дайте свое согласие на сбор данных.</p>
+        <button class="consent-btn" id="acceptConsent">Принять</button>
+        <button class="consent-btn" id="declineConsent">Отклонить</button>
+    </div>
+</div>
+
 <a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
     <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
 </a>
 
 <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (!getCookie('consentGiven')) {
+            document.getElementById('consentModal').style.display = 'flex';
+        } else {
+            scheduleAd();
+        }
+
+        document.getElementById('acceptConsent').addEventListener('click', function() {
+            setCookie('consentGiven', 'true', 365);
+            document.getElementById('consentModal').style.display = 'none';
+            scheduleAd();
+        });
+
+        document.getElementById('declineConsent').addEventListener('click', function() {
+            document.getElementById('consentModal').style.display = 'none';
+        });
+    });
+
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    function eraseCookie(name) {
+        document.cookie = name + '=; Max-Age=-99999999;';
+    }
+
+    function scheduleAd() {
+        openModal();
+        var randomInterval = Math.random() * 300000 + 300000; // Случайный интервал от 5 до 10 минут
+        setInterval(openModal, randomInterval);
+    }
+
     var adTimer;
 
     function openModal() {
@@ -273,17 +378,9 @@
             }
         }, 1000);
     }
-
-    setTimeout(function() {
-        startAdTimer();
-    }, Math.floor(Math.random() * 5000)); // Показываем кнопку "Пропустить рекламу" через случайное количество секунд
-
-    openModal();
-
-    var adInterval = setInterval(openModal, 1234000); // Показываем модальное окно каждые 1240 секунды
 </script>
- <footer>
+<footer>
         <p id="footer" style="text-align: center; color:red;">© 2024 GRADUX.RU</p>
- </footer>
+</footer>
 </body>
 </html>
