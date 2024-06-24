@@ -11,16 +11,20 @@
             margin: 0;
             padding: 0;
             position: relative;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
         }
 
-        .container {
+        .site-frame {
             width: 80%;
-            margin: 0 auto;
+            margin: 20px auto;
             padding: 20px;
             background-color: #fff;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid #ddd;
             border-radius: 8px;
-            margin-top: 20px;
             position: relative;
             z-index: 1;
         }
@@ -76,6 +80,26 @@
             margin: 20px;
         }
 
+        .telegram-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background-color: #0088cc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .telegram-icon img {
+            width: 70%;
+            height: 70%;
+        }
+
         .modal-bg {
             position: fixed;
             top: 0;
@@ -101,31 +125,6 @@
             overflow: auto;
             text-align: center;
             position: relative;
-        }
-
-        .telegram-icon {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 60px;
-            height: 60px;
-            background-color: #0088cc;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 100;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .telegram-icon img {
-            width: 70%;
-            height: 70%;
-        }
-
-        .inline-ad {
-            margin: 20px 0;
-            text-align: center;
         }
 
         .skip-ad-btn {
@@ -175,7 +174,7 @@
         <span>GRADUX.RU</span>
     </div>
 
-    <div class="container">
+    <div class="site-frame">
         <h1>Все этапы регистрации в системе "Честный знак" для индивидуальных предпринимателей</h1>
         <ol>
             <li>
@@ -189,23 +188,10 @@
             </li>
 
             <!-- Рекламный блок в середине сайта -->
-            <script async src="https://ad.mail.ru/static/ads-async.js"></script>
-
-<ins class="mrg-tag" 
-
-    style="display:inline-block;width:240px;height:400px"
-
-    data-ad-client="ad-1574906" 
-
-    data-ad-slot="1574906">
-
-</ins> 
-
-<script>
-
-    (MRGtag = window.MRGtag || []).push({});
-
-</script>
+            <div class="inline-ad">
+                <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+                <ins class="mrg-tag" style="display:inline-block;width:240px;height:400px" data-ad-client="ad-1574906" data-ad-slot="1574906"></ins>
+                <script>(MRGtag = window.MRGtag || []).push({});</script>
                 <div style="margin-top: 10px;">
                     <strong>Реклама</strong>
                 </div>
@@ -219,97 +205,83 @@
             </li>
         </ol>
         <p>
-            Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный знак", так как с "Честный Знак" проще работать.
+            Вы можете работать как с "Честный знак", так и с ГС1. Для этого необходимо связаться с техподдержкой "Честный знак". Но я рекомендую работать именно с "Честный Знак", так как с ним проще вести дела.
         </p>
     </div>
-
     <!-- Модальное окно с рекламой VK ADS -->
-    <div class="modal-bg" id="modal">
-        <div class="modal-content">
-            <span class="close-btn" id="closeBtn">&times;</span>
-            <div id="skipAdContainer">
-                <p class="skip-note">Через <span id="skipTimer">5</span> секунд можно пропустить рекламу</p>
-                <button class="skip-ad-btn" id="skipAdBtn" onclick="skipAd()" disabled>Пропустить через <span id="skipCountdown">5</span> сек</button>
-            </div>
-            <div style="margin-top: 10px;">
-                <script async src="https://ad.mail.ru/static/ads-async.js"></script>
-
-<ins class="mrg-tag" 
-
-    style="display:inline-block;width:300px;height:300px" 
-
-    data-ad-client="ad-1574904" 
-
-    data-ad-slot="1574904">
-
-</ins> 
-
-<script>
-
-    (MRGtag = window.MRGtag || []).push({});/t
-
-</script>
-            </div>
+<div class="modal-bg" id="modal">
+    <div class="modal-content">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <div id="skipAdContainer">
+            <p class="skip-note">Через <span id="skipTimer">5</span> секунд можно пропустить рекламу</p>
+            <button class="skip-ad-btn" id="skipAdBtn" onclick="skipAd()" disabled>Пропустить через <span id="skipCountdown">5</span> сек</button>
+        </div>
+        <div style="margin-top: 10px;">
+            <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+            <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1574904" data-ad-slot="1574904"></ins>
+            <script>(MRGtag = window.MRGtag || []).push({});</script>
             <div style="margin-top: 10px;">
                 <strong>Реклама</strong>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Иконка телеграмм в виде круга -->
-    <a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
-        <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
-    </a>
+<!-- Иконка телеграмм в виде круга -->
+<a class="telegram-icon" href="https://t.me/leonardomonatigr" target="_blank">
+    <img src="telegram-logo.png" alt="Telegram" title="Телеграмм">
+</a>
 
-    <script>
-        var adTimer;
+<script>
+    var adTimer;
 
-        function openModal() {
-            document.getElementById('modal').style.opacity = '1';
-            document.getElementById('modal').style.pointerEvents = 'auto';
-            startAdTimer();
-        }
+    function openModal() {
+        document.getElementById('modal').style.opacity = '1';
+        document.getElementById('modal').style.pointerEvents = 'auto';
+        startAdTimer();
+    }
 
-        function closeModal() {
-            document.getElementById('modal').style.opacity = '0';
-            document.getElementById('modal').style.pointerEvents = 'none';
-            clearInterval(adTimer);
-        }
+    function closeModal() {
+        document.getElementById('modal').style.opacity = '0';
+        document.getElementById('modal').style.pointerEvents = 'none';
+        clearInterval(adTimer);
+    }
 
-        function skipAd() {
-            clearInterval(adTimer);
-            closeModal();
-        }
+    function skipAd() {
+        clearInterval(adTimer);
+        closeModal();
+    }
 
-        function startAdTimer() {
-            var skipTimer = 5;
-            var skipTimerDisplay = document.getElementById('skipTimer');
-            var skipCountdownDisplay = document.getElementById('skipCountdown');
-            var skipAdBtn = document.getElementById('skipAdBtn');
-            var skipAdContainer = document.getElementById('skipAdContainer');
-            skipAdContainer.style.display = 'block';
+    function startAdTimer() {
+        var skipTimer = 5;
+        var skipTimerDisplay = document.getElementById('skipTimer');
+        var skipCountdownDisplay = document.getElementById('skipCountdown');
+        var skipAdBtn = document.getElementById('skipAdBtn');
+        var skipAdContainer = document.getElementById('skipAdContainer');
+        skipAdContainer.style.display = 'block';
 
-            adTimer = setInterval(function() {
-                skipTimer--;
-                skipTimerDisplay.textContent = skipTimer;
-                skipCountdownDisplay.textContent = skipTimer;
+        adTimer = setInterval(function() {
+            skipTimer--;
+            skipTimerDisplay.textContent = skipTimer;
+            skipCountdownDisplay.textContent = skipTimer;
 
-                if (skipTimer <= 0) {
-                    clearInterval(adTimer);
-                    skipAdBtn.textContent = 'Пропустить рекламу';
-                    skipAdBtn.disabled = false;
-                    skipAdBtn.classList.remove('disabled');
-                }
-            }, 1000);
-        }
+            if (skipTimer <= 0) {
+                clearInterval(adTimer);
+                skipAdBtn.textContent = 'Пропустить рекламу';
+                skipAdBtn.disabled = false;
+                skipAdBtn.classList.remove('disabled');
+            }
+        }, 1000);
+    }
 
-        setTimeout(function() {
-            startAdTimer();
-        }, 5000); // Показываем кнопку "Пропустить рекламу" через 5 секунд после открытия модального окна
+    setTimeout(function() {
+        startAdTimer();
+    }, Math.floor(Math.random() * 5000)); // Показываем кнопку "Пропустить рекламу" через случайное количество секунд
 
-        openModal();
+    openModal();
 
-        var adInterval = setInterval(openModal, 3000); // Показываем модальное окно каждые 3 секунд
-    </script>
+    var adInterval = setInterval(openModal, 1234000); // Показываем модальное окно каждые 1240 секунды
+</script>
+
 </body>
 </html>
