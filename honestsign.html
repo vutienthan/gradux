@@ -101,6 +101,7 @@
             overflow: auto;
             text-align: center;
             position: relative;
+            border: 2px solid #000; /* Добавляем рамку */
         }
 
         .close-btn {
@@ -120,26 +121,24 @@
             display: none; /* скрываем изначально */
         }
 
-        /* Стили для иконки телеграмм в виде круга */
         .telegram-icon {
             position: fixed;
             bottom: 20px;
             right: 20px;
             width: 60px;
             height: 60px;
-            background-color: #0088cc; /* Цвет фона */
-            border-radius: 50%; /* Круглая форма */
+            background-color: #0088cc;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 100; /* Над остальными элементами */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Тень */
+            z-index: 100;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
         }
 
         .telegram-icon img {
-            width: 40px; /* Размер логотипа телеграмм */
-            height: 40px;
-            filter: brightness(0) invert(1); /* Инвертируем цвет логотипа */
+            width: 70%;
+            height: 70%;
         }
     </style>
 </head>
@@ -186,6 +185,9 @@
     <div class="modal-bg" id="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
+            <div style="border: 1px solid black; padding: 10px;">
+                <strong>Реклама</strong>
+            </div>
             <script async src="https://ad.mail.ru/static/ads-async.js"></script>
             <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins> 
             <script>(MRGtag = window.MRGtag || []).push({});</script>
