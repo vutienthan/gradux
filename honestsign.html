@@ -103,13 +103,6 @@
             position: relative;
         }
 
-        .ad-container {
-            border: 2px solid #000;
-            border-radius: 12px;
-            padding: 10px;
-            display: inline-block;
-        }
-
         .close-btn {
             position: absolute;
             top: 10px;
@@ -146,6 +139,11 @@
             width: 70%;
             height: 70%;
         }
+
+        .inline-ad {
+            margin: 20px 0;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -175,6 +173,17 @@
             <li>
                 После завершения регистрации необходимо добавить свои товары в систему "Честный знак". Важно, чтобы данные о товарах были точными, иначе вы получите штраф. Для массового добавления товаров рекомендую использовать Excel, что поможет сэкономить время. Код ТН ВЭД можно найти в интернете. После отправки товаров на модерацию, вам потребуется подождать сутки, исключая выходные дни, включая субботу и воскресенье. Если ваши товары прошли проверку, то вы можете приступить к следующему шагу, иначе вам придётся исправить ошибку данных товаров.
             </li>
+
+            <!-- Рекламный блок в середине сайта -->
+            <div class="inline-ad">
+                <script async src="https://ad.mail.ru/static/ads-async.js"></script>
+                <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins>
+                <script>(MRGtag = window.MRGtag || []).push({});</script>
+                <div style="margin-top: 10px;">
+                    <strong>Реклама</strong>
+                </div>
+            </div>
+
             <li>
                 После успешного добавления товара можно приступать к печати этикеток. В интернете доступны готовые шаблоны этикеток, которые можно скачать и загрузить в систему "Честный знак". Также вы можете создать шаблон самостоятельно. Стоимость одной этикетки составляет 0,6 рублей. Необходимо создать счёт в системе "Честный знак" и пополнить его. Каждая этикетка должна быть напечатана отдельно для каждого товара, так как одна этикетка используется только один раз, иначе получите штраф.
             </li>
@@ -191,7 +200,7 @@
     <div class="modal-bg" id="modal">
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div class="ad-container">
+            <div>
                 <script async src="https://ad.mail.ru/static/ads-async.js"></script>
                 <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins> 
                 <script>(MRGtag = window.MRGtag || []).push({});</script>
@@ -220,8 +229,8 @@
             document.getElementById('modal').style.pointerEvents = 'none';
         }
 
-        // Вызываем открытие модального окна при загрузке страницы
-        window.onload = openModal;
+        // Вызываем открытие модального окна каждые 2 минуты
+        setInterval(openModal, 2 * 60 * 1000);
     </script>
 </body>
 </html>
