@@ -127,6 +127,20 @@
             margin: 20px 0;
             text-align: center;
         }
+        .skip-ad-btn {
+            background-color: #ddd;
+            border: none;
+            color: #333;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .skip-ad-btn:hover {
+            background-color: #bbb;
+        }
     </style>
 </head>
 <body>
@@ -158,7 +172,7 @@
             </li>
 
             <!-- Рекламный блок в середине сайта -->
-            <div class="inline-ad">
+            <div class="inline-ad" id="inlineAd">
                 <script async src="https://ad.mail.ru/static/ads-async.js"></script>
                 <ins class="mrg-tag" style="display:inline-block;width:300px;height:300px" data-ad-client="ad-1531302" data-ad-slot="1531302"></ins>
                 <script>(MRGtag = window.MRGtag || []).push({});</script>
@@ -192,7 +206,7 @@
                 <strong>Реклама</strong>
             </div>
             <div id="skipAdContainer" style="margin-top: 10px; display: none;">
-                <button id="skipAdBtn" onclick="skipAd()">Пропустить рекламу</button>
+                <button id="skipAdBtn" class="skip-ad-btn" onclick="skipAd()">Пропустить рекламу</button>
                 <span id="skipTimer">5</span>
             </div>
         </div>
