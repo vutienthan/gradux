@@ -7,16 +7,19 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="menu-btn">
+        <div class="menu-btn__burger"></div>
+    </div>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="#home" class="nav__link">Trang chủ</a></li>
+            <li class="nav__item"><a href="#dictionary" class="nav__link">Từ điển</a></li>
+            <li class="nav__item"><a href="#about" class="nav__link">Giới thiệu</a></li>
+            <li class="nav__item"><a href="#contact" class="nav__link">Liên hệ</a></li>
+        </ul>
+    </nav>
     <header>
         <h1>Từ điển Nga Việt gradux.ru</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Trang chủ</a></li>
-                <li><a href="#dictionary">Từ điển</a></li>
-                <li><a href="#about">Giới thiệu</a></li>
-                <li><a href="#contact">Liên hệ</a></li>
-            </ul>
-        </nav>
     </header>
     <main id="dictionary">
         <div id="word-list"></div>
@@ -24,6 +27,7 @@
     <footer>
         <p>&copy; 2024 gradux.ru</p>
     </footer>
+    <script src="script.js"></script>
     <script src="dictionary.js"></script>
 </body>
 </html>
