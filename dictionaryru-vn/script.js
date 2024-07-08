@@ -1,7 +1,8 @@
-const menuBtn = document.querySelector('.menu-btn');
-const nav = document.querySelector('.nav');
-
-menuBtn.addEventListener('click', () => {
-    menuBtn.classList.toggle('open');
-    nav.classList.toggle('open');
-});
+function toggleMenu() {
+    const bottomMenu = document.getElementById('bottom-menu');
+    if (bottomMenu.style.display === 'block') {
+        bottomMenu.style.display = 'none';
+    } else {
+        bottomMenu.style.display = 'block';
+    }
+}
