@@ -3,13 +3,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(dictionary => {
             const wordList = document.getElementById('word-list');
-            dictionary.forEach((item, index) => {
+            dictionary.forEach(item => {
                 const wordItem = document.createElement('li');
                 wordItem.className = 'word-item';
-                const container = document.createElement('div');
-                container.className = 'word-item-container';
-                container.innerHTML = `<b>${index + 1}. RU:</b> ${item.ru} <br> <b>VI:</b> ${item.vi}`;
-                wordItem.appendChild(container);
+                wordItem.innerHTML = `<b>RU:</b> ${item.ru} <br> <b>VI:</b> ${item.vi}`;
                 wordList.appendChild(wordItem);
             });
         })
