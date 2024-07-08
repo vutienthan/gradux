@@ -2,89 +2,157 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f9f9f9;
     position: relative;
-    overflow-x: hidden; /* Ngăn không cho nội dung vượt qua viền */
+    z-index: 1;
 }
 
-.menu {
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1000;
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
 }
 
-.menu-icon {
-    background-image: url('path/to/house-icon.png'); /* Thay bằng đường dẫn đến hình ngôi nhà */
-    background-size: cover;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    cursor: pointer;
+header h1 {
+    margin: 0;
 }
 
-.watermark {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 50px;
-    color: rgba(0, 0, 0, 0.1);
-    user-select: none;
-    pointer-events: none;
-    white-space: nowrap;
+main {
+    padding: 2em;
+    position: relative;
+    z-index: 2;
+}
+
+#word-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: word-counter;
 }
 
 .word-item {
-    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    padding: 1em;
+    margin: 0.5em 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    position: relative;
+    z-index: 3;
+    counter-increment: word-counter;
 }
 
 .word-item::before {
-    content: "•";
-    margin-right: 10px;
+    content: counter(word-counter) ". ";
+    font-weight: bold;
+    margin-right: 0.5em;
 }
 
-.word-item-container {
-    display: inline-block;
-    background-color: #f1f1f1;
-    border-radius: 10px;
-    padding: 10px;
-    margin: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.bottom-menu {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.9);
-    display: none;
-    z-index: 1000;
-}
-
-.bottom-menu .close-menu {
+.word-item::after {
+    content: 'GRADUX.RU';
     position: absolute;
-    left: 10px;
-    top: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.1);
+    pointer-events: none;
+    z-index: -1;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-}
-
-.bottom-menu-items {
-    list-style: none;
-    padding: 20px 0;
-    margin: 0;
+    z-index: 1000;
+    background-color: red;
+    border-radius: 50%;
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+    justify-content: center;
 }
 
-.bottom-menu-items li a {
+.menu-btn__burger {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger::before {
+    transform: translateY(-8px);
+}
+
+.menu-btn__burger::after {
+    transform: translateY(8px);
+}
+
+.menu-btn.open .menu-btn__burger {
+    transform: translateX(-50px);
+    background: transparent;
+    box-shadow: none;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+    transform: rotate(45deg) translate(35px, -35px);
+}
+
+.menu-btn.open .menu-btn__burger::after {
+    transform: rotate(-45deg) translate(35px, 35px);
+}
+
+.nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255,0,0,.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: left .5s ease-in-out;
+    z-index: 999;
+}
+
+.nav__list {
+    list-style: none;
+    text-align: center;
+}
+
+.nav__item {
+    margin: 20px 0;
+}
+
+.nav__link {
     text-decoration: none;
-    color: black;
+    font-size: 2em;
+    color: #fff;
 }
 
-@media (max-width: 600px) {
-    .bottom-menu-items {
-        flex-direction: column;
-        align-items: center;
-    }
+.nav.open {
+    left: 0;
 }
