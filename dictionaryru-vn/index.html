@@ -1,33 +1,36 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Từ điển Nga Việt gradux.ru</title>
+    <title>Từ điển Nga-Việt - GRADUX.RU</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            user-select: none; /* Ngăn cấm copy nội dung trang web */
+        }
+    </style>
 </head>
 <body>
-    <div class="menu-btn">
-        <div class="menu-btn__burger"></div>
+    <div class="menu">
+        <div class="menu-icon" onclick="toggleMenu()"></div>
     </div>
-    <nav class="nav">
-        <ul class="nav__list">
-            <li class="nav__item"><a href="#home" class="nav__link">Trang chủ</a></li>
-            <li class="nav__item"><a href="#dictionary" class="nav__link">Từ điển</a></li>
-            <li class="nav__item"><a href="#about" class="nav__link">Giới thiệu</a></li>
-            <li class="nav__item"><a href="#contact" class="nav__link">Liên hệ</a></li>
+    <h1>Từ điển Nga-Việt</h1>
+    <ul id="word-list"></ul>
+    <div class="watermark">GRADUX.RU</div>
+
+    <!-- Menu ngang ở chân trang web -->
+    <div id="bottom-menu" class="bottom-menu">
+        <div class="close-menu" onclick="toggleMenu()">X</div>
+        <ul class="bottom-menu-items">
+            <li><a href="#">Trang chủ</a></li>
+            <li><a href="#">Liên lạc</a></li>
+            <li><a href="#">Từ điển</a></li>
+            <li><a href="#">Tìm kiếm từ điển</a></li>
         </ul>
-    </nav>
-    <header>
-        <h1>Từ điển Nga Việt gradux.ru</h1>
-    </header>
-    <main id="dictionary">
-        <ol id="word-list"></ol>
-    </main>
-    <footer>
-        <p>&copy; 2024 gradux.ru</p>
-    </footer>
-    <script src="script.js"></script>
+    </div>
+
     <script src="dictionary.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
