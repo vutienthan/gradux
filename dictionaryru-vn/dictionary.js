@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
             dictionary.forEach(item => {
                 const wordItem = document.createElement('li');
                 wordItem.className = 'word-item';
-                wordItem.innerHTML = `${item.ru}<b>-</b> ${item.vi}`;
+                wordItem.innerHTML = `${item.ru}<b>,</b> ${item.vi}`;
                 wordList.appendChild(wordItem);
             });
         })
