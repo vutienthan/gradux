@@ -4,9 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(dictionary => {
             const wordList = document.getElementById('word-list');
             dictionary.forEach(item => {
-                const wordItem = document.createElement('div');
+                const wordItem = document.createElement('li');
                 wordItem.className = 'word-item';
-                wordItem.textContent = item['ru-vi'];
+                wordItem.innerHTML = `<b>RU:</b> ${item.ru} <br> <b>VI:</b> ${item.vi}`;
                 wordList.appendChild(wordItem);
             });
         })
