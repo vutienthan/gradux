@@ -25,21 +25,28 @@ main {
 }
 
 #word-list {
-    display: flex;
-    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    counter-reset: word-counter;
 }
 
 .word-item {
     border: 1px solid #ccc;
     padding: 1em;
-    margin: 0.5em;
-    flex: 1 1 200px;
+    margin: 0.5em 0;
     background-color: rgba(255, 255, 255, 0.8);
     position: relative;
     z-index: 3;
+    counter-increment: word-counter;
 }
 
 .word-item::before {
+    content: counter(word-counter) ". ";
+    font-weight: bold;
+    margin-right: 0.5em;
+}
+
+.word-item::after {
     content: 'GRADUX.RU';
     position: absolute;
     top: 50%;
