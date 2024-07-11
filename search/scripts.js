@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let dictionary = [];
 
     // URL raw của file JSON trên GitHub
-    const jsonUrl = 'https://raw.githubusercontent.com/vutienthan/gradux/main/search/timkiem.json'; // Thay thế bằng URL raw của file JSON của bạn
+    const jsonUrl = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/main/timkiem.json'; // Thay thế bằng URL raw của file JSON của bạn
 
     // Hàm để tải JSON từ GitHub
     function loadJSON(callback) {
@@ -35,18 +35,24 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('search-form').addEventListener('submit', event => {
             event.preventDefault();
             const query = searchInput.value.trim();
-            const result = dictionary.find(item => item.en.toLowerCase() === query.toLowerCase());
-            if (result) {
-                displayResult(result.en, result.ru.join(', '));
+            let result = dictionary.find(item => item.en.toLowerCase() === query.toLowerCase());
+
+            if (!result) {
+                result = dictionary.find(item => item.ru.some(ruItem => ruItem.toLowerCase() === query.toLowerCase()));
+                if (result) {
+                    displayResult(query, result.en);
+                } else {
+                    displayResult(query, 'No results found');
+                }
             } else {
-                displayResult(query, 'No results found');
+                displayResult(result.en, result.ru.join(', '));
             }
         });
     });
 
     function fetchSuggestions(query) {
         const filteredSuggestions = dictionary
-            .filter(item => item.en.toLowerCase().includes(query.toLowerCase()))
+            .filter(item => item.en.toLowerCase().includes(query.toLowerCase()) || item.ru.some(ruItem => ruItem.toLowerCase().includes(query.toLowerCase())))
             .map(item => item.en);
 
         displaySuggestions(filteredSuggestions);
