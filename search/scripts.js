@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const searchInput = document.getElementById('search-input');
     const suggestionsBox = document.getElementById('suggestions');
     const resultBox = document.getElementById('result');
-    let dictionary = {};
+    let dictionary = [];
 
     // URL raw của file JSON trên GitHub
     const jsonUrl = 'https://raw.githubusercontent.com/vutienthan/gradux/main/search/timkiem.json'; // Thay thế bằng URL raw của file JSON của bạn
@@ -35,8 +35,9 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('search-form').addEventListener('submit', event => {
             event.preventDefault();
             const query = searchInput.value.trim();
-            if (dictionary[query]) {
-                displayResult(query, dictionary[query]);
+            const result = dictionary.find(item => item.en.toLowerCase() === query.toLowerCase());
+            if (result) {
+                displayResult(result.en, result.ru.join(', '));
             } else {
                 displayResult(query, 'No results found');
             }
@@ -44,9 +45,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     function fetchSuggestions(query) {
-        const filteredSuggestions = Object.keys(dictionary).filter(item => 
-            item.toLowerCase().includes(query.toLowerCase())
-        );
+        const filteredSuggestions = dictionary
+            .filter(item => item.en.toLowerCase().includes(query.toLowerCase()))
+            .map(item => item.en);
 
         displaySuggestions(filteredSuggestions);
     }
@@ -62,7 +63,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 suggestionItem.addEventListener('click', () => {
                     searchInput.value = item;
                     suggestionsBox.style.display = 'none';
-                    displayResult(item, dictionary[item]);
+                    const result = dictionary.find(dictItem => dictItem.en.toLowerCase() === item.toLowerCase());
+                    displayResult(result.en, result.ru.join(', '));
                 });
                 suggestionsBox.appendChild(suggestionItem);
             });
