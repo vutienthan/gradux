@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let dictionary = {};
 
     // URL raw của file JSON trên GitHub
-    const jsonUrl = 'https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPOSITORY/main/timkiem.json'; // Thay thế bằng URL raw của file JSON của bạn
+    const jsonUrl = 'https://raw.githubusercontent.com/vutienthan/gradux/main/search/timkiem.json'; // Thay thế bằng URL raw của file JSON của bạn
 
     // Hàm để tải JSON từ GitHub
     function loadJSON(callback) {
