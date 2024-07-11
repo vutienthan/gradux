@@ -1,70 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
-    <link rel="shortcut icon" type="image/jpg" href="/logo0.jpg"/>
-    <title>Gradux - ключ к знаниям</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <title>Gradux.ru</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div><a class="logo" href="https://gradux.ru">GRADUX</a></div>
-        <nav>
-            <ul>
-                <li><a class="a" href="./subjects.html">Предмет</a></li>
-                <li><a class="a" href="./dictionary.html">Словарь</a></li>
-                <li><a class="a" href="./program.html">Программирование</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br>
-    <br>
-    <br>
-<div>
-    <center><button id="subjects" onclick="subjects()">Предметы</button></center>
-</div>
-<br>
-<center><button id="dictionary" onclick="dictionary()">Словарь</button></center>
-<br>
-<div>
-    <center><button id="oge" onclick="oge()">#ОГЭ</button></center>
-</div>
-<br>
-<div>
-    <center><button id="test" onclick="test()">#Тесты</button></center>
-</div>
-<br>
-<div>
-    <center><button id="task" onclick="task()">#Тренировочные Задания</button></center>
-</div>
-<br>
-<div>
-    <center><button id="option" onclick="option()">#Варианты</button></center>
-</div>
-    <br>
-<script>
-    function oge(){location.replace("./oge.html")}
-    function test(){location.replace("./test.html")}
-    function task(){location.replace("./task.html")}
-    function subjects(){location.replace("./subjects.html")}
-    function option(){location.replace("./option.html")}
-    function dictionary(){location.replace("./dictionary.html")}
-</script>
-<br>
-<div>
-  <p style="text-align:center;"><b>Поддерживайте Gradux.ru</b></p>
-  <center><button id="donate" onclick="donate()">Поддерживать Сайт</button></center>
-</div>
-<script>
- function donate(){location.replace("https://gradux.ru/donate")}
-</script>
-    <br>
-    <footer>
-        <ul>
-            <li><a href="./comments.html">Отзывы</a></li>
-            <li><a href="./onax.html">О Сайте</a></li>
+    <div class="menu-btn">
+        <div class="menu-btn__burger"></div>
+    </div>
+    <nav class="nav">
+        <ul class="nav__list">
+            <li class="nav__item"><a href="https://gradux.ru/" class="nav__link">Главная Страница</a></li>
+            <li class="nav__item"><a href="https://gradux.ru/dictionary" class="nav__link">Словарь</a></li>
+            <li class="nav__item"><a href="https://gradux.ru/about" class="nav__link">.</a></li>
+            <li class="nav__item"><a href="https://gradux.ru/contact" class="nav__link">.</a></li>
         </ul>
+    </nav>
+    <header>
+        <h2>Gradux.ru</h2>
+    </header>
+<p><b> Пожалуйста Поддерживать Автору Сайта:</b><br><b style="color: red;">Tinkoff: 2200700839625166</b></p>
+    <main id="dictionary">
+        <ol id="word-list"></ol>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 gradux.ru</p>
     </footer>
+    <script src="script.js"></script>
+    <script src="dictionary.js"></script>
 </body>
 </html>
