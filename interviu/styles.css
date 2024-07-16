@@ -1,33 +1,67 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    color: #333;
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #2C3E50;
     color: white;
-    padding: 1em 0;
+    padding: 1.5em 0;
     text-align: center;
+    font-size: 2em;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-nav {
+#menu {
     position: fixed;
-    top: 10px;
-    right: 10px;
+    top: 20px;
+    right: 20px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+
+#menu.closed {
+    width: 50px;
+    height: 50px;
+    background-color: #3498DB;
+}
+
+#menu.open {
+    width: 200px;
+    height: auto;
     background-color: #333;
-    border-radius: 5px;
+    border-radius: 10px;
+}
+
+#menu-button {
+    width: 100%;
+    height: 100%;
+    background-color: #3498DB;
+    cursor: pointer;
+}
+
+#menu nav {
+    display: none;
+}
+
+#menu.open nav {
+    display: block;
 }
 
 nav ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 10px;
 }
 
 nav ul li {
     display: block;
+    margin: 10px 0;
 }
 
 nav ul li a {
@@ -35,6 +69,7 @@ nav ul li a {
     padding: 10px;
     text-decoration: none;
     display: block;
+    transition: background-color 0.3s ease;
 }
 
 nav ul li a:hover {
@@ -43,23 +78,46 @@ nav ul li a:hover {
 
 main {
     margin: 2em;
+    padding: 1em;
 }
 
 h2 {
-    color: #4CAF50;
+    color: #2C3E50;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 video {
-    max-width: 100%;
-    height: auto;
-    display: block;
-    margin: 1em 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 section {
     background: white;
-    padding: 1em;
+    padding: 2em;
     margin: 1em 0;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    line-height: 1.6;
 }
