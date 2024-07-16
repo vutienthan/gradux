@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phỏng vấn với Chú và Mẹ</title>
+    <title></title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Phỏng vấn với Chú và Mẹ</h1>
+        <h1></h1>
     </header>
     
-    <nav id="menu">
-        <ul>
-            <li><a href="https://gradux.ru">Trang Chủ</a></li>
-        </ul>
-    </nav>
+    <div id="menu" class="closed">
+        <div id="menu-button"></div>
+        <nav>
+            <ul>
+                <li><a href="#home">Trang Chủ</a></li>
+                <li><a href="#video">Video</a></li>
+                <li><a href="#description">Mô Tả</a></li>
+            </ul>
+        </nav>
+    </div>
     
     <main>
         <section id="home">
@@ -25,10 +30,17 @@
         
         <section id="video">
             <h2>Video</h2>
-            <video controls>
-                <source src="video.mp4" type="video/mp4">
-                Trình duyệt của bạn không hỗ trợ video.
-            </video>
+            <div class="video-container">
+                <video controls>
+                    <source src="video.mp4" type="video/mp4">
+                    Trình duyệt của bạn không hỗ trợ video.
+                </video>
+            </div>
+        </section>
+        
+        <section id="description">
+            <h2></h2>
+            <p></p>
         </section>
     </main>
     
