@@ -1,12 +1,16 @@
 window.addEventListener('DOMContentLoaded', (event) => {
     const menu = document.getElementById('menu');
+    const menuButton = document.getElementById('menu-button');
 
-    document.addEventListener('click', function(event) {
-        if (event.target.closest('#menu')) return;
-        menu.classList.remove('open');
+    menuButton.addEventListener('click', function(event) {
+        menu.classList.toggle('open');
+        menu.classList.toggle('closed');
     });
 
-    menu.addEventListener('click', function(event) {
-        menu.classList.toggle('open');
+    document.addEventListener('click', function(event) {
+        if (!menu.contains(event.target) && menu.classList.contains('open')) {
+            menu.classList.remove('open');
+            menu.classList.add('closed');
+        }
     });
 });
