@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gradux.ru - Купить Лицензию, Аккаунт или Подарочную Карту – Удобно и Быстро!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"
+    <title>Толстый Словарь Gradux.ru</title>
+    <link rel="stylesheet" type="text/css" href="./styles.css">
 </head>
 <body>
-   <script>!function(e){var l=function(l){return e.cookie.match(new RegExp("(?:^|; )digiseller-"+l+"=([^;]*)"))},i=l("lang"),s=l("cart_uid"),t=i?"&lang="+i[1]:"",d=s?"&cart_uid="+s[1]:"",r=e.getElementsByTagName("head")[0]||e.documentElement,n=e.createElement("link"),a=e.createElement("script");n.type="text/css",n.rel="stylesheet",n.id="digiseller-css",n.href="//shop.digiseller.ru/xml/store2_css.asp?seller_id=1171711",a.async=!0,a.id="digiseller-js",a.src="//www.digiseller.ru/store2/digiseller-api.js.asp?seller_id=1171711"+t+d,!e.getElementById(n.id)&&r.appendChild(n),!e.getElementById(a.id)&&r.appendChild(a)}(document);</script>
-
-    <span class="digiseller-body" id="digiseller-body" data-partner-id="" data-cat="h" data-logo="0" data-downmenu="1" data-purchases="1" data-langs="1" data-cart="1" data-search="1"></span>
-
+    <div id="menu">
+    <ul>
+        <li><a href="./index.html">Главная Страница</a></li>
+        <li>
+            <a href="./search">Поиск Слова</a>
+            <ul class="sub-menu">
+                <li><a href="#">Русско-вьетнамский перевод</a></li>
+                <li><a href="#">Английско-русский перевод</a></li>
+                <li><a href="#">Русско-китайский перевод</a></li>
+            </ul>
+        </li>
+        <li><a href="./dictionary">Словарь</a></li>
+        <li><a href="./donat.html">Донат</a></li>
+        <li>
+            <a href="#">Язык</a>
+            <ul class="sub-menu">
+                <li><a href="./en/index.html">Английский</a></li>
+                <li><a href="./vi/index.html">Вьетнамский</a></li>
+                <li><a href="./ru/index.html">Русский</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
+    <br>
+    <div id="button">
+    <button onclick="lekcika()">Лексика по русскому</button><br>
+    <button onclick="grammatica()">Грамматика по русскому</button><br>
+    <button onclick="ruen()">Русско-английский<br>словарь</button><br>
+    <button onclick="ruvi()">Русско-вьетнамский<br>словарь</button><br>
+    </div>
+<script>
+    function ruen() {
+        location.replace('./ru/ru-en/index.html')
+    }
+</script>
 </body>
 </html>
