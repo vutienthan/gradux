@@ -47,14 +47,14 @@ button{
     background-color: #8A2BE2;
     border: none;
     padding: 10px;
-    border-radius: 360px;
+    border-radius: 120px;
     transition: .50s;
     font-size: 16px;
-    height: 160px;
-    width: 160px;
+    height: 120px;
+    width: 200px;
 }
 button:hover{
-    width: 30%;
+    width: 80%;
 }
 #button {
     text-align: center;
