@@ -1,1 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</title>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+        }
+        .question {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .question label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .submit-btn {
+            background-color: #8A2BE2;
+            color: white;
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+            transition: .50s;
+            width: 100px;
+            position: relative;
+            border-radius: 360px;
+        }
 
+        .submit-btn:hover {
+            width: 30%;
+        }
+        .submit-btn::after {
+            content: 'Отправить ответы на проверку';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 14px;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .submit-btn:hover::after {
+            opacity: 1;
+        }
+        .result {
+            margin-top: 20px;
+        }
+        #testForm input {
+            cursor: text;
+            border: 1px solid #ccc;
+            padding: 5px;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+        #testForm input:hover {
+            border-color: #8A2BE2;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            text-align: center;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <h1>ВПР-2024. Задание 08. Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</h1>
+    <form id="testForm">
+        <div class="question">
+            <label for="q1">1. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Рано появилась огромная луна и нарушила мир совы и других ночных птиц.</div>
+            <div>2) В лугах печально кричали ночные птицы и белая звезда переливалась над рекой.</div>
+            <div>3) Что ты рано осень в гости к нам пришла?</div>
+            <div>4) Близко к морю подходят парки сады и рощи.</div>
+            <input type="text" id="q1" name="q1" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q2">2. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) На рассвете я сбросил с себя одеяло вскочил и встал под душ.</div>
+            <div>2) Я быстро расправился с завтраком схватил рюкзак и очутился на улице.</div>
+            <div>3) Спой нам ветер про дикие горы.</div>
+            <div>4) Лыжники шли дальше и им попадались уже заячьи следы.</div>
+            <input type="text" id="q2" name="q2" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q3">3. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) От меня отцу брат милый поклониться не забудь.</div>
+            <div>2) Осенней свежестью листвой и плодами благоухает сад.</div>
+            <div>3) Мы жили в гостинице на набережной и по ночам над нашими окнами шумело море.</div>
+            <div>4) Солнце всходило и вместе с ним с востока шли облака.</div>
+            <input type="text" id="q3" name="q3" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q4">4. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) По сторонам тропы высокими и крутыми стенами стоял шиповник и цвёл алым и влажным огнем.</div>
+            <div>2) Ну-ка дождик тёплой влагой ты умой нас огромной рукой.</div>
+            <div>3) Ветер опять утих и благодатный снег начал медленно опускать на землю.</div>
+            <div>4) Рука его лицо и синяя спецовка лоснились от сажи и машинного масла.</div>
+            <input type="text" id="q4" name="q4" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q5">5. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Днём ветер далеко по окрестностям разнесёт медовые запахи луговых цветов и сочных трав.</div>
+            <div>2) Спой мне иволга песню пустынную.</div>
+            <div>3) На одном и том же кусте сирени я увидел желтые листья и начавшие набухать почки.</div>
+            <div>4) Дом невелик да лежать не велит.</div>
+            <input type="text" id="q5" name="q5" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q6">6. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Ласточки возвращайтесь из тёплых краёв скорей.</div>
+            <div>2) Солнце склонилось к западу и его косые лучи жгли мне спину.</div>
+            <div>3) Дорога то проваливалась то поднималась на холмы то исчезала в траве.</div>
+            <div>4) Деревья трава и земля покрылись дымкой тумана.</div>
+            <input type="text" id="q6" name="q6" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q7">7. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Пёс зря никогда ни на кого не лаял зорко следил за незнакомцами и радовался хозяевам.</div>
+            <div>2) Жара и усталость взяли свое и я заснул крепким сном.</div>
+            <div>3) Мой друг отчизне посвятим души прекрасные порывы!</div>
+            <div>4) Яблоки были крупные сочные вкусные.</div>
+            <input type="text" id="q7" name="q7" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q8">8. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Кончался лес и ударила в глаза росистая ярость лугов.</div>
+            <div>2) Огромная и яркая луна стояла уже над горою и зеленоватым светом заливала город.</div>
+            <div>3) Видны были только верхушки деревьев да извилистый край противоположного берега.</div>
+            <div>4) Что ты клонишь над водами ива макушку свою?</div>
+            <input type="text" id="q8" name="q8" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q9">9. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Вода расступалась и по обе стороны от носа лодки уходила углом живая волна.</div>
+            <div>2) Волны звучали солнце сияло и море смеялось.</div>
+            <div>3) Роза для чего тебе шипы?</div>
+            <div>4) Птичка перебегает с камня на камень прыгает в воду ныряет выскакивает на берег.</div>
+            <input type="text" id="q9" name="q9" placeholder="Введите номер">
+        </div>
+        <div class="question">
+            <label for="q10">10. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div class="question">
+                <label for="q10">10. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+                <div>1) Полосы света распластались на дороге и вокруг фонарей задрожали тёмные круги.</div>
+                <div>2) Что же ты моя старушка приумолкла у окна?</div>
+                <div>3) Кирюха и Вася бродили поодаль и собирали для костра бурьян и бересту.</div>
+                <div>4) Замолкнут и заснут дневные птицы и звери.</div>
+                <input type="text" id="q10" name="q10" placeholder="Введите номер">
+            </div>
+            <button type="button" class="submit-btn" onclick="checkAnswers()">Проверить ответы</button>
+        </form>
+        <div id="result" class="result"></div>
+        <script>
+            function checkAnswers() {
+                const answers = {
+                    q1: '3',
+                    q2: '3',
+                    q3: '1',
+                    q4: '2',
+                    q5: '2',
+                    q6: '3',
+                    q7: '4',
+                    q8: '4',
+                    q9: '2',
+                    q10: '2'
+                };
+    
+                const resultElement = document.getElementById('result');
+            let resultHtml = '<h2>Результат Теста:</h2><ul>';
+
+            // Перебор вопросов и проверка ответов
+            for (const [key, correctAnswer] of Object.entries(answers)) {
+                const userAnswer = document.getElementById(key).value.trim().toLowerCase();
+                const questionLabel = document.querySelector(`label[for="${key}"]`).textContent;
+
+                if (userAnswer === correctAnswer) {
+                    resultHtml += `<li>${questionLabel} <strong style="color:#2ecc71;">Угадали Правильно! Поздравляю!</strong></li>`;
+                } else {
+                    resultHtml += `<li>${questionLabel} <strong style="color:#e74c3c;">К сожалению, ваш ответ неправильный!</strong> Ваш ответ: ${userAnswer}. Правильный ответ: ${correctAnswer}</li>`;
+                }
+            }
+
+            resultHtml += '</ul>';
+            resultElement.innerHTML = resultHtml;
+        }
+        </script>
+    </body>
+    </html>
