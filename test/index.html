@@ -64,9 +64,74 @@
             text-align: center;
             font-size: 22px;
         }
+        * {
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20px;
+    background-color: aliceblue;
+}
+#menu ul{
+    list-style-type: none;
+    text-align: center;
+    color: white;
+    background-color: #8A2BE2;
+}
+#menu ul li a{
+    text-decoration: none;
+    color: White;
+    display: block;
+    padding: 20px;
+    line-height: 20px;
+}
+#menu li{
+    display: inline-block;
+}
+#menu ul li a:hover{
+    background: white;
+    color:#8A2BE2;
+}
+#menu ul li > .sub-menu{
+    position: absolute;
+    display: none;
+}
+#menu li {
+    position: relative;
+}
+.sub-menu{
+    position: absolute;
+}
+#menu ul li:hover .sub-menu{
+    display: block;
+}
     </style>
 </head>
 <body>
+    <div id="menu">
+    <ul>
+        <li><a href="./index.html">Главная Страница</a></li>
+        <li>
+            <a href="./search">Поиск Слова</a>
+            <ul class="sub-menu">
+                <li><a href="#">Русско-вьетнамский перевод</a></li>
+                <li><a href="#">Английско-русский перевод</a></li>
+                <li><a href="#">Русско-китайский перевод</a></li>
+            </ul>
+        </li>
+        <li><a href="./dictionary">Словарь</a></li>
+        <li><a href="./donat.html">Донат</a></li>
+        <li>
+            <a href="#">Язык</a>
+            <ul class="sub-menu">
+                <li><a href="./en/index.html">Английский</a></li>
+                <li><a href="./vi/index.html">Вьетнамский</a></li>
+                <li><a href="./ru/index.html">Русский</a></li>
+            </ul>
+        </li>
+    </ul>
+    </div>
     <h1>ВПР-2024. Задание 08. Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</h1>
     <form id="testForm">
         <div class="question">
@@ -178,9 +243,9 @@
                 const questionLabel = document.querySelector(`label[for="${key}"]`).textContent;
 
                 if (userAnswer === correctAnswer) {
-                    resultHtml += `<li>${questionLabel} <strong style="color:#2ecc71;">Угадали Правильно! Поздравляю!</strong></li>`;
+                    resultHtml += `<li>${questionLabel} <strong style="color:#2ecc71;">Угадали Правильно! Поздравляю!</strong> Ваш ответ: "${userAnswer}". Правильный ответ: ${correctAnswer}</li>`;
                 } else {
-                    resultHtml += `<li>${questionLabel} <strong style="color:#e74c3c;">К сожалению, ваш ответ неправильный!</strong> Ваш ответ: ${userAnswer}. Правильный ответ: ${correctAnswer}</li>`;
+                    resultHtml += `<li>${questionLabel} <strong style="color:#e74c3c;">К сожалению, ваш ответ неправильный!</strong> Ваш ответ: "${userAnswer}". Правильный ответ: ${correctAnswer}</li>`;
                 }
             }
 
