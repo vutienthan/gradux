@@ -1,25 +1,26 @@
+
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
         body {
             font-family: 'Courier New', Courier, monospace;
-            font-size: 10px;
+            padding: 20px;
         }
         .question {
             margin-bottom: 20px;
-            text-align: center;
+            padding: 5px;
+            border-radius: 20px;
+            border: 1px solid #8A2BE2;
         }
         .question label {
             display: block;
             margin-bottom: 5px;
+            text-align: center;
+            font-size: 20px;
         }
         .submit-btn {
             background-color: #8A2BE2;
@@ -32,7 +33,6 @@
             position: relative;
             border-radius: 360px;
         }
-
         .submit-btn:hover {
             width: 80%;
         }
@@ -53,92 +53,45 @@
         .result {
             margin-top: 20px;
         }
-        #testForm input {
-            cursor: text;
-            border: 1px solid #ccc;
-            padding: 5px;
-            transition: border-color 0.6s, background-color 0.6s;
-            width: 210px;
-            height: 25px;
-            border-radius: 80px;
-        }
-        #testForm input:hover {
-            border-color: #8A2BE2;
-            background-color: #f0f0f0;
-        }
-        h1 {
-            text-align: center;
-            font-size: 25px;
-            
-        }
-        * {
-            margin: 0;
+        .karandash {
+            list-style: none;
             padding: 0;
+            margin: 0;
+            display: inline-block;
         }
-        body {
-            font-family: 'Courier New', Courier, monospace;
-            padding: 20px;
-            font-size: 10px;
+        .karandash li {
+            display: inline-block;
+            cursor: pointer;
+            border: 1px solid #8A2BE2;
+            background: #8A2BE2;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            line-height: 28px;
+            transition: .50s;
         }
-menu ul{
-    list-style-type: none;
-    text-align: center;
-    color: white;
-    background-color: #8A2BE2;
-}
-#menu ul li a{
-    text-decoration: none;
-    color: White;
-    display: block;
-    padding: 20px;
-    line-height: 20px;
-}
-#menu li{
-    display: inline-block;
-}
-#menu ul li a:hover{
-    background: white;
-    color:#8A2BE2;
-}
-#menu ul li > .sub-menu{
-    position: absolute;
-    display: none;
-}
-#menu li {
-    position: relative;
-}
-.sub-menu{
-    position: absolute;
-}
-#menu ul li:hover .sub-menu{
-    display: block;
-}
+        .karandash li:hover {
+            background-color: #6a1b9a;
+        }
+        .input-wrapper {
+            display: none;
+            margin-top: 5px;
+        }
+        .input-wrapper input {
+            border: 2px solid #8A2BE2;
+            padding: 5px;
+            border-radius: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .input-wrapper.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
-    <div id="menu">
-    <ul>
-        <li><a href="../index.html">Главная Страница</a></li>
-        <li>
-            <a href="./search">Поиск Слова</a>
-            <ul class="sub-menu">
-                <li><a href="#">Русско-вьетнамский перевод</a></li>
-                <li><a href="#">Английско-русский перевод</a></li>
-                <li><a href="#">Русско-китайский перевод</a></li>
-            </ul>
-        </li>
-        <li><a href="./dictionary">Словарь</a></li>
-        <li><a href="./donat.html">Донат</a></li>
-        <li>
-            <a href="#">Язык</a>
-            <ul class="sub-menu">
-                <li><a href="./en/index.html">Английский</a></li>
-                <li><a href="./vi/index.html">Вьетнамский</a></li>
-                <li><a href="./ru/index.html">Русский</a></li>
-            </ul>
-        </li>
-    </ul>
-    </div>
     <h1>ВПР-2024. Задание 08. Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</h1>
     <form id="testForm">
         <div class="question">
@@ -147,7 +100,12 @@ menu ul{
             <div>2) В лугах печально кричали ночные птицы и белая звезда переливалась над рекой.</div>
             <div>3) Что ты рано осень в гости к нам пришла?</div>
             <div>4) Близко к морю подходят парки сады и рощи.</div>
-            <input type="text" id="q1" name="q1" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q1')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q1">
+                <input type="text" id="q1" name="q1" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q2">2. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -155,7 +113,12 @@ menu ul{
             <div>2) Я быстро расправился с завтраком схватил рюкзак и очутился на улице.</div>
             <div>3) Спой нам ветер про дикие горы.</div>
             <div>4) Лыжники шли дальше и им попадались уже заячьи следы.</div>
-            <input type="text" id="q2" name="q2" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q2')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q2">
+                <input type="text" id="q2" name="q2" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q3">3. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -163,7 +126,12 @@ menu ul{
             <div>2) Осенней свежестью листвой и плодами благоухает сад.</div>
             <div>3) Мы жили в гостинице на набережной и по ночам над нашими окнами шумело море.</div>
             <div>4) Солнце всходило и вместе с ним с востока шли облака.</div>
-            <input type="text" id="q3" name="q3" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q3')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q3">
+                <input type="text" id="q3" name="q3" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q4">4. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -171,7 +139,12 @@ menu ul{
             <div>2) Ну-ка дождик тёплой влагой ты умой нас огромной рукой.</div>
             <div>3) Ветер опять утих и благодатный снег начал медленно опускать на землю.</div>
             <div>4) Рука его лицо и синяя спецовка лоснились от сажи и машинного масла.</div>
-            <input type="text" id="q4" name="q4" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q4')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q4">
+                <input type="text" id="q4" name="q4" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q5">5. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -179,7 +152,12 @@ menu ul{
             <div>2) Спой мне иволга песню пустынную.</div>
             <div>3) На одном и том же кусте сирени я увидел желтые листья и начавшие набухать почки.</div>
             <div>4) Дом невелик да лежать не велит.</div>
-            <input type="text" id="q5" name="q5" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q5')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q5">
+                <input type="text" id="q5" name="q5" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q6">6. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -187,7 +165,12 @@ menu ul{
             <div>2) Солнце склонилось к западу и его косые лучи жгли мне спину.</div>
             <div>3) Дорога то проваливалась то поднималась на холмы то исчезала в траве.</div>
             <div>4) Деревья трава и земля покрылись дымкой тумана.</div>
-            <input type="text" id="q6" name="q6" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q6')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q6">
+                <input type="text" id="q6" name="q6" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q7">7. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -195,7 +178,12 @@ menu ul{
             <div>2) Жара и усталость взяли свое и я заснул крепким сном.</div>
             <div>3) Мой друг отчизне посвятим души прекрасные порывы!</div>
             <div>4) Яблоки были крупные сочные вкусные.</div>
-            <input type="text" id="q7" name="q7" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q7')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q7">
+                <input type="text" id="q7" name="q7" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q8">8. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -203,7 +191,12 @@ menu ul{
             <div>2) Огромная и яркая луна стояла уже над горою и зеленоватым светом заливала город.</div>
             <div>3) Видны были только верхушки деревьев да извилистый край противоположного берега.</div>
             <div>4) Что ты клонишь над водами ива макушку свою?</div>
-            <input type="text" id="q8" name="q8" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q8')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q8">
+                <input type="text" id="q8" name="q8" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
             <label for="q9">9. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
@@ -211,36 +204,60 @@ menu ul{
             <div>2) Волны звучали солнце сияло и море смеялось.</div>
             <div>3) Роза для чего тебе шипы?</div>
             <div>4) Птичка перебегает с камня на камень прыгает в воду ныряет выскакивает на берег.</div>
-            <input type="text" id="q9" name="q9" placeholder="Введите номер">
+            <ul class="karandash">
+                <li onclick="toggleInput('q9')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q9">
+                <input type="text" id="q9" name="q9" placeholder="Введите номер">
+            </div>
         </div>
         <div class="question">
-                <label for="q10">10. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
-                <div>1) Полосы света распластались на дороге и вокруг фонарей задрожали тёмные круги.</div>
-                <div>2) Что же ты моя старушка приумолкла у окна?</div>
-                <div>3) Кирюха и Вася бродили поодаль и собирали для костра бурьян и бересту.</div>
-                <div>4) Замолкнут и заснут дневные птицы и звери.</div>
+            <label for="q10">10. Укажите номер предложения, в котором необходимо поставить две запятые.</label>
+            <div>1) Полосы света распластались на дороге и вокруг фонарей задрожали тёмные круги.</div>
+            <div>2) Что же ты моя старушка приумолкла у окна?</div>
+            <div>3) Кирюха и Вася бродили поодаль и собирали для костра бурьян и бересту.</div>
+            <div>4) Замолкнут и заснут дневные птицы и звери.</div>
+            <ul class="karandash">
+                <li onclick="toggleInput('q10')">&#9998;</li>
+            </ul>
+            <div class="input-wrapper" id="input-q10">
                 <input type="text" id="q10" name="q10" placeholder="Введите номер">
             </div>
-            <center><button type="button" class="submit-btn" onclick="checkAnswers()">&#8594;</button></center>
-        </form>
-        <div id="result" class="result"></div>
-        <script>
-            function checkAnswers() {
-                const answers = {
-                    q1: '3',
-                    q2: '3',
-                    q3: '1',
-                    q4: '2',
-                    q5: '2',
-                    q6: '3',
-                    q7: '4',
-                    q8: '4',
-                    q9: '2',
-                    q10: '2'
-                };
-    
-                const resultElement = document.getElementById('result');
-            let resultHtml = '<h2>Результат Теста:</h2><ul>';
+        </div>
+        <button type="button" class="submit-btn" onclick="checkAnswers()">&#8594;</button>
+    </form>
+    <div id="result" class="result"></div>
+    <script>
+        function toggleInput(questionId) {
+            const inputWrapper = document.getElementById(`input-${questionId}`);
+            const icon = inputWrapper.previousElementSibling; // Получаем иконку "ручки"
+            
+            // Переключаем отображение
+            if (inputWrapper.classList.contains('active')) {
+                inputWrapper.classList.remove('active');
+                icon.style.display = 'inline-block';
+            } else {
+                inputWrapper.classList.add('active');
+                icon.style.display = 'none';
+            }
+        }
+
+        function checkAnswers() {
+            const answers = {
+                q1: '3',
+                q2: '3',
+                q3: '1',
+                q4: '2',
+                q5: '2',
+                q6: '3',
+                q7: '4',
+                q8: '4',
+                q9: '2',
+                q10: '2'
+            };
+
+            const resultElement = document.getElementById('result');
+            let resultHtml = '<center><h2>Результат Теста:</h2></center><ul>';
 
             // Перебор вопросов и проверка ответов
             for (const [key, correctAnswer] of Object.entries(answers)) {
@@ -257,6 +274,6 @@ menu ul{
             resultHtml += '</ul>';
             resultElement.innerHTML = resultHtml;
         }
-        </script>
-    </body>
-    </html>
+    </script>
+</body>
+</html>
