@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</title>
     <style>
+        * { 
+            padding: 0;
+            margin: 0;
+        }
         body {
             font-family: 'Courier New', Courier, monospace;
             padding: 20px;
+            user-select: none;
+            background-color: aliceblue;
+        }
+        .message {
+            display: none;
+            color: red;
+            font-size: 20px;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border: 1px solid red;
+            border-radius: 10px;
         }
         .question {
             margin-bottom: 20px;
@@ -88,9 +108,40 @@
         .input-wrapper.active {
             display: block;
         }
+        #menu {
+            list-style-type: none;
+            background: #8A2BE2;
+            color: white;
+            text-align: center;
+        }
+        #menu li{
+            display: inline-block;
+            padding: 20px;
+        }
+        #menu li a{
+            padding: 20px;
+            color: white;
+            text-decoration: none;
+            line-height: 20px;
+            transition: .50s;
+        }
+        #menu li a:hover{
+            background-color: white;
+            color: #8A2BE2;
+        }
+
     </style>
 </head>
 <body>
+    <div id="menu">
+        <ul>
+            <li><a href="../index.html">Главная Страница</a></li>
+            <li><a href="#">Поиск</a></li>
+            <li><a href="#">Словарь</a></li>
+            <li><a href="#">Донат</a></li>
+            <li><a href="#">Язык</a></li>
+        </ul>
+    </div>
     <h1>ВПР-2024. Задание 08. Запятые при обращениях, однородных членах, в сложных предложениях №1 для 6 класса</h1>
     <form id="testForm">
         <div class="question">
@@ -226,7 +277,9 @@
         <button type="button" class="submit-btn" onclick="checkAnswers()">&#8594;</button>
     </form>
     <div id="result" class="result"></div>
+
     <script>
+        alert('Пожалуйста задонатите мне пж, чтобы я смог выжить! Làm ơn hãy giúp mìn sống qua ngày với, gửi crypto cho mình cũng được nhe. cám ơn')
         function toggleInput(questionId) {
             const inputWrapper = document.getElementById(`input-${questionId}`);
             const icon = inputWrapper.previousElementSibling; // Получаем иконку "ручки"
