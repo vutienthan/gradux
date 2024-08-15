@@ -1,45 +1,35 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Толстый Словарь Gradux.ru</title>
-    <link rel="stylesheet" type="text/css" href="./styles.css">
+  <title>Coffee</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="./desktop.css" media="only screen and (min-width: 500px)">
+  <link rel="stylesheet" type="text/css" href="./mobile.css" media="only screen and (max-width: 499px)">
+
 </head>
+
 <body>
-    <div id="menu">
-    <ul>
-        <li><a href="./index.html">Главная Страница</a></li>
+  <header id="menu">
+    <h1 id="logo"><a href="./">GRADUX</a></h1>
+    <nav>
+      <ul>
+        <li><a href="./">Home</a></li>
+        <li><a href="#">Tự Học</a></li>
+        <li><a href="#">Donat</a></li>
         <li>
-            <a href="./search">Поиск Слова</a>
-            <ul class="sub-menu">
-                <li><a href="#">Русско-вьетнамский перевод</a></li>
-                <li><a href="#">Английско-русский перевод</a></li>
-                <li><a href="#">Русско-китайский перевод</a></li>
-            </ul>
+          <a href="#">Ngôn Ngữ</a>
         </li>
-        <li><a href="./dictionary">Словарь</a></li>
-        <li><a href="./donat.html">Донат</a></li>
         <li>
-            <a href="#">Язык</a>
-            <ul class="sub-menu">
-                <li><a href="./en/index.html">Английский</a></li>
-                <li><a href="./vi/index.html">Вьетнамский</a></li>
-                <li><a href="./ru/index.html">Русский</a></li>
-            </ul>
+          <a href="#">Tự Học</a>
         </li>
-    </ul>
-    </div>
-    <br>
-    <div id="button">
-    <button onclick="lekcika()">Лексика по русскому</button><br>
-    <button onclick="grammatica()">Грамматика по русскому</button><br>
-    <button onclick="ruen()">Русско-английский<br>словарь</button><br>
-    <button onclick="ruvi()">Русско-вьетнамский<br>словарь</button><br>
-    </div>
-<script>
-    function ruen() {
-        location.replace('./ru/ru-en/index.html')
-    }
-</script>
+      </ul>
+    </nav>
+  </header>
+  <marquee scrollamount="5" direction="right">
+    <p>Donat cho mìn đi mà. Làm ơn đó. Cho mìn xin donat đi. Không thì xem quảng cáo và bấm vào nó để giúp mình đc kum?</p>
+  </marquee>
 </body>
+
 </html>
