@@ -1,15 +1,29 @@
 * {
   margin: 0;
   padding: 0;
+  user-select: none;
 }
 
 :root {
-  --mauchudao: #007bff;
+  --mauchudao: #9ecdff;
+  --background-color: #f8f8f8;
+  --mauchudao2: #d4f6fc;
+  --maucuachu: #696969;
+  --font-family: 'Courier New', Courier, monospace;
+  --maucuamenu: #f8f8f8;
 }
 
 
 body {
   background: #fff;
+  color: var(--maucuachu);
+  font-family: var(--font-family);
+  user-select: none;
+  font-size: 20px;
+}
+
+#menu-mobile {
+  display: none;
 }
 
 #menu {
@@ -20,11 +34,12 @@ body {
   top: 0;
   position: -webkit-sticky;
   align-items: center;
+  z-index: 1;
 }
 
 #menu ul li {
   list-style-type: none;
-  padding: 20px 10px 20px 10px;
+  padding: 20px 12px 20px 12px;
   display: inline-block;
 }
 
@@ -32,14 +47,13 @@ body {
   text-decoration: none;
   color: var(--mauchudao);
   font-size: 18px;
-  padding: 20px 12px 20px 12px;
   transition: 0.25s;
+  padding: 20px 6px 20px 6px;
 }
 
 #menu ul li a:hover {
-  background: #007bff;
+  background: var(--mauchudao);
   color: white;
-  padding: 20px 12px 20px 12px;
 }
 
 #menu ul {
@@ -50,13 +64,109 @@ h1 a {
   text-decoration: none;
   color: var(--mauchudao);
 }
+
 #menu ul li:last-child {
   display: none;
 }
+
 #menu ul li:first-child {
   display: none;
 }
-.ads{
+
+#html {
+  top: 0;
+  text-decoration: none;
+  color: var(--maucuachu);
+  position: relative;
+  font-weight: bold;
+  margin: 10px 30px 10px 30px;
+  font-size: 24px;
+}
+
+#html:before {
+  content: "";
+  left: auto;
+  right: 0;
+  width: 0;
+  height: 100%;
+  background: #d4f6fc;
+  transition: 0.25s;
+  position: absolute;
+  z-index: -1;
+  opacity: 0.5;
+}
+
+#html:hover:before {
+  width: 100%;
+  left: 0;
+  right: auto;
+}
+
+p {
+  align-items: center;
+}
+
+
+footer {
+  bottom: auto;
+  background: var(--maucuamenu);
   text-align: center;
-  border: 1px solid rgb(128, 128, 128);
+  padding: 10px;
+}
+
+#donat {
+  text-align: center;
+}
+
+#donat button {
+  background: #7aebff;
+  color: white;
+  border: none;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 3px;
+  margin: 10px;
+  padding: 12px 24px;
+  transition: 0.25s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+#donat button:hover {
+  background: #ff7a7a;
+}
+
+#watermark span {
+  z-index: 2;
+  position: absolute;
+  transform: rotate(30deg);
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+#watermark {
+  text-align: center;
+  align-items: center;
+}
+
+.logo-contact img {
+  width: 35px;
+  height: 35px;
+  padding: 5px;
+  margin: 5px;
+}
+
+#container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgb(0, 0, 0, 0.1);
+  border-radius: 8px;
+  position: relative;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }

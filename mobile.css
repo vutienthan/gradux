@@ -5,59 +5,49 @@
 
 :root {
   --mauchudao: #007bff;
+  --background-color: #f8f8f8;
+  --mauchudao2: #d4f6fc;
+  --maucuachu: #696969;
+  --font-family: 'Courier New', Courier, monospace;
+  --maucuamenu: #f8f8f8;
 }
 
+#menu-desktop {
+  display: none;
+}
 
 body {
   background: #fff;
+  color: var(--maucuachu);
+  font-family: var(--font-family);
+  user-select: ;
 }
 
-#menu {
-  display: flex;
-  align-items: center;
+footer {
+  bottom: auto;
+  background: var(--maucuamenu);
   text-align: center;
-  position: -webkit-sticky;
-  position: sticky;
-  margin: 14px 10% 14px 10%;
-  opacity: 1;
-  border: 1px solid rgb(128, 128, 128);
-  background: #f8f8f8;
-  border-radius: 40px;
+  padding: 10px;
 }
 
-#menu ul li {
-  list-style-type: none;
-  padding: 20px 12px 20px 0;
-  display: inline-block;
-}
-
-#menu ul li a {
-  text-decoration: none;
-  color: var(--mauchudao);
-  font-size: 18px;
-  padding: 20px 12px 20px 12px;
+#donat button {
+  background: #7aebff;
+  color: white;
+  border: none;
+  height: 100%;
+  font-size: 20px;
+  border-radius: 3px;
   transition: 0.25s;
-}
-
-#menu ul li a:hover {
-  opacity: 0.5;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 10px;
+  padding: 10px;
   
 }
 
-
-#menu ul {
-  display: inline-block;
+#donat button:hover {
+  background: #ff7a7a;
 }
-
-h1 a {
-  text-decoration: none;
-  color: var(--mauchudao);
-}
-
-#logo {
-  display: none;
-}
-
-#menu ul li:nth-child(2n) {
-  display: none;
+#donat{
+  text-align: center;
 }
