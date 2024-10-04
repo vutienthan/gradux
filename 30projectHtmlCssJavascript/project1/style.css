@@ -160,3 +160,11 @@ img {
 	left: unset;
 	right: 20px;
 }
+
+.card__size span:hover {
+	transform: scale(1.2);
+}
+
+.card:hover {
+	box-shadow: 0 4px 8px rgba(63, 145, 72, 0.5), 0 6px 20px rgba(50, 109, 116, 0.3);
+}
