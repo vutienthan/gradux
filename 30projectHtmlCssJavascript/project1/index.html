@@ -1,55 +1,40 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <title>Мой Первый Проект. Nike Zoom KD 12</title>
-    <meta charset="UTF-8"/>
-    <style>
-      *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      body {
-        background: linear-gradient(to right,#4daf54, #3d8880);
-        text-align: center;
-      }
-      .card{
-        background: #272d40;
-        color: white;
-        width: 320PX;
-        height: 400px;
-        position: relative;
-        
-      }
-    </style>
-  </head>
-  <body>
-    <div class ="card">
-      <div class = "add__bookmark">
-        <i class='bx bx-bookmarks'></i>
-      </div>
-      <div class = "add__card">
-        <box-icon name='cart-alt'></box-icon>
-      </div>
-      <div class = "image">
-        <img src="">
-      </div>
-      <div class = "title">
-        Nike Zoom KD 12
-      </div>
-      <div class = "price">
-        $99
-      </div>
-      <div class = "size">
-        Size:
-        <div class ="sub-size"></div>
-        <div class ="sub-size"></div>
-        <div class ="sub-size"></div>
-        <div class ="sub-size"></div>
-      </div>
-      <div class = "color"></div>
-      <div class = "button"></div>
-    </div>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Product Card</title>
+		<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+		<link rel="stylesheet" href="style.css" />
+	</head>
+	<body>
+		<div class="card">
+			<span class="like"><i class='bx bx-heart'></i></span>
+			<span class="cart"><i class='bx bx-cart-alt' ></i></span>
+			<div class="card__img">
+				<img src="Nike Zoom KD 12.png" alt="" />
+			</div>
+			<h2 class="card__title">Nike Zoom KD 12</h2>
+			<p class="card__price">$99</p>
+			<div class="card__size">
+				<h3>Size:</h3>
+				<span>6</span>
+				<span>7</span>
+				<span>8</span>
+				<span>9</span>
+			</div>
+			<div class="card__color">
+				<h3>Color:</h3>
+				<span class="green"></span>
+				<span class="red"></span>
+				<span class="black"></span>
+			</div>
+			<div class="card__action">
+				<button>Buy now</button>
+				<button>Add cart</button>
+			</div>
+		</div>
+	  <script crossorigin type="text/javascript" src="https://codesandbox.io/static/js/watermark-button.eeb14a97b.js"></script>
   </body>
 </html>
