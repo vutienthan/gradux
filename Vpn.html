@@ -14,7 +14,7 @@
     <style>
         /* === CSS Variables for Easy Customization === */
         :root {
-            --primary-color: #007bff; /* Main color for buttons and highlights */
+            --primary-color: #007bff;
             --primary-hover: #0056b3;
             --secondary-color: #6c757d;
             --background-color: #f8f9fa;
@@ -37,7 +37,7 @@
         }
 
         body {
-            font-family: 'Be Vietnam Pro', sans-serif;
+            font-family: 'Be Vietnam Pro', 'Noto Sans SC', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.6;
@@ -52,20 +52,11 @@
         section {
             padding: 80px 0;
         }
-
-        h1, h2, h3 {
-            line-height: 1.2;
-            margin-bottom: 20px;
-        }
         
         h2 {
             font-size: 2.5rem;
             text-align: center;
             margin-bottom: 60px;
-        }
-
-        p {
-            margin-bottom: 15px;
         }
 
         /* === Header & Navigation === */
@@ -114,21 +105,72 @@
             color: var(--primary-color);
         }
         
-        .lang-switcher button {
-            background: none;
+        /* === NEW Language Dropdown === */
+        .language-select {
+            position: relative;
+            font-weight: 500;
+        }
+
+        .selected-lang {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            padding: 5px 10px;
             border: 1px solid var(--border-color);
             border-radius: 5px;
-            padding: 5px 10px;
-            margin-left: 5px;
-            cursor: pointer;
-            font-family: 'Be Vietnam Pro', sans-serif;
-            transition: background-color 0.3s, color 0.3s;
+            transition: background-color 0.3s;
         }
         
-        .lang-switcher button.active {
-            background-color: var(--primary-color);
-            color: var(--light-text-color);
-            border-color: var(--primary-color);
+        .selected-lang:hover {
+            background-color: #f0f0f0;
+        }
+
+        .selected-lang .lang-text {
+            margin: 0 5px;
+        }
+        
+        .selected-lang .arrow {
+            font-size: 0.8em;
+            transition: transform 0.3s;
+        }
+
+        .lang-options {
+            display: none;
+            position: absolute;
+            top: 110%;
+            right: 0;
+            background-color: var(--card-background);
+            border: 1px solid var(--border-color);
+            border-radius: 5px;
+            box-shadow: var(--shadow);
+            list-style: none;
+            padding: 5px 0;
+            z-index: 10;
+            min-width: 180px;
+        }
+
+        .lang-options.show {
+            display: block;
+        }
+        
+        .language-select.active .selected-lang .arrow {
+            transform: rotate(180deg);
+        }
+        
+        .lang-options li {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        
+        .lang-options li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .lang-options li .lang-text {
+            margin: 0 10px;
         }
 
         /* === Hero Section === */
@@ -150,7 +192,6 @@
             margin: 0 auto 30px auto;
         }
         
-        /* === Buttons === */
         .btn {
             display: inline-block;
             padding: 12px 28px;
@@ -167,37 +208,6 @@
             color: var(--light-text-color);
         }
 
-        .btn-primary:hover {
-            background: var(--primary-hover);
-            transform: translateY(-2px);
-        }
-        
-        /* === Features Section === */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-        
-        .feature-card {
-            background: var(--card-background);
-            padding: 40px 20px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            transition: transform 0.3s;
-        }
-        
-        .feature-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .feature-card .icon {
-            font-size: 3rem;
-            color: var(--primary-color);
-            margin-bottom: 20px;
-        }
-        
         /* === Pricing Section === */
         #pricing {
             background-color: #fff;
@@ -206,7 +216,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 30px;
-            align-items: center;
+            align-items: stretch;
         }
 
         .pricing-card {
@@ -217,6 +227,8 @@
             text-align: center;
             box-shadow: var(--shadow);
             transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
         }
 
         .pricing-card:hover {
@@ -242,121 +254,64 @@
             font-weight: 700;
         }
 
-        .pricing-card h3 {
-            font-size: 1.5rem;
-            color: var(--primary-color);
-        }
-
         .price {
             font-size: 3rem;
             font-weight: 700;
             margin: 10px 0;
         }
         
-        .price span {
+        .price .period {
             font-size: 1rem;
             font-weight: 400;
             color: var(--secondary-color);
         }
-
+        
         .pricing-card ul {
             list-style: none;
             margin: 30px 0;
             text-align: left;
+            flex-grow: 1; /* Pushes button to bottom */
+        }
+        
+        .pricing-card .btn {
+            margin-top: auto; /* Aligns button to bottom */
         }
 
-        .pricing-card ul li {
-            margin-bottom: 15px;
-        }
+        /* (Other sections remain largely the same) */
+        .features-grid,.guide-content,.contact-buttons,footer {text-align:center;}
+        h1, h2, h3 { line-height: 1.2; margin-bottom: 20px; }
+        p { margin-bottom: 15px; }
+        .btn-primary:hover { background: var(--primary-hover); transform: translateY(-2px); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .feature-card { background: var(--card-background); padding: 40px 20px; border-radius: 10px; box-shadow: var(--shadow); }
+        .feature-card .icon { font-size: 3rem; color: var(--primary-color); margin-bottom: 20px; }
+        .pricing-card h3 { font-size: 1.5rem; color: var(--primary-color); }
+        .pricing-card ul li { margin-bottom: 15px; }
+        .pricing-card ul li i { color: #28a745; margin-right: 10px; }
+        .guide-content { max-width: 800px; margin: 0 auto; background: var(--card-background); padding: 40px; border-radius: 10px; box-shadow: var(--shadow); }
+        .guide-steps { list-style-type: decimal; padding-left: 20px; }
+        .guide-steps li { margin-bottom: 20px; font-size: 1.1rem; }
+        .download-buttons .btn { margin: 10px; min-width: 220px; }
+        #contact { background: var(--primary-color); color: var(--light-text-color); }
+        #contact h2 { color: var(--light-text-color); }
+        .contact-buttons a { background: rgba(255, 255, 255, 0.2); color: var(--light-text-color); margin: 0 15px; min-width: 200px; }
+        .contact-buttons a:hover { background: rgba(255, 255, 255, 0.3); }
+        footer { padding: 20px 0; }
 
-        .pricing-card ul li i {
-            color: #28a745; /* Green checkmark */
-            margin-right: 10px;
-        }
-        
-        /* === Guide Section === */
-        .guide-content {
-            max-width: 800px;
-            margin: 0 auto;
-            background: var(--card-background);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-        }
-        
-        .guide-steps {
-            list-style-type: decimal;
-            padding-left: 20px;
-        }
-        .guide-steps li {
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-        
-        .download-buttons {
-            text-align: center;
-            margin-top: 30px;
-        }
-        
-        .download-buttons .btn {
-            margin: 10px;
-            min-width: 220px;
-        }
-        
-        /* === Contact Section === */
-        #contact {
-            background: var(--primary-color);
-            color: var(--light-text-color);
-            text-align: center;
-        }
-        #contact h2 {
-            color: var(--light-text-color);
-        }
-        .contact-buttons a {
-            background: rgba(255, 255, 255, 0.2);
-            color: var(--light-text-color);
-            margin: 0 15px;
-            min-width: 200px;
-        }
-        .contact-buttons a:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-        
-        /* === Footer === */
-        footer {
-            text-align: center;
-            padding: 20px 0;
-        }
-        
         /* === Responsive Design === */
         @media (max-width: 992px) {
-            .pricing-grid {
-                grid-template-columns: 1fr;
-            }
-            .pricing-card {
-                margin-bottom: 30px;
-            }
-            .navbar .container {
-                flex-direction: column;
-            }
-            .nav-menu {
-                margin-top: 15px;
-            }
-            .hero {
-                 padding: 140px 0 80px 0;
-            }
+            .pricing-grid { grid-template-columns: 1fr; }
+            .pricing-card { margin-bottom: 30px; }
+            .navbar .container { flex-direction: column; }
+            .nav-menu { margin-top: 15px; }
+            .hero { padding: 140px 0 80px 0; }
         }
-        
         @media (max-width: 768px) {
             h2 { font-size: 2rem; }
             .hero h1 { font-size: 2.5rem; }
             .nav-item { margin-left: 15px; }
-            .download-buttons .btn {
-                display: block;
-                margin: 10px auto;
-            }
+            .download-buttons .btn { display: block; margin: 10px auto; }
         }
-        
     </style>
 </head>
 <body>
@@ -369,120 +324,133 @@
                 <li class="nav-item"><a href="#pricing" class="nav-link" data-key="nav_pricing">Bảng Giá</a></li>
                 <li class="nav-item"><a href="#guide" class="nav-link" data-key="nav_guide">Hướng Dẫn</a></li>
                 <li class="nav-item"><a href="#contact" class="nav-link" data-key="nav_contact">Liên Hệ</a></li>
-                <li class="nav-item lang-switcher">
-                    <button class="lang-switch" data-lang="vi">🇻🇳</button>
-                    <button class="lang-switch" data-lang="en">🇺🇸</button>
-                    <button class="lang-switch" data-lang="ru">🇷🇺</button>
+                <li class="nav-item">
+                    <div class="language-select">
+                        <div class="selected-lang">
+                            <span class="lang-flag">🇻🇳</span>
+                            <span class="lang-text">VN - Tiếng Việt</span>
+                            <span class="arrow">▼</span>
+                        </div>
+                        <ul class="lang-options">
+                            <li data-lang="vi"><span class="lang-flag">🇻🇳</span><span class="lang-text">VN - Tiếng Việt</span></li>
+                            <li data-lang="en"><span class="lang-flag">🇺🇸</span><span class="lang-text">EN - English</span></li>
+                            <li data-lang="ru"><span class="lang-flag">🇷🇺</span><span class="lang-text">RU - Русский</span></li>
+                            <li data-lang="zh"><span class="lang-flag">🇨🇳</span><span class="lang-text">ZH - 中文</span></li>
+                        </ul>
+                    </div>
                 </li>
             </ul>
         </div>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <h1 data-key="hero_title">Truy Cập Internet Tự Do & Bảo Mật</h1>
-            <p data-key="hero_subtitle">Tốc độ cao, ổn định, vượt mọi rào cản. Tương thích trên mọi thiết bị.</p>
-            <a href="#pricing" class="btn btn-primary" data-key="hero_button">Bắt Đầu Ngay</a>
-        </div>
-    </section>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 data-key="hero_title">Truy Cập Internet Tự Do & Bảo Mật</h1>
+                <p data-key="hero_subtitle">Tốc độ cao, ổn định, vượt mọi rào cản. Tương thích trên mọi thiết bị.</p>
+                <a href="#pricing" class="btn btn-primary" data-key="hero_button">Bắt Đầu Ngay</a>
+            </div>
+        </section>
 
-    <section id="features">
-        <div class="container">
-            <h2 data-key="features_title">Tại Sao Chọn Chúng Tôi?</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="icon"><i class="fas fa-rocket"></i></div>
-                    <h3 data-key="feature1_title">Tốc Độ Siêu Nhanh</h3>
-                    <p data-key="feature1_desc">Máy chủ mạnh mẽ tại nhiều quốc gia đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                    <h3 data-key="feature2_title">Bảo Mật Tuyệt Đối</h3>
-                    <p data-key="feature2_desc">Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.</p>
-                </div>
-                <div class="feature-card">
-                    <div class="icon"><i class="fas fa-globe-asia"></i></div>
-                    <h3 data-key="feature3_title">Vượt Mọi Giới Hạn</h3>
-                    <p data-key="feature3_desc">Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.</p>
+        <section id="features">
+            <div class="container">
+                <h2 data-key="features_title">Tại Sao Chọn Chúng Tôi?</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-rocket"></i></div>
+                        <h3 data-key="feature1_title">Tốc Độ Siêu Nhanh</h3>
+                        <p data-key="feature1_desc">Máy chủ mạnh mẽ đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 data-key="feature2_title">Bảo Mật Tuyệt Đối</h3>
+                        <p data-key="feature2_desc">Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                        <h3 data-key="feature3_title">Vượt Mọi Giới Hạn</h3>
+                        <p data-key="feature3_desc">Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="pricing">
-        <div class="container">
-            <h2 data-key="pricing_title">Bảng Giá Linh Hoạt</h2>
-            <div class="pricing-grid">
-                <div class="pricing-card">
-                    <h3 data-key="price_trial_title">Dùng Thử</h3>
-                    <div class="price" data-key="price_trial_cost">Miễn Phí</div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_trial_f1">Dung lượng 1GB</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_trial_f2">Hỗ trợ 1 thiết bị</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_trial_f3">Máy chủ quốc tế</span></li>
-                    </ul>
-                    <a href="#" id="trial-button" class="btn btn-primary" data-key="price_trial_button">Nhận Dùng Thử</a>
-                </div>
+        <section id="pricing">
+            <div class="container">
+                <h2 data-key="pricing_title">Bảng Giá Linh Hoạt</h2>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3 data-key="price_trial_title">Dùng Thử</h3>
+                        <div class="price" data-key="price_trial_cost">Miễn Phí</div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_trial_f1">Dung lượng 1GB</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_trial_f2">Hỗ trợ 1 thiết bị</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_trial_f3">Máy chủ quốc tế</span></li>
+                        </ul>
+                        <a href="#" id="trial-button" class="btn btn-primary" data-key="price_trial_button">Nhận Dùng Thử</a>
+                    </div>
 
-                <div class="pricing-card popular">
-                    <div class="popular-badge" data-key="price_popular_badge">Phổ biến</div>
-                    <h3 data-key="price_intl_title">Gói Quốc Tế</h3>
-                    <div class="price">100k <span data-key="price_month">/ tháng</span></div>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f1">Không giới hạn dung lượng</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f2">Hỗ trợ 5 thiết bị</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f3">Ưu tiên máy chủ tốc độ cao</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f4">Hỗ trợ 24/7</span></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" data-key="price_buy_button">Mua Ngay</a>
-                </div>
+                    <div class="pricing-card popular">
+                        <div class="popular-badge" data-key="price_popular_badge">Phổ biến</div>
+                        <h3 data-key="price_intl_title">Gói Quốc Tế</h3>
+                        <div class="price"><span data-key="price_intl_cost">69.000đ</span> <span class="period" data-key="price_period">/ tháng</span></div>
+                        <ul>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f1">Dung lượng 500GB / tháng</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f2">Không giới hạn thiết bị</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f3">Ưu tiên máy chủ tốc độ cao</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_intl_f4">Hỗ trợ 24/7</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary" data-key="price_buy_button">Mua Ngay</a>
+                    </div>
 
-                <div class="pricing-card">
-                    <h3 data-key="price_combo_title">Gói Toàn Diện</h3>
-                    <div class="price">150k <span data-key="price_month_2">/ tháng</span></div>
-                     <ul>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f1">Mọi quyền lợi Gói Quốc Tế</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f2">Thêm máy chủ Việt Nam</span></li>
-                        <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f3">Tối ưu cho game thủ</span></li>
-                    </ul>
-                    <a href="#contact" class="btn btn-primary" data-key="price_buy_button_2">Mua Ngay</a>
+                    <div class="pricing-card">
+                        <h3 data-key="price_combo_title">Gói Toàn Diện</h3>
+                        <div class="price"><span data-key="price_combo_cost">99.000đ</span> <span class="period" data-key="price_period_2">/ tháng</span></div>
+                         <ul>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f1">Không giới hạn dung lượng</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f2">Không giới hạn thiết bị</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f3">Máy chủ Việt Nam & Quốc Tế</span></li>
+                            <li><i class="fas fa-check-circle"></i><span data-key="price_combo_f4">Hỗ trợ ưu tiên</span></li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary" data-key="price_buy_button_2">Mua Ngay</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="guide">
-        <div class="container">
-            <h2 data-key="guide_title">Hướng Dẫn Sử Dụng Outline</h2>
-            <div class="guide-content">
-                <ol class="guide-steps">
-                    <li data-key="guide_step1">Nhận một khóa truy cập (access key) từ chúng tôi sau khi đăng ký.</li>
-                    <li data-key="guide_step2">Tải và cài đặt ứng dụng Outline Client cho thiết bị của bạn.</li>
-                    <li data-key="guide_step3">Mở ứng dụng Outline, nhấn vào dấu (+) và dán khóa truy cập của bạn.</li>
-                    <li data-key="guide_step4">Nhấn nút "Connect" để bắt đầu sử dụng VPN. Chúc bạn thành công!</li>
-                </ol>
-                <div class="download-buttons">
-                    <a href="https://play.google.com/store/apps/details?id=org.outline.android.client" target="_blank" class="btn">
-                        <i class="fab fa-google-play"></i> <span data-key="guide_googleplay">Tải về từ Google Play</span>
-                    </a>
-                    <a href="https://itunes.apple.com/app/outline-app/id1356177741" target="_blank" class="btn">
-                        <i class="fab fa-app-store-ios"></i> <span data-key="guide_appstore">Tải về từ App Store</span>
-                    </a>
+        </section>
+        
+        <section id="guide">
+            <div class="container">
+                <h2 data-key="guide_title">Hướng Dẫn Sử Dụng Outline</h2>
+                <div class="guide-content">
+                    <ol class="guide-steps">
+                        <li data-key="guide_step1">Nhận một khóa truy cập (access key) từ chúng tôi sau khi đăng ký.</li>
+                        <li data-key="guide_step2">Tải và cài đặt ứng dụng Outline Client cho thiết bị của bạn.</li>
+                        <li data-key="guide_step3">Mở ứng dụng Outline, nhấn vào dấu (+) và dán khóa truy cập của bạn.</li>
+                        <li data-key="guide_step4">Nhấn nút "Connect" để bắt đầu sử dụng VPN. Chúc bạn thành công!</li>
+                    </ol>
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=org.outline.android.client" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> <span data-key="guide_googleplay">Tải về từ Google Play</span>
+                        </a>
+                        <a href="https://itunes.apple.com/app/outline-app/id1356177741" target="_blank" class="btn">
+                            <i class="fab fa-app-store-ios"></i> <span data-key="guide_appstore">Tải về từ App Store</span>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
-    
-    <section id="contact">
-        <div class="container">
-            <h2 data-key="contact_title">Sẵn Sàng Bắt Đầu?</h2>
-            <p data-key="contact_subtitle">Liên hệ với chúng tôi qua Zalo hoặc Telegram để được tư vấn và đăng ký!</p>
-            <div class="contact-buttons">
-                <a href="https://zalo.me/YOUR_ZALO_NUMBER" target="_blank" class="btn"><i class="fas fa-comment-dots"></i> Zalo</a>
-                <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn"><i class="fab fa-telegram-plane"></i> Telegram</a>
+        </section>
+        
+        <section id="contact">
+            <div class="container">
+                <h2 data-key="contact_title">Sẵn Sàng Bắt Đầu?</h2>
+                <p data-key="contact_subtitle">Liên hệ với chúng tôi qua Zalo hoặc Telegram để được tư vấn và đăng ký!</p>
+                <div class="contact-buttons">
+                    <a href="https://zalo.me/YOUR_ZALO_NUMBER" target="_blank" class="btn"><i class="fas fa-comment-dots"></i> Zalo</a>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <footer>
         <div class="container">
@@ -493,205 +461,191 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-
-        // --- LANGUAGE DATA ---
-        // Add all text content here. This makes it easy to manage.
         const translations = {
             'vi': {
                 site_title: "VPN Nhanh & Bảo Mật",
-                nav_features: "Tính Năng",
-                nav_pricing: "Bảng Giá",
-                nav_guide: "Hướng Dẫn",
-                nav_contact: "Liên Hệ",
+                nav_features: "Tính Năng", nav_pricing: "Bảng Giá", nav_guide: "Hướng Dẫn", nav_contact: "Liên Hệ",
                 hero_title: "Truy Cập Internet Tự Do & Bảo Mật",
                 hero_subtitle: "Tốc độ cao, ổn định, vượt mọi rào cản. Tương thích trên mọi thiết bị.",
                 hero_button: "Bắt Đầu Ngay",
                 features_title: "Tại Sao Chọn Chúng Tôi?",
-                feature1_title: "Tốc Độ Siêu Nhanh",
-                feature1_desc: "Máy chủ mạnh mẽ tại nhiều quốc gia đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.",
-                feature2_title: "Bảo Mật Tuyệt Đối",
-                feature2_desc: "Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.",
-                feature3_title: "Vượt Mọi Giới Hạn",
-                feature3_desc: "Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.",
+                feature1_title: "Tốc Độ Siêu Nhanh", feature1_desc: "Máy chủ mạnh mẽ đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.",
+                feature2_title: "Bảo Mật Tuyệt Đối", feature2_desc: "Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.",
+                feature3_title: "Vượt Mọi Giới Hạn", feature3_desc: "Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.",
                 pricing_title: "Bảng Giá Linh Hoạt",
-                price_trial_title: "Dùng Thử",
-                price_trial_cost: "Miễn Phí",
-                price_trial_f1: "Dung lượng 1GB",
-                price_trial_f2: "Hỗ trợ 1 thiết bị",
-                price_trial_f3: "Máy chủ quốc tế",
+                price_trial_title: "Dùng Thử", price_trial_cost: "Miễn Phí",
+                price_trial_f1: "Dung lượng 1GB", price_trial_f2: "Hỗ trợ 1 thiết bị", price_trial_f3: "Máy chủ quốc tế",
                 price_trial_button: "Nhận Dùng Thử",
                 price_popular_badge: "Phổ biến",
-                price_intl_title: "Gói Quốc Tế",
-                price_month: "/ tháng",
-                price_month_2: "/ tháng",
-                price_intl_f1: "Không giới hạn dung lượng",
-                price_intl_f2: "Hỗ trợ 5 thiết bị",
-                price_intl_f3: "Ưu tiên máy chủ tốc độ cao",
-                price_intl_f4: "Hỗ trợ 24/7",
-                price_buy_button: "Mua Ngay",
-                price_buy_button_2: "Mua Ngay",
-                price_combo_title: "Gói Toàn Diện",
-                price_combo_f1: "Mọi quyền lợi Gói Quốc Tế",
-                price_combo_f2: "Thêm máy chủ Việt Nam",
-                price_combo_f3: "Tối ưu cho game thủ",
+                price_period: "/ tháng", price_period_2: "/ tháng",
+                price_intl_title: "Gói Quốc Tế", price_intl_cost: "69.000đ",
+                price_intl_f1: "Dung lượng 500GB / tháng", price_intl_f2: "Không giới hạn thiết bị",
+                price_intl_f3: "Ưu tiên máy chủ tốc độ cao", price_intl_f4: "Hỗ trợ 24/7",
+                price_combo_title: "Gói Toàn Diện", price_combo_cost: "99.000đ",
+                price_combo_f1: "Không giới hạn dung lượng", price_combo_f2: "Không giới hạn thiết bị",
+                price_combo_f3: "Máy chủ Việt Nam & Quốc Tế", price_combo_f4: "Hỗ trợ ưu tiên",
+                price_buy_button: "Mua Ngay", price_buy_button_2: "Mua Ngay",
                 guide_title: "Hướng Dẫn Sử Dụng Outline",
                 guide_step1: "Nhận một khóa truy cập (access key) từ chúng tôi sau khi đăng ký.",
                 guide_step2: "Tải và cài đặt ứng dụng Outline Client cho thiết bị của bạn.",
                 guide_step3: "Mở ứng dụng Outline, nhấn vào dấu (+) và dán khóa truy cập của bạn.",
                 guide_step4: "Nhấn nút \"Connect\" để bắt đầu sử dụng VPN. Chúc bạn thành công!",
-                guide_googleplay: "Tải về từ Google Play",
-                guide_appstore: "Tải về từ App Store",
-                contact_title: "Sẵn Sàng Bắt Đầu?",
-                contact_subtitle: "Liên hệ với chúng tôi qua Zalo hoặc Telegram để được tư vấn và đăng ký!",
+                guide_googleplay: "Tải về từ Google Play", guide_appstore: "Tải về từ App Store",
+                contact_title: "Sẵn Sàng Bắt Đầu?", contact_subtitle: "Liên hệ với chúng tôi qua Zalo hoặc Telegram để được tư vấn và đăng ký!",
             },
             'en': {
                 site_title: "Fast & Secure VPN",
-                nav_features: "Features",
-                nav_pricing: "Pricing",
-                nav_guide: "Guide",
-                nav_contact: "Contact",
+                nav_features: "Features", nav_pricing: "Pricing", nav_guide: "Guide", nav_contact: "Contact",
                 hero_title: "Access the Internet Freely & Securely",
-                hero_subtitle: "High speed, stable connection, bypass any restrictions. Compatible with all devices.",
+                hero_subtitle: "High speed, stable, bypass any restrictions. Compatible with all devices.",
                 hero_button: "Get Started Now",
                 features_title: "Why Choose Us?",
-                feature1_title: "Super Fast Speed",
-                feature1_desc: "Powerful servers in many countries ensure a fast and stable connection for streaming and gaming.",
-                feature2_title: "Absolute Security",
-                feature2_desc: "Military-grade AES-256 encryption protects your personal data from all prying eyes.",
-                feature3_title: "Bypass All Limits",
-                feature3_desc: "Easily access websites, services, and applications blocked in your region.",
+                feature1_title: "Super Fast Speed", feature1_desc: "Powerful servers ensure a fast and stable connection for streaming and gaming.",
+                feature2_title: "Absolute Security", feature2_desc: "Military-grade AES-256 encryption protects your personal data from prying eyes.",
+                feature3_title: "Bypass All Limits", feature3_desc: "Easily access websites, services, and applications blocked in your region.",
                 pricing_title: "Flexible Pricing",
-                price_trial_title: "Trial",
-                price_trial_cost: "Free",
-                price_trial_f1: "1GB of data",
-                price_trial_f2: "1 device support",
-                price_trial_f3: "International servers",
+                price_trial_title: "Trial", price_trial_cost: "Free",
+                price_trial_f1: "1GB data", price_trial_f2: "1 device support", price_trial_f3: "International servers",
                 price_trial_button: "Get Trial",
                 price_popular_badge: "Popular",
-                price_intl_title: "International Plan",
-                price_month: "/ month",
-                price_month_2: "/ month",
-                price_intl_f1: "Unlimited data",
-                price_intl_f2: "5 devices support",
-                price_intl_f3: "Priority high-speed servers",
-                price_intl_f4: "24/7 support",
-                price_buy_button: "Buy Now",
-                price_buy_button_2: "Buy Now",
-                price_combo_title: "Comprehensive Plan",
-                price_combo_f1: "All benefits of Intl Plan",
-                price_combo_f2: "Additional Vietnam servers",
-                price_combo_f3: "Optimized for gamers",
+                price_period: "/ month", price_period_2: "/ month",
+                price_intl_title: "International Plan", price_intl_cost: "$2.99",
+                price_intl_f1: "500GB data / month", price_intl_f2: "Unlimited devices",
+                price_intl_f3: "High-speed priority servers", price_intl_f4: "24/7 support",
+                price_combo_title: "Comprehensive Plan", price_combo_cost: "$3.99",
+                price_combo_f1: "Unlimited data", price_combo_f2: "Unlimited devices",
+                price_combo_f3: "Vietnam & Global Servers", price_combo_f4: "Priority support",
+                price_buy_button: "Buy Now", price_buy_button_2: "Buy Now",
                 guide_title: "How to Use Outline",
                 guide_step1: "Get an access key from us after subscribing.",
                 guide_step2: "Download and install the Outline Client application for your device.",
                 guide_step3: "Open the Outline app, tap the (+) icon, and paste your access key.",
                 guide_step4: "Press the \"Connect\" button to start using the VPN. Enjoy!",
-                guide_googleplay: "Get it on Google Play",
-                guide_appstore: "Download on the App Store",
-                contact_title: "Ready to Start?",
-                contact_subtitle: "Contact us via Zalo or Telegram for consultation and registration!",
+                guide_googleplay: "Get it on Google Play", guide_appstore: "Download on the App Store",
+                contact_title: "Ready to Start?", contact_subtitle: "Contact us via Zalo or Telegram for consultation and registration!",
             },
             'ru': {
                 site_title: "Быстрый и безопасный VPN",
-                nav_features: "Функции",
-                nav_pricing: "Цены",
-                nav_guide: "Инструкция",
-                nav_contact: "Контакты",
+                nav_features: "Функции", nav_pricing: "Цены", nav_guide: "Инструкция", nav_contact: "Контакты",
                 hero_title: "Свободный и безопасный доступ в Интернет",
-                hero_subtitle: "Высокая скорость, стабильное соединение, обход любых ограничений. Совместимость со всеми устройствами.",
+                hero_subtitle: "Высокая скорость, стабильность, обход любых ограничений. Совместимо со всеми устройствами.",
                 hero_button: "Начать сейчас",
                 features_title: "Почему выбирают нас?",
-                feature1_title: "Сверхбыстрая скорость",
-                feature1_desc: "Мощные серверы во многих странах обеспечивают быстрое и стабильное соединение для стриминга и игр.",
-                feature2_title: "Абсолютная безопасность",
-                feature2_desc: "Шифрование военного уровня AES-256 защищает ваши личные данные от посторонних глаз.",
-                feature3_title: "Обход всех ограничений",
-                feature3_desc: "Легкий доступ к веб-сайтам, сервисам и приложениям, заблокированным в вашем регионе.",
+                feature1_title: "Сверхбыстрая скорость", feature1_desc: "Мощные серверы обеспечивают быстрое и стабильное соединение для потоковой передачи и игр.",
+                feature2_title: "Абсолютная безопасность", feature2_desc: "Шифрование военного уровня AES-256 защищает ваши личные данные от посторонних глаз.",
+                feature3_title: "Обход всех ограничений", feature3_desc: "Легкий доступ к веб-сайтам, службам и приложениям, заблокированным в вашем регионе.",
                 pricing_title: "Гибкие тарифы",
-                price_trial_title: "Пробный",
-                price_trial_cost: "Бесплатно",
-                price_trial_f1: "1 ГБ данных",
-                price_trial_f2: "Поддержка 1 устройства",
-                price_trial_f3: "Международные серверы",
+                price_trial_title: "Пробный", price_trial_cost: "Бесплатно",
+                price_trial_f1: "1 ГБ данных", price_trial_f2: "Поддержка 1 устройства", price_trial_f3: "Международные серверы",
                 price_trial_button: "Попробовать",
                 price_popular_badge: "Популярный",
-                price_intl_title: "Международный план",
-                price_month: "/ месяц",
-                price_month_2: "/ месяц",
-                price_intl_f1: "Безлимитные данные",
-                price_intl_f2: "Поддержка 5 устройств",
-                price_intl_f3: "Приоритетные высокоскоростные серверы",
-                price_intl_f4: "Поддержка 24/7",
-                price_buy_button: "Купить сейчас",
-                price_buy_button_2: "Купить сейчас",
-                price_combo_title: "Комплексный план",
-                price_combo_f1: "Все преимущества Межд. плана",
-                price_combo_f2: "Дополнительные серверы во Вьетнаме",
-                price_combo_f3: "Оптимизировано для геймеров",
+                price_period: "/ месяц", price_period_2: "/ месяц",
+                price_intl_title: "Международный", price_intl_cost: "249₽",
+                price_intl_f1: "500 ГБ данных / месяц", price_intl_f2: "Неограниченно устройств",
+                price_intl_f3: "Приоритетные серверы", price_intl_f4: "Поддержка 24/7",
+                price_combo_title: "Комплексный", price_combo_cost: "349₽",
+                price_combo_f1: "Безлимитные данные", price_combo_f2: "Неограниченно устройств",
+                price_combo_f3: "Серверы во Вьетнаме и мире", price_combo_f4: "Приоритетная поддержка",
+                price_buy_button: "Купить", price_buy_button_2: "Купить",
                 guide_title: "Как использовать Outline",
                 guide_step1: "Получите от нас ключ доступа после подписки.",
-                guide_step2: "Скачайте и установите приложение Outline Client для вашего устройства.",
-                guide_step3: "Откройте приложение Outline, нажмите на значок (+) и вставьте свой ключ доступа.",
-                guide_step4: "Нажмите кнопку «Подключиться», чтобы начать использовать VPN. Удачи!",
-                guide_googleplay: "Загрузите в Google Play",
-                guide_appstore: "Загрузите в App Store",
-                contact_title: "Готовы начать?",
-                contact_subtitle: "Свяжитесь с нами через Zalo или Telegram для консультации и регистрации!",
+                guide_step2: "Загрузите и установите клиент Outline для вашего устройства.",
+                guide_step3: "Откройте приложение Outline, нажмите значок (+) и вставьте ключ доступа.",
+                guide_step4: "Нажмите кнопку «Подключиться», чтобы начать использовать VPN. Наслаждайтесь!",
+                guide_googleplay: "Загрузите в Google Play", guide_appstore: "Загрузите в App Store",
+                contact_title: "Готовы начать?", contact_subtitle: "Свяжитесь с нами через Zalo или Telegram для консультации и регистрации!",
+            },
+            'zh': {
+                site_title: "快速安全的VPN",
+                nav_features: "功能", nav_pricing: "价格", nav_guide: "指南", nav_contact: "联系",
+                hero_title: "自由安全地访问互联网",
+                hero_subtitle: "高速、稳定、突破任何限制。兼容所有设备。",
+                hero_button: "立即开始",
+                features_title: "为什么选择我们？",
+                feature1_title: "超快速度", feature1_desc: "强大的服务器确保为流媒体和游戏提供快速稳定的连接。",
+                feature2_title: "绝对安全", feature2_desc: "军用级AES-256加密可保护您的个人数据免受窥探。",
+                feature3_title: "无视限制", feature3_desc: "轻松访问您所在地区被阻止的网站、服务和应用程序。",
+                pricing_title: "灵活的定价",
+                price_trial_title: "试用", price_trial_cost: "免费",
+                price_trial_f1: "1GB流量", price_trial_f2: "支持1台设备", price_trial_f3: "国际服务器",
+                price_trial_button: "获取试用",
+                price_popular_badge: "热门",
+                price_period: "/ 月", price_period_2: "/ 月",
+                price_intl_title: "国际套餐", price_intl_cost: "¥20",
+                price_intl_f1: "500GB流量 / 月", price_intl_f2: "不限设备数量",
+                price_intl_f3: "高速优先服务器", price_intl_f4: "24/7 支持",
+                price_combo_title: "全能套餐", price_combo_cost: "¥28",
+                price_combo_f1: "无限流量", price_combo_f2: "不限设备数量",
+                price_combo_f3: "越南及全球服务器", price_combo_f4: "优先支持",
+                price_buy_button: "立即购买", price_buy_button_2: "立即购买",
+                guide_title: "如何使用Outline",
+                guide_step1: "订阅后从我们这里获取访问密钥。",
+                guide_step2: "为您的设备下载并安装Outline客户端应用程序。",
+                guide_step3: "打开Outline应用，点击(+)图标，然后粘贴您的访问密钥。",
+                guide_step4: "按“连接”按钮开始使用VPN。祝您使用愉快！",
+                guide_googleplay: "在Google Play上获取", guide_appstore: "在App Store上下载",
+                contact_title: "准备好开始了吗？", contact_subtitle: "通过Zalo或Telegram联系我们进行咨询和注册！",
             }
         };
 
-        const langSwitchers = document.querySelectorAll('.lang-switch');
+        const langSelect = document.querySelector('.language-select');
+        const selectedLang = document.querySelector('.selected-lang');
+        const langOptions = document.querySelector('.lang-options');
+        const langOptionItems = document.querySelectorAll('.lang-options li');
         
+        // --- Language Switcher Logic ---
+        selectedLang.addEventListener('click', () => {
+            langOptions.classList.toggle('show');
+            langSelect.classList.toggle('active');
+        });
+
+        langOptionItems.forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                setLanguage(lang);
+                langOptions.classList.remove('show');
+                langSelect.classList.remove('active');
+            });
+        });
+        
+        document.addEventListener('click', (e) => {
+            if (!langSelect.contains(e.target)) {
+                 langOptions.classList.remove('show');
+                 langSelect.classList.remove('active');
+            }
+        });
+
+        // --- Core Translation Function ---
         const setLanguage = (lang) => {
-            // Update all text based on data-key attribute
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
                 if (translations[lang] && translations[lang][key]) {
                     element.innerHTML = translations[lang][key];
                 }
             });
-            
-            // Set lang attribute on <html> tag
             document.documentElement.lang = lang;
-            
-            // Save language to local storage
             localStorage.setItem('language', lang);
 
-            // Update active class on buttons
-            langSwitchers.forEach(sw => {
-                sw.classList.remove('active');
-                if (sw.getAttribute('data-lang') === lang) {
-                    sw.classList.add('active');
-                }
-            });
+            // Update the selected language display
+            const selectedOption = document.querySelector(`.lang-options li[data-lang="${lang}"]`);
+            if (selectedOption) {
+                selectedLang.innerHTML = selectedOption.innerHTML + '<span class="arrow">▼</span>';
+            }
         };
 
-        // Add click event to each language switcher button
-        langSwitchers.forEach(switcher => {
-            switcher.addEventListener('click', () => {
-                const lang = switcher.getAttribute('data-lang');
-                setLanguage(lang);
-            });
-        });
-
-        // Check for saved language in local storage, or default to 'vi'
         const savedLang = localStorage.getItem('language') || 'vi';
         setLanguage(savedLang);
 
-        // --- ZALO TRIAL BUTTON LOGIC ---
+        // --- Zalo Trial Button Logic ---
         const trialButton = document.getElementById('trial-button');
         trialButton.addEventListener('click', (e) => {
-            e.preventDefault(); // Prevent page from jumping to top
-            
-            // !! IMPORTANT: Replace YOUR_ZALO_NUMBER with your actual Zalo phone number !!
-            const zaloNumber = 'YOUR_ZALO_NUMBER'; 
+            e.preventDefault();
+            const zaloNumber = 'YOUR_ZALO_NUMBER'; // !! THAY SỐ CỦA BẠN VÀO ĐÂY
             const message = encodeURIComponent('Mình muốn dùng thử 1GB VPN');
-            
-            if (zaloNumber === 'YOUR_ZALO_NUMBER') {
+            if (zaloNumber === 'YOUR_ZALO_NUMBER' || !zaloNumber) {
                 alert('Vui lòng cấu hình số Zalo trong file HTML (tìm YOUR_ZALO_NUMBER)');
                 return;
             }
-            
             window.open(`https://zalo.me/${zaloNumber}?text=${message}`, '_blank');
         });
     });
