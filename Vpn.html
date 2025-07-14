@@ -3,12 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;700&display=swap" rel="stylesheet">
     <title data-key="site_title">Rabbit VPN - Nhanh, Bảo Mật, Ẩn Danh</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;700&family=Noto+Sans+SC:wght@400;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <style>
         :root {
-            --primary-color: #ff6b6b; /* A more vibrant, action-oriented color */
+            --primary-color: #ff6b6b;
             --primary-hover: #ff4757;
             --secondary-color: #576574;
             --background-color: #f5f6fa;
@@ -23,7 +28,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
-            font-family: 'Be Vietnam Pro', 'Noto Sans SC', sans-serif;
+            font-family: 'Be Vietnam Pro', 'Roboto', 'Noto Sans SC', sans-serif;
             background-color: var(--background-color);
             color: var(--text-color);
             line-height: 1.7;
@@ -31,6 +36,7 @@
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
         section { padding: 80px 0; }
         h2 { font-size: 2.5rem; text-align: center; margin-bottom: 10px; font-weight: 700; }
+        h3 { font-size: 1.5rem; color: var(--text-color); margin-bottom: 15px; }
         .section-subtitle { text-align: center; max-width: 600px; margin: 0 auto 60px auto; color: var(--secondary-color); font-size: 1.1rem; }
         
         /* Navbar */
@@ -59,15 +65,8 @@
         .hero h1 { font-size: 3.5rem; font-weight: 700; }
         .hero p { font-size: 1.2rem; max-width: 600px; margin: 0 auto 30px auto; }
         
-        /* NEW Marketing Banner */
-        .promo-banner {
-            background: linear-gradient(45deg, var(--primary-color), #ff8e53);
-            color: var(--light-text-color);
-            text-align: center;
-            padding: 20px;
-            font-size: 1.2rem;
-            font-weight: 700;
-        }
+        /* Promo Banner */
+        .promo-banner { background: linear-gradient(45deg, var(--primary-color), #ff8e53); color: var(--light-text-color); text-align: center; padding: 20px; font-size: 1.2rem; font-weight: 700; }
         .promo-banner i { margin-right: 10px; }
 
         /* Button */
@@ -85,12 +84,7 @@
         #pricing { background-color: #fff; }
         .pricing-grid { display: grid; grid-template-columns: 1fr 1.1fr 1fr; align-items: center; gap: 20px; }
         .pricing-card { background: var(--card-background); border: 1px solid var(--border-color); border-radius: 10px; padding: 40px; text-align: center; box-shadow: var(--shadow); transition: all 0.3s; display: flex; flex-direction: column; height: 100%; }
-        .pricing-card.popular {
-            border: 2px solid var(--primary-color);
-            position: relative;
-            transform: scale(1.05); /* Make it stand out by default */
-            box-shadow: var(--shadow-strong);
-        }
+        .pricing-card.popular { border: 2px solid var(--primary-color); position: relative; transform: scale(1.05); box-shadow: var(--shadow-strong); }
         .popular-badge { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: linear-gradient(45deg, var(--primary-color), #ff4757); color: var(--light-text-color); padding: 7px 20px; border-radius: 50px; font-size: 1rem; font-weight: 700; }
         .price { font-size: 3rem; font-weight: 700; margin: 10px 0; color: var(--primary-color); }
         .price .period { font-size: 1rem; font-weight: 400; color: var(--secondary-color); }
@@ -99,7 +93,8 @@
         .pricing-card ul li i { color: var(--success-color); margin-right: 10px; margin-top: 4px; }
         .pricing-card .btn { margin-top: auto; }
 
-        /* NEW Testimonials Section */
+        /* Testimonials Section */
+        #testimonials { background-color: var(--background-color); }
         .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
         .testimonial-card { background-color: var(--card-background); padding: 30px; border-radius: 10px; box-shadow: var(--shadow); border-left: 5px solid var(--primary-color); }
         .testimonial-card p { font-style: italic; margin-bottom: 20px; }
@@ -109,9 +104,10 @@
         .author-info .stars { color: #fbc531; }
 
         /* Guide Section */
+        #guide { background-color: #fff; }
         .guide-content { max-width: 800px; margin: 0 auto; background: var(--card-background); padding: 40px; border-radius: 10px; box-shadow: var(--shadow); }
-        .guide-steps { list-style-type: none; counter-reset: guide-counter; }
-        .guide-steps li { margin-bottom: 20px; font-size: 1.1rem; position: relative; padding-left: 40px; }
+        .guide-steps { list-style-type: none; counter-reset: guide-counter; padding: 0; }
+        .guide-steps li { margin-bottom: 20px; font-size: 1.1rem; position: relative; padding-left: 45px; }
         .guide-steps li::before { counter-increment: guide-counter; content: counter(guide-counter); position: absolute; left: 0; top: 0; width: 30px; height: 30px; background-color: var(--primary-color); color: white; border-radius: 50%; text-align: center; line-height: 30px; font-weight: bold; }
         .download-buttons { text-align: center; margin-top: 30px; }
         .download-buttons .btn { margin: 10px; min-width: 220px; }
@@ -122,23 +118,18 @@
         .contact-buttons a { background: var(--primary-color); color: var(--light-text-color); margin: 0 15px; min-width: 200px; }
         .contact-buttons a:hover { background: var(--primary-hover); }
 
-        /* Footer */
         footer { text-align: center; padding: 20px 0; background-color: #2f3542; color: #ced6e0; }
-
-        /* Responsive */
+        
         @media (max-width: 992px) {
             .pricing-grid { grid-template-columns: 1fr; }
-            .pricing-card { margin-bottom: 30px; }
-            .pricing-card.popular { transform: scale(1); } /* Reset scale on smaller screens */
+            .pricing-card { margin-bottom: 30px; order: unset !important; }
+            .pricing-card.popular { transform: scale(1); }
             .navbar .container { flex-direction: column; }
             .nav-menu { margin-top: 15px; }
-            .hero { padding: 140px 0 80px 0; }
         }
         @media (max-width: 768px) {
             h2 { font-size: 2rem; }
             .hero h1 { font-size: 2.5rem; }
-            .nav-item { margin-left: 15px; }
-            .download-buttons .btn { display: block; margin: 10px auto; }
         }
     </style>
 </head>
@@ -186,7 +177,23 @@
             <div class="container">
                 <h2 data-key="features_title">Tại Sao Rabbit VPN Là Số 1?</h2>
                 <p class="section-subtitle" data-key="features_subtitle">Chúng tôi không chỉ bán VPN, chúng tôi mang đến sự tự do và an toàn tuyệt đối trên không gian mạng.</p>
-                <div class="features-grid"></div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-rocket"></i></div>
+                        <h3 data-key="feature1_title">Tốc Độ Siêu Nhanh</h3>
+                        <p data-key="feature1_desc">Máy chủ mạnh mẽ đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                        <h3 data-key="feature2_title">Bảo Mật Tuyệt Đối</h3>
+                        <p data-key="feature2_desc">Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="icon"><i class="fas fa-globe-asia"></i></div>
+                        <h3 data-key="feature3_title">Vượt Mọi Giới Hạn</h3>
+                        <p data-key="feature3_desc">Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -195,7 +202,7 @@
                 <h2 data-key="pricing_title">Gói Dịch Vụ Cho Mọi Nhu Cầu</h2>
                 <p class="section-subtitle" data-key="pricing_subtitle">Chọn gói phù hợp nhất với bạn. Minh bạch, không chi phí ẩn.</p>
                 <div class="pricing-grid">
-                    <div class="pricing-card">
+                    <div class="pricing-card" style="order: 1;">
                         <h3 data-key="price_trial_title">Khởi Động</h3>
                         <div class="price" data-key="price_trial_cost">Miễn Phí</div>
                         <ul>
@@ -205,7 +212,7 @@
                         </ul>
                         <a href="#" id="trial-button" class="btn btn-primary" data-key="price_trial_button">Nhận Dùng Thử</a>
                     </div>
-                    <div class="pricing-card popular">
+                    <div class="pricing-card popular" style="order: 2;">
                         <div class="popular-badge" data-key="price_popular_badge">Siêu Phổ Biến</div>
                         <h3 data-key="price_combo_title">Toàn Diện</h3>
                         <div class="price"><span data-key="price_combo_cost">99.000đ</span> <span class="period" data-key="price_period_2">/ tháng</span></div>
@@ -217,7 +224,7 @@
                         </ul>
                         <a href="#" id="buy-combo" class="btn btn-primary" data-key="price_buy_button_2">Đăng Ký Gói Toàn Diện</a>
                     </div>
-                    <div class="pricing-card">
+                    <div class="pricing-card" style="order: 3;">
                         <h3 data-key="price_intl_title">Quốc Tế</h3>
                         <div class="price"><span data-key="price_intl_cost">69.000đ</span> <span class="period" data-key="price_period">/ tháng</span></div>
                         <ul>
@@ -243,21 +250,17 @@
                             <img src="https://i.pravatar.cc/100?u=a" alt="User Avatar">
                             <div class="author-info">
                                 <strong data-key="testimonial1_author">Hoàng An</strong>
-                                <div class="stars">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                                </div>
+                                <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
                             </div>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                         <p data-key="testimonial2_text">"Я живу во Вьетнаме, и мне нужен был доступ к российским сервисам. Rabbit VPN работает безупречно! Стабильно и быстро. Рекомендую!"</p>
+                         <p data-key="testimonial2_text">"Tôi sống ở Việt Nam và cần truy cập các dịch vụ của Nga. Rabbit VPN hoạt động hoàn hảo! Ổn định và nhanh chóng. Rất khuyến khích!"</p>
                         <div class="testimonial-author">
                             <img src="https://i.pravatar.cc/100?u=b" alt="User Avatar">
                             <div class="author-info">
                                 <strong data-key="testimonial2_author">Alexey Orlov</strong>
-                                 <div class="stars">
-                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-                                </div>
+                                 <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
                             </div>
                         </div>
                     </div>
@@ -265,9 +268,39 @@
             </div>
         </section>
 
-        <section id="guide" style="background-color: #fff;"></section>
+        <section id="guide">
+            <div class="container">
+                <h2 data-key="guide_title">Bắt Đầu Chỉ Trong 4 Bước</h2>
+                <p class="section-subtitle" data-key="guide_subtitle">Cài đặt dễ dàng, kết nối tức thì.</p>
+                <div class="guide-content">
+                    <ol class="guide-steps">
+                        <li data-key="guide_step1">Nhận một khóa truy cập (access key) từ chúng tôi sau khi đăng ký.</li>
+                        <li data-key="guide_step2">Tải và cài đặt ứng dụng Outline Client cho thiết bị của bạn.</li>
+                        <li data-key="guide_step3">Mở ứng dụng Outline, nhấn vào dấu (+) và dán khóa truy cập của bạn.</li>
+                        <li data-key="guide_step4">Nhấn nút "Connect" để bắt đầu sử dụng VPN. Chúc bạn thành công!</li>
+                    </ol>
+                    <div class="download-buttons">
+                        <a href="https://play.google.com/store/apps/details?id=org.outline.android.client" target="_blank" class="btn">
+                            <i class="fab fa-google-play"></i> <span data-key="guide_googleplay">Tải về từ Google Play</span>
+                        </a>
+                        <a href="https://itunes.apple.com/app/outline-app/id1356177741" target="_blank" class="btn">
+                            <i class="fab fa-app-store-ios"></i> <span data-key="guide_appstore">Tải về từ App Store</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        <section id="contact"></section>
+        <section id="contact">
+            <div class="container">
+                <h2 data-key="contact_title">Sẵn Sàng Bắt Đầu?</h2>
+                <p class="section-subtitle" data-key="contact_subtitle">Liên hệ với chúng tôi qua Zalo hoặc Telegram để được tư vấn và đăng ký ngay lập tức!</p>
+                <div class="contact-buttons">
+                    <a href="https://zalo.me/YOUR_ZALO_NUMBER" target="_blank" class="btn"><i class="fas fa-comment-dots"></i> Zalo</a>
+                    <a href="https://t.me/YOUR_TELEGRAM_USERNAME" target="_blank" class="btn"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                </div>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -279,147 +312,151 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- DATA HUB ---
         const translations = {
             'vi': {
-                logo: "🐇 Rabbit VPN",
-                site_title: "Rabbit VPN - Nhanh, Bảo Mật, Ẩn Danh",
+                logo: "🐇 Rabbit VPN", site_title: "Rabbit VPN - Nhanh, Bảo Mật, Ẩn Danh",
                 nav_features: "Tính Năng", nav_pricing: "Bảng Giá", nav_testimonials: "Đánh Giá", nav_guide: "Hướng Dẫn",
-                hero_title: "Giải Phóng Internet Của Bạn",
-                hero_subtitle: "Trải nghiệm tốc độ thỏ non, bảo mật cấp quân sự. Lướt web tự do, không giới hạn.",
-                hero_button: "Xem Các Gói Dịch Vụ",
+                hero_title: "Giải Phóng Internet Của Bạn", hero_subtitle: "Trải nghiệm tốc độ thỏ non, bảo mật cấp quân sự. Lướt web tự do, không giới hạn.", hero_button: "Xem Các Gói Dịch Vụ",
                 promo_banner: "Khuyến mãi chớp nhoáng: Đăng ký gói Toàn Diện ngay hôm nay!",
-                features_title: "Tại Sao Rabbit VPN Là Số 1?",
-                features_subtitle: "Chúng tôi không chỉ bán VPN, chúng tôi mang đến sự tự do và an toàn tuyệt đối trên không gian mạng.",
-                pricing_title: "Gói Dịch Vụ Cho Mọi Nhu Cầu",
-                pricing_subtitle: "Chọn gói phù hợp nhất với bạn. Minh bạch, không chi phí ẩn.",
-                price_trial_title: "Khởi Động", price_trial_cost: "Miễn Phí",
-                price_trial_f1: "Dung lượng 1GB", price_trial_f2: "1 Thiết bị", price_trial_f3: "Máy chủ quốc tế",
-                price_trial_button: "Nhận Dùng Thử",
-                price_popular_badge: "Siêu Phổ Biến",
-                price_period: "/ tháng", price_period_2: "/ tháng",
-                price_intl_title: "Quốc Tế", price_intl_cost: "69.000đ",
-                price_intl_f1: "Dung lượng 500GB / tháng", price_intl_f2: "Không giới hạn thiết bị", price_intl_f3: "Ưu tiên máy chủ tốc độ cao", price_intl_f4: "Hỗ trợ 24/7",
-                price_combo_title: "Toàn Diện", price_combo_cost: "99.000đ",
-                price_combo_f1: "<b>KHÔNG GIỚI HẠN</b> dung lượng", price_combo_f2: "<b>KHÔNG GIỚI HẠN</b> thiết bị", price_combo_f3: "Máy chủ <b>VIP</b> Việt Nam & Quốc Tế", price_combo_f4: "Hỗ trợ <b>ưu tiên 24/7</b>",
+                features_title: "Tại Sao Rabbit VPN Là Số 1?", features_subtitle: "Chúng tôi không chỉ bán VPN, chúng tôi mang đến sự tự do và an toàn tuyệt đối trên không gian mạng.",
+                feature1_title: "Tốc Độ Siêu Nhanh", feature1_desc: "Máy chủ mạnh mẽ đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.", feature2_title: "Bảo Mật Tuyệt Đối", feature2_desc: "Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.", feature3_title: "Vượt Mọi Giới Hạn", feature3_desc: "Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.",
+                pricing_title: "Gói Dịch Vụ Cho Mọi Nhu Cầu", pricing_subtitle: "Chọn gói phù hợp nhất với bạn. Minh bạch, không chi phí ẩn.",
+                price_trial_title: "Khởi Động", price_trial_cost: "Miễn Phí", price_trial_f1: "Dung lượng 1GB", price_trial_f2: "1 Thiết bị", price_trial_f3: "Máy chủ quốc tế", price_trial_button: "Nhận Dùng Thử",
+                price_popular_badge: "Siêu Phổ Biến", price_period: "/ tháng", price_period_2: "/ tháng",
+                price_intl_title: "Quốc Tế", price_intl_cost: "69.000đ", price_intl_f1: "Dung lượng 500GB / tháng", price_intl_f2: "Không giới hạn thiết bị", price_intl_f3: "Ưu tiên máy chủ tốc độ cao", price_intl_f4: "Hỗ trợ 24/7",
+                price_combo_title: "Toàn Diện", price_combo_cost: "99.000đ", price_combo_f1: "<b>KHÔNG GIỚI HẠN</b> dung lượng", price_combo_f2: "<b>KHÔNG GIỚI HẠN</b> thiết bị", price_combo_f3: "Máy chủ <b>VIP</b> Việt Nam & Quốc Tế", price_combo_f4: "Hỗ trợ <b>ưu tiên 24/7</b>",
                 price_buy_button: "Đăng Ký Gói Quốc Tế", price_buy_button_2: "Đăng Ký Gói Toàn Diện",
-                zalo_buy_intl: "Chào bạn, mình muốn mua Gói Quốc Tế của Rabbit VPN.",
-                zalo_buy_combo: "Chào bạn, mình muốn mua Gói Toàn Diện của Rabbit VPN.",
-                testimonials_title: "Khách Hàng Nói Gì Về Chúng Tôi?",
-                testimonials_subtitle: "Niềm tin của bạn là thành công lớn nhất của Rabbit VPN.",
-                testimonial1_text: `"Từ khi dùng Rabbit VPN, mình không còn lo lắng về việc mạng chậm hay bị chặn nữa. Dịch vụ quá tuyệt vời, đặc biệt là khi chơi game ở server nước ngoài!"`,
-                testimonial1_author: "Hoàng An",
-                testimonial2_text: `"Rabbit VPN hoạt động hoàn hảo! Ổn định và nhanh chóng. Tôi dùng để truy cập các dịch vụ ở quê nhà Nga. Rất khuyến khích!"`,
-                testimonial2_author: "Alexey Orlov",
-                guide_title: "Bắt Đầu Chỉ Trong 3 Bước",
-                // ... (Các key khác giữ nguyên hoặc tự dịch tương tự nếu cần)
+                zalo_buy_intl: "Chào bạn, mình muốn mua Gói Quốc Tế của Rabbit VPN.", zalo_buy_combo: "Chào bạn, mình muốn mua Gói Toàn Diện của Rabbit VPN.",
+                testimonials_title: "Khách Hàng Nói Gì Về Chúng Tôi?", testimonials_subtitle: "Niềm tin của bạn là thành công lớn nhất của Rabbit VPN.",
+                testimonial1_text: `"Từ khi dùng Rabbit VPN, mình không còn lo lắng về việc mạng chậm hay bị chặn nữa. Dịch vụ quá tuyệt vời, đặc biệt là khi chơi game ở server nước ngoài!"`, testimonial1_author: "Hoàng An",
+                testimonial2_text: `"Tôi sống ở Việt Nam và cần truy cập các dịch vụ của Nga. Rabbit VPN hoạt động hoàn hảo! Ổn định và nhanh chóng. Rất khuyến khích!"`, testimonial2_author: "Alexey Orlov",
+                guide_title: "Bắt Đầu Chỉ Trong 4 Bước", guide_subtitle: "Cài đặt dễ dàng, kết nối tức thì.",
+                guide_step1: "Nhận một khóa truy cập (access key) từ chúng tôi sau khi đăng ký.", guide_step2: "Tải và cài đặt ứng dụng Outline Client cho thiết bị của bạn.", guide_step3: "Mở ứng dụng Outline, nhấn vào dấu (+) và dán khóa truy cập của bạn.", guide_step4: "Nhấn nút \"Connect\" để bắt đầu sử dụng VPN. Chúc bạn thành công!",
+                guide_googleplay: "Tải về từ Google Play", guide_appstore: "Tải về từ App Store",
+                contact_title: "Sẵn Sàng Bắt Đầu?", contact_subtitle: "Liên hệ với chúng tôi qua Zalo hoặc Telegram để được tư vấn và đăng ký ngay lập tức!",
             },
             'en': {
-                logo: "🐇 Rabbit VPN",
-                site_title: "Rabbit VPN - Fast, Secure, Anonymous",
+                logo: "🐇 Rabbit VPN", site_title: "Rabbit VPN - Fast, Secure, Anonymous",
                 nav_features: "Features", nav_pricing: "Pricing", nav_testimonials: "Reviews", nav_guide: "Guide",
-                hero_title: "Unleash Your Internet",
-                hero_subtitle: "Experience rabbit-like speed and military-grade security. Browse freely, without limits.",
-                hero_button: "Explore Our Plans",
+                hero_title: "Unleash Your Internet", hero_subtitle: "Experience rabbit-like speed and military-grade security. Browse freely, without limits.", hero_button: "Explore Our Plans",
                 promo_banner: "Flash Sale: Sign up for the Comprehensive plan today!",
-                features_title: "Why Rabbit VPN is #1?",
-                features_subtitle: "We don't just sell a VPN; we deliver absolute freedom and safety in cyberspace.",
-                pricing_title: "Plans For Every Need",
-                pricing_subtitle: "Choose the plan that's right for you. Transparent, no hidden fees.",
-                price_trial_title: "Starter", price_trial_cost: "Free",
-                price_trial_f1: "1GB data", price_trial_f2: "1 Device", price_trial_f3: "International servers",
-                price_trial_button: "Get Trial",
-                price_popular_badge: "Super Popular",
-                price_period: "/ month", price_period_2: "/ month",
-                price_intl_title: "International", price_intl_cost: "$2.99",
-                price_intl_f1: "500GB data / month", price_intl_f2: "Unlimited devices", price_intl_f3: "High-speed priority servers", price_intl_f4: "24/7 support",
-                price_combo_title: "Comprehensive", price_combo_cost: "$3.99",
-                price_combo_f1: "<b>UNLIMITED</b> data", price_combo_f2: "<b>UNLIMITED</b> devices", price_combo_f3: "<b>VIP</b> Vietnam & Global Servers", price_combo_f4: "<b>Priority</b> 24/7 support",
+                features_title: "Why Rabbit VPN is #1?", features_subtitle: "We don't just sell a VPN; we deliver absolute freedom and safety in cyberspace.",
+                feature1_title: "Blazing Fast Speed", feature1_desc: "Powerful servers ensure a fast and stable connection for streaming and gaming.", feature2_title: "Absolute Security", feature2_desc: "Military-grade AES-256 encryption protects your personal data from prying eyes.", feature3_title: "Bypass All Limits", feature3_desc: "Easily access websites, services, and applications blocked in your region.",
+                pricing_title: "Plans For Every Need", pricing_subtitle: "Choose the plan that's right for you. Transparent, no hidden fees.",
+                price_trial_title: "Starter", price_trial_cost: "Free", price_trial_f1: "1GB data", price_trial_f2: "1 Device", price_trial_f3: "International servers", price_trial_button: "Get Trial",
+                price_popular_badge: "Super Popular", price_period: "/ month", price_period_2: "/ month",
+                price_intl_title: "International", price_intl_cost: "$2.99", price_intl_f1: "500GB data / month", price_intl_f2: "Unlimited devices", price_intl_f3: "High-speed priority servers", price_intl_f4: "24/7 support",
+                price_combo_title: "Comprehensive", price_combo_cost: "$3.99", price_combo_f1: "<b>UNLIMITED</b> data", price_combo_f2: "<b>UNLIMITED</b> devices", price_combo_f3: "<b>VIP</b> Vietnam & Global Servers", price_combo_f4: "<b>Priority</b> 24/7 support",
                 price_buy_button: "Sign Up for International", price_buy_button_2: "Sign Up for Comprehensive",
-                zalo_buy_intl: "Hello, I would like to buy the International Plan from Rabbit VPN.",
-                zalo_buy_combo: "Hello, I would like to buy the Comprehensive Plan from Rabbit VPN.",
-                testimonials_title: "What Our Customers Say",
-                testimonials_subtitle: "Your trust is Rabbit VPN's greatest success.",
-                testimonial1_text: `"Since using Rabbit VPN, I no longer worry about slow or blocked connections. The service is amazing, especially for gaming on foreign servers!"`,
-                testimonial1_author: "An Hoang",
-                testimonial2_text: `"I live in Vietnam and needed access to Russian services. Rabbit VPN works flawlessly! Stable and fast. Highly recommended!"`,
-                testimonial2_author: "Alexey Orlov",
-                guide_title: "Get Started in 3 Easy Steps",
+                zalo_buy_intl: "Hello, I would like to buy the International Plan from Rabbit VPN.", zalo_buy_combo: "Hello, I would like to buy the Comprehensive Plan from Rabbit VPN.",
+                testimonials_title: "What Our Customers Say", testimonials_subtitle: "Your trust is Rabbit VPN's greatest success.",
+                testimonial1_text: `"Since using Rabbit VPN, I no longer worry about slow or blocked connections. The service is amazing, especially for gaming on foreign servers!"`, testimonial1_author: "An Hoang",
+                testimonial2_text: `"I live in Vietnam and needed access to Russian services. Rabbit VPN works flawlessly! Stable and fast. Highly recommended!"`, testimonial2_author: "Alexey Orlov",
+                guide_title: "Get Started in 4 Easy Steps", guide_subtitle: "Easy setup, instant connection.",
+                guide_step1: "Get an access key from us after subscribing.", guide_step2: "Download and install the Outline Client application for your device.", guide_step3: "Open the Outline app, tap the (+) icon, and paste your access key.", guide_step4: "Press the \"Connect\" button to start using the VPN. Enjoy!",
+                guide_googleplay: "Get it on Google Play", guide_appstore: "Download on the App Store",
+                contact_title: "Ready to Start?", contact_subtitle: "Contact us via Zalo or Telegram for consultation and instant registration!",
             },
-            // ... (Tương tự cho 'ru' và 'zh')
-            // Bạn có thể thêm các bản dịch còn thiếu ở đây
+            'ru': {
+                logo: "🐇 Rabbit VPN", site_title: "Rabbit VPN - Быстрый, Безопасный, Анонимный",
+                nav_features: "Функции", nav_pricing: "Тарифы", nav_testimonials: "Отзывы", nav_guide: "Инструкция",
+                hero_title: "Раскройте свой Интернет", hero_subtitle: "Оцените кроличью скорость и военный уровень безопасности. Пользуйтесь Интернетом свободно, без ограничений.", hero_button: "Посмотреть тарифы",
+                promo_banner: "Срочная распродажа: Подпишитесь на Комплексный план сегодня!",
+                features_title: "Почему Rabbit VPN - №1?", features_subtitle: "Мы не просто продаем VPN; мы предоставляем абсолютную свободу и безопасность в киберпространстве.",
+                feature1_title: "Сверхбыстрая скорость", feature1_desc: "Мощные серверы обеспечивают быстрое и стабильное соединение для потоковой передачи и игр.", feature2_title: "Абсолютная безопасность", feature2_desc: "Шифрование военного уровня AES-256 защищает ваши личные данные от посторонних глаз.", feature3_title: "Обход всех ограничений", feature3_desc: "Легкий доступ к веб-сайтам, службам и приложениям, заблокированным в вашем регионе.",
+                pricing_title: "Тарифы на любой вкус", pricing_subtitle: "Выберите план, который подходит именно вам. Прозрачно, без скрытых платежей.",
+                price_trial_title: "Стартовый", price_trial_cost: "Бесплатно", price_trial_f1: "1 ГБ данных", price_trial_f2: "1 устройство", price_trial_f3: "Международные серверы", price_trial_button: "Попробовать",
+                price_popular_badge: "Супер Популярный", price_period: "/ месяц", price_period_2: "/ месяц",
+                price_intl_title: "Международный", price_intl_cost: "249₽", price_intl_f1: "500 ГБ данных / месяц", price_intl_f2: "Неограниченно устройств", price_intl_f3: "Приоритетные серверы", price_intl_f4: "Поддержка 24/7",
+                price_combo_title: "Комплексный", price_combo_cost: "349₽", price_combo_f1: "<b>БЕЗЛИМИТНЫЕ</b> данные", price_combo_f2: "<b>БЕЗЛИМИТНЫЕ</b> устройства", price_combo_f3: "<b>VIP</b>-серверы во Вьетнаме и мире", price_combo_f4: "<b>Приоритетная</b> поддержка 24/7",
+                price_buy_button: "Купить Международный", price_buy_button_2: "Купить Комплексный",
+                zalo_buy_intl: "Здравствуйте, я хочу купить Международный план от Rabbit VPN.", zalo_buy_combo: "Здравствуйте, я хочу купить Комплексный план от Rabbit VPN.",
+                testimonials_title: "Что говорят наши клиенты", testimonials_subtitle: "Ваше доверие - главный успех Rabbit VPN.",
+                testimonial1_text: `"С тех пор, как я использую Rabbit VPN, я больше не беспокоюсь о медленном или заблокированном соединении. Сервис потрясающий, особенно для игр на зарубежных серверах!"`, testimonial1_author: "An Hoang",
+                testimonial2_text: `"Я живу во Вьетнаме, и мне нужен был доступ к российским сервисам. Rabbit VPN работает безупречно! Стабильно и быстро. Рекомендую!"`, testimonial2_author: "Алексей Орлов",
+                guide_title: "Начните всего за 4 шага", guide_subtitle: "Простая установка, мгновенное подключение.",
+                guide_step1: "Получите от нас ключ доступа после подписки.", guide_step2: "Загрузите и установите клиент Outline для вашего устройства.", guide_step3: "Откройте приложение Outline, нажмите значок (+) и вставьте ключ доступа.", guide_step4: "Нажмите кнопку «Подключиться», чтобы начать использовать VPN. Удачи!",
+                guide_googleplay: "Загрузите в Google Play", guide_appstore: "Загрузите в App Store",
+                contact_title: "Готовы начать?", contact_subtitle: "Свяжитесь с нами через Zalo или Telegram для консультации и мгновенной регистрации!",
+            },
+            'zh': {
+                logo: "🐇 兔子VPN", site_title: "兔子VPN - 快速、安全、匿名",
+                nav_features: "功能", nav_pricing: "价格", nav_testimonials: "客户评价", nav_guide: "指南",
+                hero_title: "释放您的互联网", hero_subtitle: "体验兔子般的速度和军用级安全。自由浏览，无限制。", hero_button: "浏览套餐",
+                promo_banner: "限时优惠：立即注册全能套餐！",
+                features_title: "为什么兔子VPN是第一选择？", features_subtitle: "我们不只销售VPN，我们提供网络空间中的绝对自由与安全。",
+                feature1_title: "极速体验", feature1_desc: "强大的服务器确保为流媒体和游戏提供快速稳定的连接。", feature2_title: "绝对安全", feature2_desc: "军用级AES-256加密可保护您的个人数据免受窥探。", feature3_title: "无视限制", feature3_desc: "轻松访问您所在地区被阻止的网站、服务和应用程序。",
+                pricing_title: "满足所有需求的套餐", pricing_subtitle: "选择最适合您的套餐。价格透明，无隐藏费用。",
+                price_trial_title: "入门版", price_trial_cost: "免费", price_trial_f1: "1GB流量", price_trial_f2: "1台设备", price_trial_f3: "国际服务器", price_trial_button: "获取试用",
+                price_popular_badge: "超级热门", price_period: "/ 月", price_period_2: "/ 月",
+                price_intl_title: "国际套餐", price_intl_cost: "¥20", price_intl_f1: "500GB流量 / 月", price_intl_f2: "不限设备数量", price_intl_f3: "高速优先服务器", price_intl_f4: "24/7 支持",
+                price_combo_title: "全能套餐", price_combo_cost: "¥28", price_combo_f1: "<b>不限</b>流量", price_combo_f2: "<b>不限</b>设备", price_combo_f3: "<b>VIP</b> 越南及全球服务器", price_combo_f4: "<b>优先</b>24/7支持",
+                price_buy_button: "购买国际套餐", price_buy_button_2: "购买全能套餐",
+                zalo_buy_intl: "你好，我想购买兔子VPN的国际套餐。", zalo_buy_combo: "你好，我想购买兔子VPN的全能套餐。",
+                testimonials_title: "我们的客户怎么说", testimonials_subtitle: "您的信任是兔子VPN最大的成功。",
+                testimonial1_text: `"自从用了兔子VPN，我再也不用担心网络慢或者被封锁了。服务太棒了，尤其是在国外服务器上玩游戏！"`, testimonial1_author: "An Hoang",
+                testimonial2_text: `"我住在越南，需要访问俄罗斯的服务。兔子VPN用起来完美无瑕！稳定又快速。强烈推荐！"`, testimonial2_author: "Alexey Orlov",
+                guide_title: "只需4个简单步骤即可开始", guide_subtitle: "轻松设置，即时连接。",
+                guide_step1: "订阅后从我们这里获取访问密钥。", guide_step2: "为您的设备下载并安装Outline客户端应用程序。", guide_step3: "打开Outline应用，点击(+)图标，然后粘贴您的访问密钥。", guide_step4: "按“连接”按钮开始使用VPN。祝您使用愉快！",
+                guide_googleplay: "在Google Play上获取", guide_appstore: "在App Store上下载",
+                contact_title: "准备好开始了吗？", contact_subtitle: "通过Zalo或Telegram联系我们进行咨询和即时注册！",
+            },
         };
 
         const zaloNumber = 'YOUR_ZALO_NUMBER'; // !!! THAY SỐ ZALO CỦA BẠN VÀO ĐÂY !!!
 
-        // --- Language Switcher & Translation Logic ---
         const langSelect = document.querySelector('.language-select');
-        const selectedLang = document.querySelector('.selected-lang');
-        const langOptions = document.querySelector('.lang-options');
+        const selectedLangEl = document.querySelector('.selected-lang');
+        const langOptionsEl = document.querySelector('.lang-options');
         
         const setLanguage = (lang) => {
-            const langData = translations[lang] || translations['en']; // Fallback to English
+            const langData = translations[lang] || translations['en'];
             document.querySelectorAll('[data-key]').forEach(element => {
                 const key = element.getAttribute('data-key');
-                if (langData[key]) { element.innerHTML = langData[key]; }
+                if (langData[key] !== undefined) { element.innerHTML = langData[key]; }
             });
             document.documentElement.lang = lang;
             localStorage.setItem('language', lang);
-            const selectedOption = document.querySelector(`.lang-options li[data-lang="${lang}"]`);
-            if (selectedOption) { selectedLang.innerHTML = selectedOption.innerHTML + '<span class="arrow">▼</span>'; }
+            const selectedOptionHTML = document.querySelector(`.lang-options li[data-lang="${lang}"]`).innerHTML;
+            selectedLangEl.innerHTML = selectedOptionHTML + '<span class="arrow">▼</span>';
         };
 
-        langSelect.addEventListener('click', () => langSelect.classList.toggle('active'));
-        document.addEventListener('click', (e) => {
-            if (!langSelect.contains(e.target)) langSelect.classList.remove('active');
+        langSelect.addEventListener('click', (e) => {
+            e.stopPropagation();
+            langSelect.classList.toggle('active');
+            langOptionsEl.classList.toggle('show');
         });
-        langOptions.addEventListener('click', (e) => {
+        document.addEventListener('click', () => {
+            langSelect.classList.remove('active');
+            langOptionsEl.classList.remove('show');
+        });
+        langOptionsEl.addEventListener('click', (e) => {
             const target = e.target.closest('li');
-            if (target) {
-                setLanguage(target.getAttribute('data-lang'));
-                langSelect.classList.remove('active');
-            }
+            if (target) { setLanguage(target.getAttribute('data-lang')); }
         });
 
-        // --- Zalo Button Logic ---
         const setupZaloBuyButton = (buttonId, messageKey) => {
-            const button = document.getElementById(buttonId);
-            if(button){
-                button.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    if (zaloNumber === 'YOUR_ZALO_NUMBER' || !zaloNumber) {
-                        alert('Vui lòng cấu hình số Zalo trong file HTML (tìm YOUR_ZALO_NUMBER)');
-                        return;
-                    }
-                    const currentLang = localStorage.getItem('language') || 'vi';
-                    const langData = translations[currentLang] || translations['en'];
-                    const message = encodeURIComponent(langData[messageKey]);
-                    window.open(`https://zalo.me/${zaloNumber}?text=${message}`, '_blank');
-                });
-            }
-        };
-
-        const trialButton = document.getElementById('trial-button');
-        if(trialButton){
-            trialButton.addEventListener('click', (e) => {
+            document.getElementById(buttonId)?.addEventListener('click', (e) => {
                 e.preventDefault();
-                const message = encodeURIComponent('Mình muốn dùng thử 1GB Rabbit VPN');
+                if (zaloNumber === 'YOUR_ZALO_NUMBER' || !zaloNumber) {
+                    alert('Vui lòng cấu hình số Zalo trong file HTML (tìm YOUR_ZALO_NUMBER)'); return;
+                }
+                const currentLang = localStorage.getItem('language') || 'vi';
+                const langData = translations[currentLang] || translations['en'];
+                const message = encodeURIComponent(langData[messageKey]);
                 window.open(`https://zalo.me/${zaloNumber}?text=${message}`, '_blank');
             });
-        }
+        };
+
+        document.getElementById('trial-button')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            const message = encodeURIComponent('Mình muốn dùng thử 1GB Rabbit VPN');
+            window.open(`https://zalo.me/${zaloNumber}?text=${message}`, '_blank');
+        });
         
-        // --- Initialization ---
         setLanguage(localStorage.getItem('language') || 'vi');
         setupZaloBuyButton('buy-intl', 'zalo_buy_intl');
         setupZaloBuyButton('buy-combo', 'zalo_buy_combo');
-
-        // This is to populate sections not covered by data-keys in this simplified example
-        // For a full site, you'd add data-keys to all elements.
-        const featuresContainer = document.querySelector('.features-grid');
-        featuresContainer.innerHTML = `
-            <div class="feature-card"><div class="icon"><i class="fas fa-rocket"></i></div><h3>Tốc Độ Siêu Nhanh</h3><p>Máy chủ mạnh mẽ đảm bảo kết nối nhanh và ổn định để xem phim, chơi game.</p></div>
-            <div class="feature-card"><div class="icon"><i class="fas fa-shield-alt"></i></div><h3>Bảo Mật Tuyệt Đối</h3><p>Mã hóa cấp quân sự AES-256 giúp bảo vệ dữ liệu cá nhân của bạn khỏi mọi sự dòm ngó.</p></div>
-            <div class="feature-card"><div class="icon"><i class="fas fa-globe-asia"></i></div><h3>Vượt Mọi Giới Hạn</h3><p>Dễ dàng truy cập các trang web, dịch vụ và ứng dụng bị chặn tại khu vực của bạn.</p></div>`;
     });
     </script>
 </body>
